@@ -1,0 +1,265 @@
+/*
+WARNING: Do NOT edit the input and output ports in this file in a text
+editor if you plan to continue editing the block that represents it in
+the Block Editor! File corruption is VERY likely to occur.
+*/
+/*
+Copyright (C) 1991-2007 Altera Corporation
+Your use of Altera Corporation's design tools, logic functions 
+and other software and tools, and its AMPP partner logic 
+functions, and any output files from any of the foregoing 
+(including device programming or simulation files), and any 
+associated documentation or information are expressly subject 
+to the terms and conditions of the Altera Program License 
+Subscription Agreement, Altera MegaCore Function License 
+Agreement, or other applicable license agreement, including, 
+without limitation, that your use is for the sole purpose of 
+programming logic devices manufactured by Altera and sold by 
+Altera or its authorized distributors.  Please refer to the 
+applicable agreement for further details.
+*/
+(header "symbol" (version "1.1"))
+(symbol
+	(rect 16 16 280 336)
+	(text "maintenance" (rect 5 0 67 12)(font "Arial" ))
+	(text "inst" (rect 8 304 25 316)(font "Arial" ))
+	(port
+		(pt 0 32)
+		(input)
+		(text "clk" (rect 0 0 14 12)(font "Arial" ))
+		(text "clk" (rect 21 27 35 39)(font "Arial" ))
+		(line (pt 0 32)(pt 16 32)(line_width 1))
+	)
+	(port
+		(pt 0 48)
+		(input)
+		(text "inputSignal[6..0]" (rect 0 0 79 12)(font "Arial" ))
+		(text "inputSignal[6..0]" (rect 21 43 100 55)(font "Arial" ))
+		(line (pt 0 48)(pt 16 48)(line_width 3))
+	)
+	(port
+		(pt 0 64)
+		(input)
+		(text "sortComplete" (rect 0 0 66 12)(font "Arial" ))
+		(text "sortComplete" (rect 21 59 87 71)(font "Arial" ))
+		(line (pt 0 64)(pt 16 64)(line_width 1))
+	)
+	(port
+		(pt 0 80)
+		(input)
+		(text "dispenseComplete" (rect 0 0 90 12)(font "Arial" ))
+		(text "dispenseComplete" (rect 21 75 111 87)(font "Arial" ))
+		(line (pt 0 80)(pt 16 80)(line_width 1))
+	)
+	(port
+		(pt 264 32)
+		(output)
+		(text "results[2..0]" (rect 0 0 59 12)(font "Arial" ))
+		(text "results[2..0]" (rect 184 27 243 39)(font "Arial" ))
+		(line (pt 264 32)(pt 248 32)(line_width 3))
+	)
+	(port
+		(pt 264 48)
+		(output)
+		(text "sortStart" (rect 0 0 42 12)(font "Arial" ))
+		(text "sortStart" (rect 201 43 243 55)(font "Arial" ))
+		(line (pt 264 48)(pt 248 48)(line_width 1))
+	)
+	(port
+		(pt 264 64)
+		(output)
+		(text "dispenseStart" (rect 0 0 67 12)(font "Arial" ))
+		(text "dispenseStart" (rect 176 59 243 71)(font "Arial" ))
+		(line (pt 264 64)(pt 248 64)(line_width 1))
+	)
+	(port
+		(pt 264 80)
+		(output)
+		(text "sortColour[2..0]" (rect 0 0 76 12)(font "Arial" ))
+		(text "sortColour[2..0]" (rect 167 75 243 87)(font "Arial" ))
+		(line (pt 264 80)(pt 248 80)(line_width 3))
+	)
+	(port
+		(pt 264 96)
+		(output)
+		(text "dispense[1..0]" (rect 0 0 69 12)(font "Arial" ))
+		(text "dispense[1..0]" (rect 174 91 243 103)(font "Arial" ))
+		(line (pt 264 96)(pt 248 96)(line_width 3))
+	)
+	(port
+		(pt 264 112)
+		(output)
+		(text "selectRedBlue" (rect 0 0 70 12)(font "Arial" ))
+		(text "selectRedBlue" (rect 173 107 243 119)(font "Arial" ))
+		(line (pt 264 112)(pt 248 112)(line_width 1))
+	)
+	(port
+		(pt 264 128)
+		(output)
+		(text "selectGreenOther" (rect 0 0 86 12)(font "Arial" ))
+		(text "selectGreenOther" (rect 157 123 243 135)(font "Arial" ))
+		(line (pt 264 128)(pt 248 128)(line_width 1))
+	)
+	(port
+		(pt 264 144)
+		(output)
+		(text "selectBinRecycle" (rect 0 0 86 12)(font "Arial" ))
+		(text "selectBinRecycle" (rect 157 139 243 151)(font "Arial" ))
+		(line (pt 264 144)(pt 248 144)(line_width 1))
+	)
+	(port
+		(pt 264 160)
+		(output)
+		(text "selectRed" (rect 0 0 49 12)(font "Arial" ))
+		(text "selectRed" (rect 194 155 243 167)(font "Arial" ))
+		(line (pt 264 160)(pt 248 160)(line_width 1))
+	)
+	(port
+		(pt 264 176)
+		(output)
+		(text "selectGreenBlue" (rect 0 0 80 12)(font "Arial" ))
+		(text "selectGreenBlue" (rect 163 171 243 183)(font "Arial" ))
+		(line (pt 264 176)(pt 248 176)(line_width 1))
+	)
+	(port
+		(pt 264 192)
+		(output)
+		(text "positionRedBlue[9..0]" (rect 0 0 105 12)(font "Arial" ))
+		(text "positionRedBlue[9..0]" (rect 138 187 243 199)(font "Arial" ))
+		(line (pt 264 192)(pt 248 192)(line_width 3))
+	)
+	(port
+		(pt 264 208)
+		(output)
+		(text "positionGreenOther[9..0]" (rect 0 0 120 12)(font "Arial" ))
+		(text "positionGreenOther[9..0]" (rect 123 203 243 215)(font "Arial" ))
+		(line (pt 264 208)(pt 248 208)(line_width 3))
+	)
+	(port
+		(pt 264 224)
+		(output)
+		(text "positionBinRecycle[9..0]" (rect 0 0 120 12)(font "Arial" ))
+		(text "positionBinRecycle[9..0]" (rect 123 219 243 231)(font "Arial" ))
+		(line (pt 264 224)(pt 248 224)(line_width 3))
+	)
+	(port
+		(pt 264 240)
+		(output)
+		(text "positionRed[9..0]" (rect 0 0 83 12)(font "Arial" ))
+		(text "positionRed[9..0]" (rect 160 235 243 247)(font "Arial" ))
+		(line (pt 264 240)(pt 248 240)(line_width 3))
+	)
+	(port
+		(pt 264 256)
+		(output)
+		(text "positionGreenBlue[9..0]" (rect 0 0 114 12)(font "Arial" ))
+		(text "positionGreenBlue[9..0]" (rect 129 251 243 263)(font "Arial" ))
+		(line (pt 264 256)(pt 248 256)(line_width 3))
+	)
+	(port
+		(pt 264 272)
+		(output)
+		(text "state[4..0]" (rect 0 0 50 12)(font "Arial" ))
+		(text "state[4..0]" (rect 193 267 243 279)(font "Arial" ))
+		(line (pt 264 272)(pt 248 272)(line_width 3))
+	)
+	(parameter
+		"control"
+		"B\"00000\""
+		""
+	)
+	(parameter
+		"binHopper"
+		"B\"00001\""
+		""
+	)
+	(parameter
+		"dispenseRed"
+		"B\"00010\""
+		""
+	)
+	(parameter
+		"dispenseGreen"
+		"B\"00011\""
+		""
+	)
+	(parameter
+		"dispenseBlue"
+		"B\"00100\""
+		""
+	)
+	(parameter
+		"testRedBlueLeft"
+		"B\"00101\""
+		""
+	)
+	(parameter
+		"testRedBlueCentre"
+		"B\"00110\""
+		""
+	)
+	(parameter
+		"testRedBlueRight"
+		"B\"00111\""
+		""
+	)
+	(parameter
+		"testGreenOtherUp"
+		"B\"01000\""
+		""
+	)
+	(parameter
+		"testGreenOtherCentre"
+		"B\"01001\""
+		""
+	)
+	(parameter
+		"testGreenOtherDown"
+		"B\"01010\""
+		""
+	)
+	(parameter
+		"testBinRecycleLeft"
+		"B\"01011\""
+		""
+	)
+	(parameter
+		"testBinRecycleRight"
+		"B\"01100\""
+		""
+	)
+	(parameter
+		"testRedPush"
+		"B\"01101\""
+		""
+	)
+	(parameter
+		"testRedHome"
+		"B\"01110\""
+		""
+	)
+	(parameter
+		"testGreenBlueLeft"
+		"B\"01111\""
+		""
+	)
+	(parameter
+		"testGreenBlueCentre"
+		"B\"10000\""
+		""
+	)
+	(parameter
+		"testGreenBlueRight"
+		"B\"10001\""
+		""
+	)
+	(parameter
+		"maintenanceEND"
+		"B\"10010\""
+		""
+	)
+	(drawing
+		(rectangle (rect 16 16 248 304)(line_width 1))
+	)
+	(annotation_block (parameter)(rect 280 -64 380 16))
+)

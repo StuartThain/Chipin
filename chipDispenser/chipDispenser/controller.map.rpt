@@ -1,0 +1,1596 @@
+Analysis & Synthesis report for controller
+Mon Dec 01 21:13:35 2014
+Quartus II Version 7.1 Build 156 04/30/2007 SJ Full Version
+
+
+---------------------
+; Table of Contents ;
+---------------------
+  1. Legal Notice
+  2. Analysis & Synthesis Summary
+  3. Analysis & Synthesis Settings
+  4. Analysis & Synthesis Source Files Read
+  5. Analysis & Synthesis Resource Usage Summary
+  6. Analysis & Synthesis Resource Utilization by Entity
+  7. Analysis & Synthesis DSP Block Usage Summary
+  8. State Machine - |System|head:head|state
+  9. State Machine - |System|eyeLED:eyeLED|state
+ 10. State Machine - |System|flashLED:flashLED3|state
+ 11. State Machine - |System|flashLED:flashLED2|state
+ 12. State Machine - |System|flashLED:flashLED1|state
+ 13. State Machine - |System|sort:inst6|state
+ 14. State Machine - |System|dispense:dispense|state
+ 15. Registers Removed During Synthesis
+ 16. Removed Registers Triggering Further Register Optimizations
+ 17. General Register Statistics
+ 18. Inverted Register Statistics
+ 19. Multiplexer Restructuring Statistics (Restructuring Performed)
+ 20. Parameter Settings for User Entity Instance: RCServo:GreenBlueServo
+ 21. Parameter Settings for User Entity Instance: multiplexerServo:GreenBlueServoMux
+ 22. Parameter Settings for User Entity Instance: dispense:dispense
+ 23. Parameter Settings for User Entity Instance: multiplexerThree:mux3
+ 24. Parameter Settings for User Entity Instance: sort:inst6
+ 25. Parameter Settings for User Entity Instance: multiplexerFour:mux4
+ 26. Parameter Settings for User Entity Instance: maintenance:maintenance
+ 27. Parameter Settings for User Entity Instance: multiplexerSeven:mux7
+ 28. Parameter Settings for User Entity Instance: RCServo:RedServo
+ 29. Parameter Settings for User Entity Instance: multiplexerServo:RedServoMux
+ 30. Parameter Settings for User Entity Instance: RCServo:BinRecycleServo
+ 31. Parameter Settings for User Entity Instance: multiplexerServo:BinRecycleServoMux
+ 32. Parameter Settings for User Entity Instance: RCServo:RedBlueServo
+ 33. Parameter Settings for User Entity Instance: multiplexerServo:RedBlueServoMux
+ 34. Parameter Settings for User Entity Instance: RCServo:GreenOtherServo
+ 35. Parameter Settings for User Entity Instance: multiplexerServo:GreenOtherServoMux
+ 36. Parameter Settings for User Entity Instance: RCServoFull:inst
+ 37. Parameter Settings for User Entity Instance: flashLED:flashLED1
+ 38. Parameter Settings for User Entity Instance: flashLED:flashLED2
+ 39. Parameter Settings for User Entity Instance: flashLED:flashLED3
+ 40. Parameter Settings for User Entity Instance: eyeLED:eyeLED
+ 41. Parameter Settings for User Entity Instance: RCServo:inst3
+ 42. Parameter Settings for User Entity Instance: head:head
+ 43. Parameter Settings for User Entity Instance: RCServo:inst2
+ 44. Parameter Settings for User Entity Instance: multiplexerOutput:muxOut
+ 45. Parameter Settings for Inferred Entity Instance: eyeLED:eyeLED|lpm_mult:Mult0
+ 46. lpm_mult Parameter Settings by Entity Instance
+ 47. Analysis & Synthesis Messages
+
+
+
+----------------
+; Legal Notice ;
+----------------
+Copyright (C) 1991-2007 Altera Corporation
+Your use of Altera Corporation's design tools, logic functions 
+and other software and tools, and its AMPP partner logic 
+functions, and any output files from any of the foregoing 
+(including device programming or simulation files), and any 
+associated documentation or information are expressly subject 
+to the terms and conditions of the Altera Program License 
+Subscription Agreement, Altera MegaCore Function License 
+Agreement, or other applicable license agreement, including, 
+without limitation, that your use is for the sole purpose of 
+programming logic devices manufactured by Altera and sold by 
+Altera or its authorized distributors.  Please refer to the 
+applicable agreement for further details.
+
+
+
++-------------------------------------------------------------------------------+
+; Analysis & Synthesis Summary                                                  ;
++------------------------------------+------------------------------------------+
+; Analysis & Synthesis Status        ; Successful - Mon Dec 01 21:13:34 2014    ;
+; Quartus II Version                 ; 7.1 Build 156 04/30/2007 SJ Full Version ;
+; Revision Name                      ; controller                               ;
+; Top-level Entity Name              ; System                                   ;
+; Family                             ; Cyclone II                               ;
+; Total logic elements               ; 813                                      ;
+;     Total combinational functions  ; 813                                      ;
+;     Dedicated logic registers      ; 504                                      ;
+; Total registers                    ; 504                                      ;
+; Total pins                         ; 53                                       ;
+; Total virtual pins                 ; 0                                        ;
+; Total memory bits                  ; 0                                        ;
+; Embedded Multiplier 9-bit elements ; 1                                        ;
+; Total PLLs                         ; 0                                        ;
++------------------------------------+------------------------------------------+
+
+
++--------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Settings                                                                                            ;
++--------------------------------------------------------------------------------+--------------------+--------------------+
+; Option                                                                         ; Setting            ; Default Value      ;
++--------------------------------------------------------------------------------+--------------------+--------------------+
+; Device                                                                         ; EP2C20F484C7       ;                    ;
+; Top-level entity name                                                          ; System             ; controller         ;
+; Family name                                                                    ; Cyclone II         ; Stratix II         ;
+; Restructure Multiplexers                                                       ; Auto               ; Auto               ;
+; Create Debugging Nodes for IP Cores                                            ; Off                ; Off                ;
+; Preserve fewer node names                                                      ; On                 ; On                 ;
+; Disable OpenCore Plus hardware evaluation                                      ; Off                ; Off                ;
+; Verilog Version                                                                ; Verilog_2001       ; Verilog_2001       ;
+; VHDL Version                                                                   ; VHDL93             ; VHDL93             ;
+; State Machine Processing                                                       ; Auto               ; Auto               ;
+; Safe State Machine                                                             ; Off                ; Off                ;
+; Extract Verilog State Machines                                                 ; On                 ; On                 ;
+; Extract VHDL State Machines                                                    ; On                 ; On                 ;
+; Ignore Verilog initial constructs                                              ; Off                ; Off                ;
+; Add Pass-Through Logic to Inferred RAMs                                        ; On                 ; On                 ;
+; DSP Block Balancing                                                            ; Auto               ; Auto               ;
+; NOT Gate Push-Back                                                             ; On                 ; On                 ;
+; Power-Up Don't Care                                                            ; On                 ; On                 ;
+; Remove Redundant Logic Cells                                                   ; Off                ; Off                ;
+; Remove Duplicate Registers                                                     ; On                 ; On                 ;
+; Ignore CARRY Buffers                                                           ; Off                ; Off                ;
+; Ignore CASCADE Buffers                                                         ; Off                ; Off                ;
+; Ignore GLOBAL Buffers                                                          ; Off                ; Off                ;
+; Ignore ROW GLOBAL Buffers                                                      ; Off                ; Off                ;
+; Ignore LCELL Buffers                                                           ; Off                ; Off                ;
+; Ignore SOFT Buffers                                                            ; On                 ; On                 ;
+; Limit AHDL Integers to 32 Bits                                                 ; Off                ; Off                ;
+; Optimization Technique -- Cyclone II/Cyclone III                               ; Balanced           ; Balanced           ;
+; Carry Chain Length -- Stratix/Stratix GX/Cyclone/MAX II/Cyclone II/Cyclone III ; 70                 ; 70                 ;
+; Auto Carry Chains                                                              ; On                 ; On                 ;
+; Auto Open-Drain Pins                                                           ; On                 ; On                 ;
+; Perform WYSIWYG Primitive Resynthesis                                          ; Off                ; Off                ;
+; Perform gate-level register retiming                                           ; Off                ; Off                ;
+; Allow register retiming to trade off Tsu/Tco with Fmax                         ; On                 ; On                 ;
+; Auto ROM Replacement                                                           ; On                 ; On                 ;
+; Auto RAM Replacement                                                           ; On                 ; On                 ;
+; Auto Shift Register Replacement                                                ; Auto               ; Auto               ;
+; Auto Clock Enable Replacement                                                  ; On                 ; On                 ;
+; Allow Synchronous Control Signals                                              ; On                 ; On                 ;
+; Force Use of Synchronous Clear Signals                                         ; Off                ; Off                ;
+; Auto RAM to Logic Cell Conversion                                              ; Off                ; Off                ;
+; Auto Resource Sharing                                                          ; Off                ; Off                ;
+; Allow Any RAM Size For Recognition                                             ; Off                ; Off                ;
+; Allow Any ROM Size For Recognition                                             ; Off                ; Off                ;
+; Allow Any Shift Register Size For Recognition                                  ; Off                ; Off                ;
+; Ignore translate_off and synthesis_off directives                              ; Off                ; Off                ;
+; Show Parameter Settings Tables in Synthesis Report                             ; On                 ; On                 ;
+; Ignore Maximum Fan-Out Assignments                                             ; Off                ; Off                ;
+; Retiming Meta-Stability Register Sequence Length                               ; 2                  ; 2                  ;
+; PowerPlay Power Optimization                                                   ; Normal compilation ; Normal compilation ;
+; HDL message level                                                              ; Level2             ; Level2             ;
+; Suppress Register Optimization Related Messages                                ; Off                ; Off                ;
+; Number of Removed Registers Reported in Synthesis Report                       ; 100                ; 100                ;
+; Clock MUX Protection                                                           ; On                 ; On                 ;
+; Use smart compilation                                                          ; Off                ; Off                ;
++--------------------------------------------------------------------------------+--------------------+--------------------+
+
+
++----------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Source Files Read                                                                                                                               ;
++----------------------------------+-----------------+------------------------------------+----------------------------------------------------------------------------+
+; File Name with User-Entered Path ; Used in Netlist ; File Type                          ; File Name with Absolute Path                                               ;
++----------------------------------+-----------------+------------------------------------+----------------------------------------------------------------------------+
+; controller.v                     ; yes             ; User Verilog HDL File              ; H:/Logic/chipDispenser/controller.v                                        ;
+; sort.v                           ; yes             ; User Verilog HDL File              ; H:/Logic/chipDispenser/sort.v                                              ;
+; dispense.v                       ; yes             ; User Verilog HDL File              ; H:/Logic/chipDispenser/dispense.v                                          ;
+; System.bdf                       ; yes             ; User Block Diagram/Schematic File  ; H:/Logic/chipDispenser/System.bdf                                          ;
+; maintenance.v                    ; yes             ; User Verilog HDL File              ; H:/Logic/chipDispenser/maintenance.v                                       ;
+; multiplexerSeven.v               ; yes             ; User Verilog HDL File              ; H:/Logic/chipDispenser/multiplexerSeven.v                                  ;
+; multiplexerFour.v                ; yes             ; User Verilog HDL File              ; H:/Logic/chipDispenser/multiplexerFour.v                                   ;
+; multiplexerThree.v               ; yes             ; User Verilog HDL File              ; H:/Logic/chipDispenser/multiplexerThree.v                                  ;
+; multiplexerServo.v               ; yes             ; User Verilog HDL File              ; H:/Logic/chipDispenser/multiplexerServo.v                                  ;
+; multiplexerOutput.v              ; yes             ; User Verilog HDL File              ; H:/Logic/chipDispenser/multiplexerOutput.v                                 ;
+; RCServo.v                        ; yes             ; User Verilog HDL File              ; H:/Logic/chipDispenser/RCServo.v                                           ;
+; RCServoFull.v                    ; yes             ; User Verilog HDL File              ; H:/Logic/chipDispenser/RCServoFull.v                                       ;
+; flashLED.v                       ; yes             ; User Verilog HDL File              ; H:/Logic/chipDispenser/flashLED.v                                          ;
+; eyeLED.v                         ; yes             ; User Verilog HDL File              ; H:/Logic/chipDispenser/eyeLED.v                                            ;
+; head.v                           ; yes             ; User Verilog HDL File              ; H:/Logic/chipDispenser/head.v                                              ;
+; lpm_mult.tdf                     ; yes             ; Megafunction                       ; c:/program files/altera/71/quartus/libraries/megafunctions/lpm_mult.tdf    ;
+; aglobal71.inc                    ; yes             ; Megafunction                       ; c:/program files/altera/71/quartus/libraries/megafunctions/aglobal71.inc   ;
+; lpm_add_sub.inc                  ; yes             ; Megafunction                       ; c:/program files/altera/71/quartus/libraries/megafunctions/lpm_add_sub.inc ;
+; multcore.inc                     ; yes             ; Megafunction                       ; c:/program files/altera/71/quartus/libraries/megafunctions/multcore.inc    ;
+; bypassff.inc                     ; yes             ; Megafunction                       ; c:/program files/altera/71/quartus/libraries/megafunctions/bypassff.inc    ;
+; altshift.inc                     ; yes             ; Megafunction                       ; c:/program files/altera/71/quartus/libraries/megafunctions/altshift.inc    ;
+; db/mult_0011.tdf                 ; yes             ; Auto-Generated Megafunction        ; H:/Logic/chipDispenser/db/mult_0011.tdf                                    ;
++----------------------------------+-----------------+------------------------------------+----------------------------------------------------------------------------+
+
+
++-----------------------------------------------------+
+; Analysis & Synthesis Resource Usage Summary         ;
++---------------------------------------------+-------+
+; Resource                                    ; Usage ;
++---------------------------------------------+-------+
+; Estimated Total logic elements              ; 813   ;
+;                                             ;       ;
+; Total combinational functions               ; 813   ;
+; Logic element usage by number of LUT inputs ;       ;
+;     -- 4 input functions                    ; 308   ;
+;     -- 3 input functions                    ; 141   ;
+;     -- <=2 input functions                  ; 364   ;
+;                                             ;       ;
+; Logic elements by mode                      ;       ;
+;     -- normal mode                          ; 551   ;
+;     -- arithmetic mode                      ; 262   ;
+;                                             ;       ;
+; Total registers                             ; 504   ;
+;     -- Dedicated logic registers            ; 504   ;
+;     -- I/O registers                        ; 0     ;
+;                                             ;       ;
+; I/O pins                                    ; 53    ;
+; Embedded Multiplier 9-bit elements          ; 1     ;
+; Maximum fan-out node                        ; clk   ;
+; Maximum fan-out                             ; 504   ;
+; Total fan-out                               ; 3907  ;
+; Average fan-out                             ; 2.85  ;
++---------------------------------------------+-------+
+
+
++-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                                                                 ;
++------------------------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+---------------------------------------------------------------+--------------+
+; Compilation Hierarchy Node               ; LC Combinationals ; LC Registers ; Memory Bits ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; Full Hierarchy Name                                           ; Library Name ;
++------------------------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+---------------------------------------------------------------+--------------+
+; |System                                  ; 813 (1)           ; 504 (0)      ; 0           ; 1            ; 1       ; 0         ; 53   ; 0            ; |System                                                       ; work         ;
+;    |RCServo:BinRecycleServo|             ; 5 (5)             ; 5 (5)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |System|RCServo:BinRecycleServo                               ; work         ;
+;    |RCServo:GreenBlueServo|              ; 17 (17)           ; 17 (17)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |System|RCServo:GreenBlueServo                                ; work         ;
+;    |RCServo:GreenOtherServo|             ; 7 (7)             ; 17 (17)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |System|RCServo:GreenOtherServo                               ; work         ;
+;    |RCServo:RedBlueServo|                ; 8 (8)             ; 11 (11)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |System|RCServo:RedBlueServo                                  ; work         ;
+;    |RCServo:RedServo|                    ; 3 (3)             ; 5 (5)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |System|RCServo:RedServo                                      ; work         ;
+;    |RCServo:inst2|                       ; 28 (28)           ; 26 (26)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |System|RCServo:inst2                                         ; work         ;
+;    |RCServo:inst3|                       ; 11 (11)           ; 17 (17)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |System|RCServo:inst3                                         ; work         ;
+;    |RCServoFull:inst|                    ; 5 (5)             ; 3 (3)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |System|RCServoFull:inst                                      ; work         ;
+;    |controller:controller|               ; 46 (46)           ; 47 (47)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |System|controller:controller                                 ; work         ;
+;    |dispense:dispense|                   ; 83 (83)           ; 53 (53)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |System|dispense:dispense                                     ; work         ;
+;    |eyeLED:eyeLED|                       ; 122 (122)         ; 55 (55)      ; 0           ; 1            ; 1       ; 0         ; 0    ; 0            ; |System|eyeLED:eyeLED                                         ; work         ;
+;       |lpm_mult:Mult0|                   ; 0 (0)             ; 0 (0)        ; 0           ; 1            ; 1       ; 0         ; 0    ; 0            ; |System|eyeLED:eyeLED|lpm_mult:Mult0                          ; work         ;
+;          |mult_0011:auto_generated|      ; 0 (0)             ; 0 (0)        ; 0           ; 1            ; 1       ; 0         ; 0    ; 0            ; |System|eyeLED:eyeLED|lpm_mult:Mult0|mult_0011:auto_generated ; work         ;
+;    |flashLED:flashLED1|                  ; 5 (5)             ; 6 (6)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |System|flashLED:flashLED1                                    ; work         ;
+;    |flashLED:flashLED3|                  ; 34 (34)           ; 27 (27)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |System|flashLED:flashLED3                                    ; work         ;
+;    |head:head|                           ; 77 (77)           ; 43 (43)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |System|head:head                                             ; work         ;
+;    |maintenance:maintenance|             ; 199 (199)         ; 105 (105)    ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |System|maintenance:maintenance                               ; work         ;
+;    |multiplexerFour:mux4|                ; 4 (4)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |System|multiplexerFour:mux4                                  ; work         ;
+;    |multiplexerOutput:muxOut|            ; 3 (3)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |System|multiplexerOutput:muxOut                              ; work         ;
+;    |multiplexerServo:BinRecycleServoMux| ; 2 (2)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |System|multiplexerServo:BinRecycleServoMux                   ; work         ;
+;    |multiplexerServo:GreenBlueServoMux|  ; 8 (8)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |System|multiplexerServo:GreenBlueServoMux                    ; work         ;
+;    |multiplexerServo:GreenOtherServoMux| ; 8 (8)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |System|multiplexerServo:GreenOtherServoMux                   ; work         ;
+;    |multiplexerServo:RedBlueServoMux|    ; 5 (5)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |System|multiplexerServo:RedBlueServoMux                      ; work         ;
+;    |multiplexerServo:RedServoMux|        ; 2 (2)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |System|multiplexerServo:RedServoMux                          ; work         ;
+;    |multiplexerSeven:mux7|               ; 14 (14)           ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |System|multiplexerSeven:mux7                                 ; work         ;
+;    |multiplexerThree:mux3|               ; 3 (3)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |System|multiplexerThree:mux3                                 ; work         ;
+;    |sort:inst6|                          ; 113 (113)         ; 67 (67)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |System|sort:inst6                                            ; work         ;
++------------------------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+---------------------------------------------------------------+--------------+
+Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
+
+
++-----------------------------------------------------+
+; Analysis & Synthesis DSP Block Usage Summary        ;
++---------------------------------------+-------------+
+; Statistic                             ; Number Used ;
++---------------------------------------+-------------+
+; Simple Multipliers (9-bit)            ; 1           ;
+; Simple Multipliers (18-bit)           ; 0           ;
+; Embedded Multiplier Blocks            ; --          ;
+; Embedded Multiplier 9-bit elements    ; 1           ;
+; Signed Embedded Multipliers           ; 0           ;
+; Unsigned Embedded Multipliers         ; 1           ;
+; Mixed Sign Embedded Multipliers       ; 0           ;
+; Variable Sign Embedded Multipliers    ; 0           ;
+; Dedicated Input Shift Register Chains ; 0           ;
++---------------------------------------+-------------+
+Note: number of Embedded Multiplier Blocks used is only available after a successful fit.
+
+
+Encoding Type:  One-Hot
++-----------------------------------------------------------------------------------------------------+
+; State Machine - |System|head:head|state                                                             ;
++-------------------+----------------+--------------+-----------------+-----------+-------------------+
+; Name              ; state.mouthTwo ; state.rotate ; state.rotateTwo ; state.000 ; state.rotateThree ;
++-------------------+----------------+--------------+-----------------+-----------+-------------------+
+; state.000         ; 0              ; 0            ; 0               ; 0         ; 0                 ;
+; state.rotateTwo   ; 0              ; 0            ; 1               ; 1         ; 0                 ;
+; state.rotate      ; 0              ; 1            ; 0               ; 1         ; 0                 ;
+; state.mouthTwo    ; 1              ; 0            ; 0               ; 1         ; 0                 ;
+; state.rotateThree ; 0              ; 0            ; 0               ; 1         ; 1                 ;
++-------------------+----------------+--------------+-----------------+-----------+-------------------+
+
+
+Encoding Type:  One-Hot
++------------------------------------------------------------------------------------------------------------+
+; State Machine - |System|eyeLED:eyeLED|state                                                                ;
++--------------------+---------------+------------------+--------------------+-----------+-------------------+
+; Name               ; state.flicker ; state.flickerTwo ; state.flickerThree ; state.000 ; state.flickerFour ;
++--------------------+---------------+------------------+--------------------+-----------+-------------------+
+; state.000          ; 0             ; 0                ; 0                  ; 0         ; 0                 ;
+; state.flickerThree ; 0             ; 0                ; 1                  ; 1         ; 0                 ;
+; state.flickerTwo   ; 0             ; 1                ; 0                  ; 1         ; 0                 ;
+; state.flicker      ; 1             ; 0                ; 0                  ; 1         ; 0                 ;
+; state.flickerFour  ; 0             ; 0                ; 0                  ; 1         ; 1                 ;
++--------------------+---------------+------------------+--------------------+-----------+-------------------+
+
+
+Encoding Type:  One-Hot
++----------------------------------------------------+
+; State Machine - |System|flashLED:flashLED3|state   ;
++-------------+-----------+------------+-------------+
+; Name        ; state.000 ; state.blue ; state.green ;
++-------------+-----------+------------+-------------+
+; state.000   ; 0         ; 0          ; 0           ;
+; state.green ; 1         ; 0          ; 1           ;
+; state.blue  ; 1         ; 1          ; 0           ;
++-------------+-----------+------------+-------------+
+
+
+Encoding Type:  One-Hot
++----------------------------------------------------+
+; State Machine - |System|flashLED:flashLED2|state   ;
++-------------+-----------+------------+-------------+
+; Name        ; state.000 ; state.blue ; state.green ;
++-------------+-----------+------------+-------------+
+; state.000   ; 0         ; 0          ; 0           ;
+; state.green ; 1         ; 0          ; 1           ;
+; state.blue  ; 1         ; 1          ; 0           ;
++-------------+-----------+------------+-------------+
+
+
+Encoding Type:  One-Hot
++----------------------------------------------------+
+; State Machine - |System|flashLED:flashLED1|state   ;
++-------------+-----------+------------+-------------+
+; Name        ; state.000 ; state.blue ; state.green ;
++-------------+-----------+------------+-------------+
+; state.000   ; 0         ; 0          ; 0           ;
+; state.green ; 1         ; 0          ; 1           ;
+; state.blue  ; 1         ; 1          ; 0           ;
++-------------+-----------+------------+-------------+
+
+
+Encoding Type:  One-Hot
++-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; State Machine - |System|sort:inst6|state                                                                                                                                                                                                                                                  ;
++---------------------+-----------------+-----------+-------------+------------+-----------+---------------+------------+-----------------+-------------------+------------------+-----------------+----------------+---------------------+--------------------+---------------+------------+
+; Name                ; state.liftThree ; state.red ; state.green ; state.blue ; state.bin ; state.recycle ; state.lift ; state.redSecond ; state.greenSecond ; state.blueSecond ; state.binSecond ; state.binThird ; state.recycleSecond ; state.recycleThird ; state.liftTwo ; state.0000 ;
++---------------------+-----------------+-----------+-------------+------------+-----------+---------------+------------+-----------------+-------------------+------------------+-----------------+----------------+---------------------+--------------------+---------------+------------+
+; state.0000          ; 0               ; 0         ; 0           ; 0          ; 0         ; 0             ; 0          ; 0               ; 0                 ; 0                ; 0               ; 0              ; 0                   ; 0                  ; 0             ; 0          ;
+; state.liftTwo       ; 0               ; 0         ; 0           ; 0          ; 0         ; 0             ; 0          ; 0               ; 0                 ; 0                ; 0               ; 0              ; 0                   ; 0                  ; 1             ; 1          ;
+; state.recycleThird  ; 0               ; 0         ; 0           ; 0          ; 0         ; 0             ; 0          ; 0               ; 0                 ; 0                ; 0               ; 0              ; 0                   ; 1                  ; 0             ; 1          ;
+; state.recycleSecond ; 0               ; 0         ; 0           ; 0          ; 0         ; 0             ; 0          ; 0               ; 0                 ; 0                ; 0               ; 0              ; 1                   ; 0                  ; 0             ; 1          ;
+; state.binThird      ; 0               ; 0         ; 0           ; 0          ; 0         ; 0             ; 0          ; 0               ; 0                 ; 0                ; 0               ; 1              ; 0                   ; 0                  ; 0             ; 1          ;
+; state.binSecond     ; 0               ; 0         ; 0           ; 0          ; 0         ; 0             ; 0          ; 0               ; 0                 ; 0                ; 1               ; 0              ; 0                   ; 0                  ; 0             ; 1          ;
+; state.blueSecond    ; 0               ; 0         ; 0           ; 0          ; 0         ; 0             ; 0          ; 0               ; 0                 ; 1                ; 0               ; 0              ; 0                   ; 0                  ; 0             ; 1          ;
+; state.greenSecond   ; 0               ; 0         ; 0           ; 0          ; 0         ; 0             ; 0          ; 0               ; 1                 ; 0                ; 0               ; 0              ; 0                   ; 0                  ; 0             ; 1          ;
+; state.redSecond     ; 0               ; 0         ; 0           ; 0          ; 0         ; 0             ; 0          ; 1               ; 0                 ; 0                ; 0               ; 0              ; 0                   ; 0                  ; 0             ; 1          ;
+; state.lift          ; 0               ; 0         ; 0           ; 0          ; 0         ; 0             ; 1          ; 0               ; 0                 ; 0                ; 0               ; 0              ; 0                   ; 0                  ; 0             ; 1          ;
+; state.recycle       ; 0               ; 0         ; 0           ; 0          ; 0         ; 1             ; 0          ; 0               ; 0                 ; 0                ; 0               ; 0              ; 0                   ; 0                  ; 0             ; 1          ;
+; state.bin           ; 0               ; 0         ; 0           ; 0          ; 1         ; 0             ; 0          ; 0               ; 0                 ; 0                ; 0               ; 0              ; 0                   ; 0                  ; 0             ; 1          ;
+; state.blue          ; 0               ; 0         ; 0           ; 1          ; 0         ; 0             ; 0          ; 0               ; 0                 ; 0                ; 0               ; 0              ; 0                   ; 0                  ; 0             ; 1          ;
+; state.green         ; 0               ; 0         ; 1           ; 0          ; 0         ; 0             ; 0          ; 0               ; 0                 ; 0                ; 0               ; 0              ; 0                   ; 0                  ; 0             ; 1          ;
+; state.red           ; 0               ; 1         ; 0           ; 0          ; 0         ; 0             ; 0          ; 0               ; 0                 ; 0                ; 0               ; 0              ; 0                   ; 0                  ; 0             ; 1          ;
+; state.liftThree     ; 1               ; 0         ; 0           ; 0          ; 0         ; 0             ; 0          ; 0               ; 0                 ; 0                ; 0               ; 0              ; 0                   ; 0                  ; 0             ; 1          ;
++---------------------+-----------------+-----------+-------------+------------+-----------+---------------+------------+-----------------+-------------------+------------------+-----------------+----------------+---------------------+--------------------+---------------+------------+
+
+
+Encoding Type:  One-Hot
++--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; State Machine - |System|dispense:dispense|state                                                                                                                                      ;
++-------------------+-----------------+-----------+-------------+------------+-----------------+----------------+-------------------+------------------+------------------+------------+
+; Name              ; state.blueThird ; state.red ; state.green ; state.blue ; state.redSecond ; state.redThird ; state.greenSecond ; state.greenThird ; state.blueSecond ; state.0000 ;
++-------------------+-----------------+-----------+-------------+------------+-----------------+----------------+-------------------+------------------+------------------+------------+
+; state.0000        ; 0               ; 0         ; 0           ; 0          ; 0               ; 0              ; 0                 ; 0                ; 0                ; 0          ;
+; state.blueSecond  ; 0               ; 0         ; 0           ; 0          ; 0               ; 0              ; 0                 ; 0                ; 1                ; 1          ;
+; state.greenThird  ; 0               ; 0         ; 0           ; 0          ; 0               ; 0              ; 0                 ; 1                ; 0                ; 1          ;
+; state.greenSecond ; 0               ; 0         ; 0           ; 0          ; 0               ; 0              ; 1                 ; 0                ; 0                ; 1          ;
+; state.redThird    ; 0               ; 0         ; 0           ; 0          ; 0               ; 1              ; 0                 ; 0                ; 0                ; 1          ;
+; state.redSecond   ; 0               ; 0         ; 0           ; 0          ; 1               ; 0              ; 0                 ; 0                ; 0                ; 1          ;
+; state.blue        ; 0               ; 0         ; 0           ; 1          ; 0               ; 0              ; 0                 ; 0                ; 0                ; 1          ;
+; state.green       ; 0               ; 0         ; 1           ; 0          ; 0               ; 0              ; 0                 ; 0                ; 0                ; 1          ;
+; state.red         ; 0               ; 1         ; 0           ; 0          ; 0               ; 0              ; 0                 ; 0                ; 0                ; 1          ;
+; state.blueThird   ; 1               ; 0         ; 0           ; 0          ; 0               ; 0              ; 0                 ; 0                ; 0                ; 1          ;
++-------------------+-----------------+-----------+-------------+------------+-----------------+----------------+-------------------+------------------+------------------+------------+
+
+
++-----------------------------------------------------------------------------------+
+; Registers Removed During Synthesis                                                ;
++-----------------------------------------+-----------------------------------------+
+; Register name                           ; Reason for Removal                      ;
++-----------------------------------------+-----------------------------------------+
+; head/rotateServo[0]                     ; Stuck at GND due to stuck port data_in  ;
+; head/mouthServo[0..1]                   ; Stuck at GND due to stuck port data_in  ;
+; head/mouthServo[3,7]                    ; Stuck at VCC due to stuck port data_in  ;
+; head/mouthServo[8]                      ; Stuck at GND due to stuck port data_in  ;
+; inst3/RxD_data_reg[0]                   ; Stuck at GND due to stuck port data_in  ;
+; inst3/RCServo_position[0]               ; Stuck at GND due to stuck port data_in  ;
+; inst/RCServo_position[0..3]             ; Stuck at VCC due to stuck port data_in  ;
+; inst/RCServo_position[4]                ; Stuck at GND due to stuck port data_in  ;
+; inst/RCServo_position[5..6]             ; Stuck at VCC due to stuck port data_in  ;
+; inst/RCServo_position[7]                ; Stuck at GND due to stuck port data_in  ;
+; maintenance/results[2]                  ; Stuck at GND due to stuck port data_in  ;
+; inst2/RxD_data_reg[0]                   ; Stuck at GND due to stuck port data_in  ;
+; inst2/RCServo_position[0]               ; Stuck at GND due to stuck port data_in  ;
+; inst2/RxD_data_reg[1]                   ; Stuck at GND due to stuck port data_in  ;
+; inst2/RxD_data_reg[3,7]                 ; Stuck at VCC due to stuck port data_in  ;
+; inst2/RxD_data_reg[8]                   ; Stuck at GND due to stuck port data_in  ;
+; inst2/RCServo_position[1]               ; Stuck at GND due to stuck port data_in  ;
+; inst2/RCServo_position[3,7]             ; Stuck at VCC due to stuck port data_in  ;
+; inst2/RCServo_position[8]               ; Stuck at GND due to stuck port data_in  ;
+; maintenance/sortColour[0..1]            ; Stuck at VCC due to stuck port data_in  ;
+; maintenance/positionGreenBlue[1]        ; Stuck at VCC due to stuck port data_in  ;
+; maintenance/positionGreenBlue[4,7]      ; Stuck at GND due to stuck port data_in  ;
+; maintenance/positionRed[0..2]           ; Stuck at GND due to stuck port data_in  ;
+; maintenance/positionRed[3,7]            ; Stuck at VCC due to stuck port data_in  ;
+; maintenance/positionRed[9]              ; Stuck at GND due to stuck port data_in  ;
+; maintenance/positionBinRecycle[0]       ; Stuck at GND due to stuck port data_in  ;
+; maintenance/positionBinRecycle[2]       ; Stuck at VCC due to stuck port data_in  ;
+; maintenance/positionBinRecycle[5]       ; Stuck at GND due to stuck port data_in  ;
+; maintenance/positionBinRecycle[6]       ; Stuck at VCC due to stuck port data_in  ;
+; maintenance/positionBinRecycle[7]       ; Stuck at GND due to stuck port data_in  ;
+; maintenance/positionGreenOther[3,7]     ; Stuck at GND due to stuck port data_in  ;
+; maintenance/positionRedBlue[2]          ; Stuck at GND due to stuck port data_in  ;
+; maintenance/positionRedBlue[5]          ; Stuck at VCC due to stuck port data_in  ;
+; inst6/sortServoGreenOther[0,3,7]        ; Stuck at GND due to stuck port data_in  ;
+; inst6/sortServoRedBlue[2]               ; Stuck at GND due to stuck port data_in  ;
+; inst6/sortServoRedBlue[5]               ; Stuck at VCC due to stuck port data_in  ;
+; dispense/dispenseServoGreenBlue[1]      ; Stuck at VCC due to stuck port data_in  ;
+; GreenBlueServo/RxD_data_reg[1]          ; Stuck at VCC due to stuck port data_in  ;
+; GreenOtherServo/RxD_data_reg[3,7]       ; Stuck at GND due to stuck port data_in  ;
+; RedBlueServo/RxD_data_reg[2]            ; Stuck at GND due to stuck port data_in  ;
+; RedBlueServo/RxD_data_reg[5]            ; Stuck at VCC due to stuck port data_in  ;
+; GreenBlueServo/RCServo_position[1]      ; Stuck at VCC due to stuck port data_in  ;
+; GreenOtherServo/RCServo_position[3,7]   ; Stuck at GND due to stuck port data_in  ;
+; RedBlueServo/RCServo_position[2]        ; Stuck at GND due to stuck port data_in  ;
+; RedBlueServo/RCServo_position[5]        ; Stuck at VCC due to stuck port data_in  ;
+; flashLED3/blueLED2                      ; Merged with flashLED3/blueLED1          ;
+; flashLED3/greenLED1                     ; Merged with flashLED3/greenLED2         ;
+; flashLED3/redLED1                       ; Merged with flashLED3/redLED2           ;
+; flashLED2/blueLED2                      ; Merged with flashLED2/blueLED1          ;
+; flashLED2/greenLED1                     ; Merged with flashLED2/greenLED2         ;
+; flashLED2/redLED1                       ; Merged with flashLED2/redLED2           ;
+; flashLED1/blueLED2                      ; Merged with flashLED1/blueLED1          ;
+; flashLED1/greenLED1                     ; Merged with flashLED1/greenLED2         ;
+; flashLED1/redLED1                       ; Merged with flashLED1/redLED2           ;
+; controller/mbedInputCheck[0]            ; Merged with controller/mbedInput_reg[0] ;
+; controller/mbedInputCheck[1]            ; Merged with controller/mbedInput_reg[1] ;
+; controller/mbedInputCheck[2]            ; Merged with controller/mbedInput_reg[2] ;
+; controller/mbedInputCheck[3]            ; Merged with controller/mbedInput_reg[3] ;
+; controller/mbedInputCheck[4]            ; Merged with controller/mbedInput_reg[4] ;
+; controller/mbedInputCheck[5]            ; Merged with controller/mbedInput_reg[5] ;
+; controller/mbedInputCheck[6]            ; Merged with controller/mbedInput_reg[6] ;
+; inst3/ClkCount[0..7]                    ; Lost fanout                             ;
+; inst3/ClkTick                           ; Lost fanout                             ;
+; inst/ClkCount[0..7]                     ; Lost fanout                             ;
+; inst/ClkTick                            ; Lost fanout                             ;
+; GreenOtherServo/ClkCount[0..7]          ; Lost fanout                             ;
+; GreenOtherServo/ClkTick                 ; Lost fanout                             ;
+; RedBlueServo/ClkCount[0..7]             ; Lost fanout                             ;
+; RedBlueServo/ClkTick                    ; Lost fanout                             ;
+; BinRecycleServo/ClkCount[0..7]          ; Lost fanout                             ;
+; BinRecycleServo/ClkTick                 ; Lost fanout                             ;
+; RedServo/ClkCount[0..7]                 ; Lost fanout                             ;
+; RedServo/ClkTick                        ; Lost fanout                             ;
+; GreenBlueServo/ClkCount[0..7]           ; Lost fanout                             ;
+; GreenBlueServo/ClkTick                  ; Lost fanout                             ;
+; inst3/PulseCount[0]                     ; Merged with inst2/PulseCount[0]         ;
+; RedServo/PulseCount[0]                  ; Merged with inst2/PulseCount[0]         ;
+; BinRecycleServo/PulseCount[0]           ; Merged with inst2/PulseCount[0]         ;
+; RedBlueServo/PulseCount[0]              ; Merged with inst2/PulseCount[0]         ;
+; GreenBlueServo/PulseCount[0]            ; Merged with inst2/PulseCount[0]         ;
+; GreenOtherServo/PulseCount[0]           ; Merged with inst2/PulseCount[0]         ;
+; inst/PulseCount[0]                      ; Merged with inst2/PulseCount[0]         ;
+; inst3/PulseCount[1]                     ; Merged with inst2/PulseCount[1]         ;
+; RedServo/PulseCount[1]                  ; Merged with inst2/PulseCount[1]         ;
+; BinRecycleServo/PulseCount[1]           ; Merged with inst2/PulseCount[1]         ;
+; RedBlueServo/PulseCount[1]              ; Merged with inst2/PulseCount[1]         ;
+; GreenBlueServo/PulseCount[1]            ; Merged with inst2/PulseCount[1]         ;
+; GreenOtherServo/PulseCount[1]           ; Merged with inst2/PulseCount[1]         ;
+; inst/PulseCount[1]                      ; Merged with inst2/PulseCount[1]         ;
+; inst3/PulseCount[2]                     ; Merged with inst2/PulseCount[2]         ;
+; RedServo/PulseCount[2]                  ; Merged with inst2/PulseCount[2]         ;
+; BinRecycleServo/PulseCount[2]           ; Merged with inst2/PulseCount[2]         ;
+; RedBlueServo/PulseCount[2]              ; Merged with inst2/PulseCount[2]         ;
+; GreenBlueServo/PulseCount[2]            ; Merged with inst2/PulseCount[2]         ;
+; GreenOtherServo/PulseCount[2]           ; Merged with inst2/PulseCount[2]         ;
+; inst/PulseCount[2]                      ; Merged with inst2/PulseCount[2]         ;
+; inst3/PulseCount[3]                     ; Merged with inst2/PulseCount[3]         ;
+; RedServo/PulseCount[3]                  ; Merged with inst2/PulseCount[3]         ;
+; BinRecycleServo/PulseCount[3]           ; Merged with inst2/PulseCount[3]         ;
+; RedBlueServo/PulseCount[3]              ; Merged with inst2/PulseCount[3]         ;
+; Total Number of Removed Registers = 402 ;                                         ;
++-----------------------------------------+-----------------------------------------+
+* Table truncated at 100 items. To change the number of removed registers reported, set the "Number of Removed Registers Reported" option under Assignments->Settings->Analysis and Synthesis Settings->More Settings
+
+
++--------------------------------------------------------------------------------------------------------------------------------------+
+; Removed Registers Triggering Further Register Optimizations                                                                          ;
++-----------------------------------+---------------------------+----------------------------------------------------------------------+
+; Register name                     ; Reason for Removal        ; Registers Removed due to This Register                               ;
++-----------------------------------+---------------------------+----------------------------------------------------------------------+
+; head/rotateServo[0]               ; Stuck at GND              ; inst3/RxD_data_reg[0], inst3/RCServo_position[0]                     ;
+;                                   ; due to stuck port data_in ;                                                                      ;
+; head/mouthServo[0]                ; Stuck at GND              ; inst2/RxD_data_reg[0], inst2/RCServo_position[0]                     ;
+;                                   ; due to stuck port data_in ;                                                                      ;
+; head/mouthServo[1]                ; Stuck at GND              ; inst2/RxD_data_reg[1], inst2/RCServo_position[1]                     ;
+;                                   ; due to stuck port data_in ;                                                                      ;
+; head/mouthServo[3]                ; Stuck at VCC              ; inst2/RxD_data_reg[3], inst2/RCServo_position[3]                     ;
+;                                   ; due to stuck port data_in ;                                                                      ;
+; head/mouthServo[7]                ; Stuck at VCC              ; inst2/RxD_data_reg[7], inst2/RCServo_position[7]                     ;
+;                                   ; due to stuck port data_in ;                                                                      ;
+; head/mouthServo[8]                ; Stuck at GND              ; inst2/RxD_data_reg[8], inst2/RCServo_position[8]                     ;
+;                                   ; due to stuck port data_in ;                                                                      ;
+; maintenance/positionGreenBlue[1]  ; Stuck at VCC              ; GreenBlueServo/RxD_data_reg[1], GreenBlueServo/RCServo_position[1]   ;
+;                                   ; due to stuck port data_in ;                                                                      ;
+; maintenance/positionRed[0]        ; Stuck at GND              ; RedServo/RxD_data_reg[0], RedServo/RCServo_position[0]               ;
+;                                   ; due to stuck port data_in ;                                                                      ;
+; maintenance/positionRed[3]        ; Stuck at VCC              ; RedServo/RxD_data_reg[3], RedServo/RCServo_position[3]               ;
+;                                   ; due to stuck port data_in ;                                                                      ;
+; maintenance/positionBinRecycle[0] ; Stuck at GND              ; BinRecycleServo/RxD_data_reg[0], BinRecycleServo/RCServo_position[0] ;
+;                                   ; due to stuck port data_in ;                                                                      ;
+; maintenance/positionBinRecycle[2] ; Stuck at VCC              ; BinRecycleServo/RxD_data_reg[2], BinRecycleServo/RCServo_position[2] ;
+;                                   ; due to stuck port data_in ;                                                                      ;
+; maintenance/positionGreenOther[3] ; Stuck at GND              ; GreenOtherServo/RxD_data_reg[3], GreenOtherServo/RCServo_position[3] ;
+;                                   ; due to stuck port data_in ;                                                                      ;
+; maintenance/positionGreenOther[7] ; Stuck at GND              ; GreenOtherServo/RxD_data_reg[7], GreenOtherServo/RCServo_position[7] ;
+;                                   ; due to stuck port data_in ;                                                                      ;
+; maintenance/positionRedBlue[2]    ; Stuck at GND              ; RedBlueServo/RxD_data_reg[2], RedBlueServo/RCServo_position[2]       ;
+;                                   ; due to stuck port data_in ;                                                                      ;
+; maintenance/positionRedBlue[5]    ; Stuck at VCC              ; RedBlueServo/RxD_data_reg[5], RedBlueServo/RCServo_position[5]       ;
+;                                   ; due to stuck port data_in ;                                                                      ;
++-----------------------------------+---------------------------+----------------------------------------------------------------------+
+
+
++------------------------------------------------------+
+; General Register Statistics                          ;
++----------------------------------------------+-------+
+; Statistic                                    ; Value ;
++----------------------------------------------+-------+
+; Total registers                              ; 504   ;
+; Number of registers using Synchronous Clear  ; 190   ;
+; Number of registers using Synchronous Load   ; 3     ;
+; Number of registers using Asynchronous Clear ; 0     ;
+; Number of registers using Asynchronous Load  ; 0     ;
+; Number of registers using Clock Enable       ; 303   ;
+; Number of registers using Preset             ; 0     ;
++----------------------------------------------+-------+
+
+
++-------------------------------------------------------+
+; Inverted Register Statistics                          ;
++---------------------------------------------+---------+
+; Inverted Register                           ; Fan out ;
++---------------------------------------------+---------+
+; sort:inst6|liftUp[0]                        ; 2       ;
+; maintenance:maintenance|dispense[0]         ; 1       ;
+; maintenance:maintenance|dispense[1]         ; 1       ;
+; dispense:dispense|dispenseServoGreenBlue[0] ; 2       ;
+; dispense:dispense|dispenseServoGreenBlue[6] ; 2       ;
+; dispense:dispense|dispenseServoGreenBlue[5] ; 2       ;
+; dispense:dispense|dispenseServoGreenBlue[4] ; 2       ;
+; dispense:dispense|dispenseServoGreenBlue[2] ; 2       ;
+; dispense:dispense|dispenseServoRed[4]       ; 2       ;
+; sort:inst6|sortServoBinRecycle[9]           ; 3       ;
+; sort:inst6|sortServoRedBlue[6]              ; 2       ;
+; sort:inst6|sortServoRedBlue[1]              ; 2       ;
+; sort:inst6|sortServoRedBlue[0]              ; 2       ;
+; sort:inst6|sortServoGreenOther[8]           ; 2       ;
+; sort:inst6|sortServoGreenOther[2]           ; 3       ;
+; sort:inst6|sortServoGreenOther[4]           ; 2       ;
+; head:head|rotateServo[8]                    ; 1       ;
+; head:head|rotateServo[7]                    ; 1       ;
+; head:head|rotateServo[4]                    ; 1       ;
+; head:head|mouthServo[6]                     ; 1       ;
+; Total number of inverted registers = 20     ;         ;
++---------------------------------------------+---------+
+
+
++---------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Multiplexer Restructuring Statistics (Restructuring Performed)                                                                                                      ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+-------------------------------------------------------+
+; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output                            ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+-------------------------------------------------------+
+; 3:1                ; 2 bits    ; 4 LEs         ; 2 LEs                ; 2 LEs                  ; Yes        ; |System|dispense:dispense|dispense_reg[0]             ;
+; 3:1                ; 6 bits    ; 12 LEs        ; 6 LEs                ; 6 LEs                  ; Yes        ; |System|maintenance:maintenance|controlSignal_reg[4]  ;
+; 3:1                ; 3 bits    ; 6 LEs         ; 3 LEs                ; 3 LEs                  ; Yes        ; |System|sort:inst6|colour_reg[1]                      ;
+; 32:1               ; 6 bits    ; 126 LEs       ; 12 LEs               ; 114 LEs                ; Yes        ; |System|maintenance:maintenance|positionRedBlue[0]    ;
+; 32:1               ; 8 bits    ; 168 LEs       ; 16 LEs               ; 152 LEs                ; Yes        ; |System|maintenance:maintenance|positionGreenOther[9] ;
+; 32:1               ; 2 bits    ; 42 LEs        ; 2 LEs                ; 40 LEs                 ; Yes        ; |System|maintenance:maintenance|positionBinRecycle[9] ;
+; 32:1               ; 2 bits    ; 42 LEs        ; 2 LEs                ; 40 LEs                 ; Yes        ; |System|maintenance:maintenance|positionRed[6]        ;
+; 32:1               ; 4 bits    ; 84 LEs        ; 8 LEs                ; 76 LEs                 ; Yes        ; |System|maintenance:maintenance|positionGreenBlue[0]  ;
+; 20:1               ; 25 bits   ; 325 LEs       ; 25 LEs               ; 300 LEs                ; Yes        ; |System|maintenance:maintenance|pause[18]             ;
+; 8:1                ; 2 bits    ; 10 LEs        ; 4 LEs                ; 6 LEs                  ; Yes        ; |System|eyeLED:eyeLED|colourSelect[4]                 ;
+; 8:1                ; 2 bits    ; 10 LEs        ; 4 LEs                ; 6 LEs                  ; Yes        ; |System|eyeLED:eyeLED|colourSelect[1]                 ;
+; 8:1                ; 28 bits   ; 140 LEs       ; 28 LEs               ; 112 LEs                ; Yes        ; |System|head:head|pause[1]                            ;
+; 8:1                ; 28 bits   ; 140 LEs       ; 28 LEs               ; 112 LEs                ; Yes        ; |System|eyeLED:eyeLED|pause[24]                       ;
+; 9:1                ; 17 bits   ; 102 LEs       ; 17 LEs               ; 85 LEs                 ; Yes        ; |System|eyeLED:eyeLED|counter[10]                     ;
+; 7:1                ; 25 bits   ; 100 LEs       ; 25 LEs               ; 75 LEs                 ; Yes        ; |System|dispense:dispense|pause[9]                    ;
+; 9:1                ; 27 bits   ; 162 LEs       ; 27 LEs               ; 135 LEs                ; Yes        ; |System|sort:inst6|pause[17]                          ;
+; 3:1                ; 2 bits    ; 4 LEs         ; 2 LEs                ; 2 LEs                  ; No         ; |System|sort:inst6|state~23                           ;
+; 3:1                ; 2 bits    ; 4 LEs         ; 2 LEs                ; 2 LEs                  ; No         ; |System|dispense:dispense|state~8                     ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+-------------------------------------------------------+
+
+
++---------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: RCServo:GreenBlueServo ;
++----------------+-------+--------------------------------------------+
+; Parameter Name ; Value ; Type                                       ;
++----------------+-------+--------------------------------------------+
+; ClkDiv         ; 195   ; Untyped                                    ;
++----------------+-------+--------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings Tables in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++---------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: multiplexerServo:GreenBlueServoMux ;
++----------------+-------+--------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                   ;
++----------------+-------+--------------------------------------------------------+
+; normal         ; 0     ; Unsigned Binary                                        ;
+; test           ; 1     ; Unsigned Binary                                        ;
++----------------+-------+--------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings Tables in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++----------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: dispense:dispense ;
++----------------+-------+---------------------------------------+
+; Parameter Name ; Value ; Type                                  ;
++----------------+-------+---------------------------------------+
+; control        ; 0000  ; Unsigned Binary                       ;
+; red            ; 0001  ; Unsigned Binary                       ;
+; redSecond      ; 0010  ; Unsigned Binary                       ;
+; redThird       ; 0011  ; Unsigned Binary                       ;
+; green          ; 0100  ; Unsigned Binary                       ;
+; greenSecond    ; 0101  ; Unsigned Binary                       ;
+; greenThird     ; 0110  ; Unsigned Binary                       ;
+; blue           ; 0111  ; Unsigned Binary                       ;
+; blueSecond     ; 1000  ; Unsigned Binary                       ;
+; blueThird      ; 1001  ; Unsigned Binary                       ;
++----------------+-------+---------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings Tables in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++--------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: multiplexerThree:mux3 ;
++----------------+-------+-------------------------------------------+
+; Parameter Name ; Value ; Type                                      ;
++----------------+-------+-------------------------------------------+
+; controller     ; 0     ; Unsigned Binary                           ;
+; maintenance    ; 1     ; Unsigned Binary                           ;
++----------------+-------+-------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings Tables in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++---------------------------------------------------------+
+; Parameter Settings for User Entity Instance: sort:inst6 ;
++----------------+-------+--------------------------------+
+; Parameter Name ; Value ; Type                           ;
++----------------+-------+--------------------------------+
+; colourSense    ; 0000  ; Unsigned Binary                ;
+; red            ; 0001  ; Unsigned Binary                ;
+; redSecond      ; 0010  ; Unsigned Binary                ;
+; green          ; 0011  ; Unsigned Binary                ;
+; greenSecond    ; 0100  ; Unsigned Binary                ;
+; blue           ; 0101  ; Unsigned Binary                ;
+; blueSecond     ; 0110  ; Unsigned Binary                ;
+; bin            ; 0111  ; Unsigned Binary                ;
+; binSecond      ; 1000  ; Unsigned Binary                ;
+; binThird       ; 1001  ; Unsigned Binary                ;
+; recycle        ; 1010  ; Unsigned Binary                ;
+; recycleSecond  ; 1011  ; Unsigned Binary                ;
+; recycleThird   ; 1100  ; Unsigned Binary                ;
+; lift           ; 1101  ; Unsigned Binary                ;
+; liftTwo        ; 1110  ; Unsigned Binary                ;
+; liftThree      ; 1111  ; Unsigned Binary                ;
++----------------+-------+--------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings Tables in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: multiplexerFour:mux4 ;
++----------------+-------+------------------------------------------+
+; Parameter Name ; Value ; Type                                     ;
++----------------+-------+------------------------------------------+
+; controller     ; 0     ; Unsigned Binary                          ;
+; maintenance    ; 1     ; Unsigned Binary                          ;
++----------------+-------+------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings Tables in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++----------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: maintenance:maintenance ;
++----------------------+-------+---------------------------------------+
+; Parameter Name       ; Value ; Type                                  ;
++----------------------+-------+---------------------------------------+
+; control              ; 00000 ; Unsigned Binary                       ;
+; binHopper            ; 00001 ; Unsigned Binary                       ;
+; dispenseRed          ; 00010 ; Unsigned Binary                       ;
+; dispenseGreen        ; 00011 ; Unsigned Binary                       ;
+; dispenseBlue         ; 00100 ; Unsigned Binary                       ;
+; testRedBlueLeft      ; 00101 ; Unsigned Binary                       ;
+; testRedBlueCentre    ; 00110 ; Unsigned Binary                       ;
+; testRedBlueRight     ; 00111 ; Unsigned Binary                       ;
+; testGreenOtherUp     ; 01000 ; Unsigned Binary                       ;
+; testGreenOtherCentre ; 01001 ; Unsigned Binary                       ;
+; testGreenOtherDown   ; 01010 ; Unsigned Binary                       ;
+; testBinRecycleLeft   ; 01011 ; Unsigned Binary                       ;
+; testBinRecycleRight  ; 01100 ; Unsigned Binary                       ;
+; testRedPush          ; 01101 ; Unsigned Binary                       ;
+; testRedHome          ; 01110 ; Unsigned Binary                       ;
+; testGreenBlueLeft    ; 01111 ; Unsigned Binary                       ;
+; testGreenBlueCentre  ; 10000 ; Unsigned Binary                       ;
+; testGreenBlueRight   ; 10001 ; Unsigned Binary                       ;
+; maintenanceEND       ; 10010 ; Unsigned Binary                       ;
++----------------------+-------+---------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings Tables in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++--------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: multiplexerSeven:mux7 ;
++----------------+-------+-------------------------------------------+
+; Parameter Name ; Value ; Type                                      ;
++----------------+-------+-------------------------------------------+
+; controller     ; 0     ; Unsigned Binary                           ;
+; maintenance    ; 1     ; Unsigned Binary                           ;
++----------------+-------+-------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings Tables in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++---------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: RCServo:RedServo ;
++----------------+-------+--------------------------------------+
+; Parameter Name ; Value ; Type                                 ;
++----------------+-------+--------------------------------------+
+; ClkDiv         ; 195   ; Untyped                              ;
++----------------+-------+--------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings Tables in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++---------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: multiplexerServo:RedServoMux ;
++----------------+-------+--------------------------------------------------+
+; Parameter Name ; Value ; Type                                             ;
++----------------+-------+--------------------------------------------------+
+; normal         ; 0     ; Unsigned Binary                                  ;
+; test           ; 1     ; Unsigned Binary                                  ;
++----------------+-------+--------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings Tables in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++----------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: RCServo:BinRecycleServo ;
++----------------+-------+---------------------------------------------+
+; Parameter Name ; Value ; Type                                        ;
++----------------+-------+---------------------------------------------+
+; ClkDiv         ; 195   ; Untyped                                     ;
++----------------+-------+---------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings Tables in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++----------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: multiplexerServo:BinRecycleServoMux ;
++----------------+-------+---------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                    ;
++----------------+-------+---------------------------------------------------------+
+; normal         ; 0     ; Unsigned Binary                                         ;
+; test           ; 1     ; Unsigned Binary                                         ;
++----------------+-------+---------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings Tables in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: RCServo:RedBlueServo ;
++----------------+-------+------------------------------------------+
+; Parameter Name ; Value ; Type                                     ;
++----------------+-------+------------------------------------------+
+; ClkDiv         ; 195   ; Untyped                                  ;
++----------------+-------+------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings Tables in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: multiplexerServo:RedBlueServoMux ;
++----------------+-------+------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                 ;
++----------------+-------+------------------------------------------------------+
+; normal         ; 0     ; Unsigned Binary                                      ;
+; test           ; 1     ; Unsigned Binary                                      ;
++----------------+-------+------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings Tables in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++----------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: RCServo:GreenOtherServo ;
++----------------+-------+---------------------------------------------+
+; Parameter Name ; Value ; Type                                        ;
++----------------+-------+---------------------------------------------+
+; ClkDiv         ; 195   ; Untyped                                     ;
++----------------+-------+---------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings Tables in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++----------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: multiplexerServo:GreenOtherServoMux ;
++----------------+-------+---------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                    ;
++----------------+-------+---------------------------------------------------------+
+; normal         ; 0     ; Unsigned Binary                                         ;
+; test           ; 1     ; Unsigned Binary                                         ;
++----------------+-------+---------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings Tables in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++---------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: RCServoFull:inst ;
++----------------+-------+--------------------------------------+
+; Parameter Name ; Value ; Type                                 ;
++----------------+-------+--------------------------------------+
+; ClkDiv         ; 195   ; Untyped                              ;
++----------------+-------+--------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings Tables in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-----------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: flashLED:flashLED1 ;
++----------------+-------+----------------------------------------+
+; Parameter Name ; Value ; Type                                   ;
++----------------+-------+----------------------------------------+
+; red            ; 00    ; Unsigned Binary                        ;
+; green          ; 01    ; Unsigned Binary                        ;
+; blue           ; 10    ; Unsigned Binary                        ;
++----------------+-------+----------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings Tables in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-----------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: flashLED:flashLED2 ;
++----------------+-------+----------------------------------------+
+; Parameter Name ; Value ; Type                                   ;
++----------------+-------+----------------------------------------+
+; red            ; 00    ; Unsigned Binary                        ;
+; green          ; 01    ; Unsigned Binary                        ;
+; blue           ; 10    ; Unsigned Binary                        ;
++----------------+-------+----------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings Tables in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-----------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: flashLED:flashLED3 ;
++----------------+-------+----------------------------------------+
+; Parameter Name ; Value ; Type                                   ;
++----------------+-------+----------------------------------------+
+; red            ; 00    ; Unsigned Binary                        ;
+; green          ; 01    ; Unsigned Binary                        ;
+; blue           ; 10    ; Unsigned Binary                        ;
++----------------+-------+----------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings Tables in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: eyeLED:eyeLED ;
++----------------+-------+-----------------------------------+
+; Parameter Name ; Value ; Type                              ;
++----------------+-------+-----------------------------------+
+; clkDelay       ; 195   ; Untyped                           ;
+; delay          ; 000   ; Unsigned Binary                   ;
+; flicker        ; 001   ; Unsigned Binary                   ;
+; flickerTwo     ; 010   ; Unsigned Binary                   ;
+; flickerThree   ; 011   ; Unsigned Binary                   ;
+; flickerFour    ; 100   ; Unsigned Binary                   ;
++----------------+-------+-----------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings Tables in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: RCServo:inst3 ;
++----------------+-------+-----------------------------------+
+; Parameter Name ; Value ; Type                              ;
++----------------+-------+-----------------------------------+
+; ClkDiv         ; 195   ; Untyped                           ;
++----------------+-------+-----------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings Tables in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++--------------------------------------------------------+
+; Parameter Settings for User Entity Instance: head:head ;
++----------------+-------+-------------------------------+
+; Parameter Name ; Value ; Type                          ;
++----------------+-------+-------------------------------+
+; mouth          ; 000   ; Unsigned Binary               ;
+; mouthTwo       ; 001   ; Unsigned Binary               ;
+; rotate         ; 010   ; Unsigned Binary               ;
+; rotateTwo      ; 011   ; Unsigned Binary               ;
+; rotateThree    ; 100   ; Unsigned Binary               ;
++----------------+-------+-------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings Tables in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: RCServo:inst2 ;
++----------------+-------+-----------------------------------+
+; Parameter Name ; Value ; Type                              ;
++----------------+-------+-----------------------------------+
+; ClkDiv         ; 195   ; Untyped                           ;
++----------------+-------+-----------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings Tables in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-----------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: multiplexerOutput:muxOut ;
++----------------+-------+----------------------------------------------+
+; Parameter Name ; Value ; Type                                         ;
++----------------+-------+----------------------------------------------+
+; normal         ; 0     ; Unsigned Binary                              ;
+; maintenance    ; 1     ; Unsigned Binary                              ;
++----------------+-------+----------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings Tables in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-----------------------------------------------------------------------------------+
+; Parameter Settings for Inferred Entity Instance: eyeLED:eyeLED|lpm_mult:Mult0     ;
++------------------------------------------------+------------+---------------------+
+; Parameter Name                                 ; Value      ; Type                ;
++------------------------------------------------+------------+---------------------+
+; AUTO_CARRY_CHAINS                              ; ON         ; AUTO_CARRY          ;
+; IGNORE_CARRY_BUFFERS                           ; OFF        ; IGNORE_CARRY        ;
+; AUTO_CASCADE_CHAINS                            ; ON         ; AUTO_CASCADE        ;
+; IGNORE_CASCADE_BUFFERS                         ; OFF        ; IGNORE_CASCADE      ;
+; LPM_WIDTHA                                     ; 8          ; Untyped             ;
+; LPM_WIDTHB                                     ; 8          ; Untyped             ;
+; LPM_WIDTHP                                     ; 16         ; Untyped             ;
+; LPM_WIDTHR                                     ; 16         ; Untyped             ;
+; LPM_WIDTHS                                     ; 1          ; Untyped             ;
+; LPM_REPRESENTATION                             ; UNSIGNED   ; Untyped             ;
+; LPM_PIPELINE                                   ; 0          ; Untyped             ;
+; LATENCY                                        ; 0          ; Untyped             ;
+; INPUT_A_IS_CONSTANT                            ; NO         ; Untyped             ;
+; INPUT_B_IS_CONSTANT                            ; YES        ; Untyped             ;
+; USE_EAB                                        ; OFF        ; Untyped             ;
+; MAXIMIZE_SPEED                                 ; 5          ; Untyped             ;
+; DEVICE_FAMILY                                  ; Cyclone II ; Untyped             ;
+; CARRY_CHAIN                                    ; MANUAL     ; Untyped             ;
+; APEX20K_TECHNOLOGY_MAPPER                      ; LUT        ; TECH_MAPPER_APEX20K ;
+; DEDICATED_MULTIPLIER_CIRCUITRY                 ; AUTO       ; Untyped             ;
+; DEDICATED_MULTIPLIER_MIN_INPUT_WIDTH_FOR_AUTO  ; 0          ; Untyped             ;
+; DEDICATED_MULTIPLIER_MIN_OUTPUT_WIDTH_FOR_AUTO ; 0          ; Untyped             ;
+; CBXI_PARAMETER                                 ; mult_0011  ; Untyped             ;
+; INPUT_A_FIXED_VALUE                            ; Bx         ; Untyped             ;
+; INPUT_B_FIXED_VALUE                            ; Bx         ; Untyped             ;
+; USE_AHDL_IMPLEMENTATION                        ; OFF        ; Untyped             ;
++------------------------------------------------+------------+---------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings Tables in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++----------------------------------------------------------------------+
+; lpm_mult Parameter Settings by Entity Instance                       ;
++---------------------------------------+------------------------------+
+; Name                                  ; Value                        ;
++---------------------------------------+------------------------------+
+; Number of entity instances            ; 1                            ;
+; Entity Instance                       ; eyeLED:eyeLED|lpm_mult:Mult0 ;
+;     -- LPM_WIDTHA                     ; 8                            ;
+;     -- LPM_WIDTHB                     ; 8                            ;
+;     -- LPM_WIDTHP                     ; 16                           ;
+;     -- LPM_REPRESENTATION             ; UNSIGNED                     ;
+;     -- INPUT_A_IS_CONSTANT            ; NO                           ;
+;     -- INPUT_B_IS_CONSTANT            ; YES                          ;
+;     -- USE_EAB                        ; OFF                          ;
+;     -- DEDICATED_MULTIPLIER_CIRCUITRY ; AUTO                         ;
+;     -- INPUT_A_FIXED_VALUE            ; Bx                           ;
+;     -- INPUT_B_FIXED_VALUE            ; Bx                           ;
++---------------------------------------+------------------------------+
+
+
++-------------------------------+
+; Analysis & Synthesis Messages ;
++-------------------------------+
+Info: *******************************************************************
+Info: Running Quartus II Analysis & Synthesis
+    Info: Version 7.1 Build 156 04/30/2007 SJ Full Version
+    Info: Processing started: Mon Dec 01 21:13:19 2014
+Info: Command: quartus_map --read_settings_files=on --write_settings_files=off chipDispenser -c controller
+Info: Found 1 design units, including 1 entities, in source file controller.v
+    Info: Found entity 1: controller
+Info: Found 1 design units, including 1 entities, in source file sort.v
+    Info: Found entity 1: sort
+Info: Found 1 design units, including 1 entities, in source file dispense.v
+    Info: Found entity 1: dispense
+Info: Found 1 design units, including 1 entities, in source file System.bdf
+    Info: Found entity 1: System
+Info: Found 1 design units, including 1 entities, in source file maintenance.v
+    Info: Found entity 1: maintenance
+Info: Found 1 design units, including 1 entities, in source file multiplexerSeven.v
+    Info: Found entity 1: multiplexerSeven
+Info: Found 1 design units, including 1 entities, in source file multiplexerFour.v
+    Info: Found entity 1: multiplexerFour
+Info: Found 1 design units, including 1 entities, in source file multiplexerThree.v
+    Info: Found entity 1: multiplexerThree
+Info: Found 1 design units, including 1 entities, in source file multiplexerServo.v
+    Info: Found entity 1: multiplexerServo
+Info: Found 1 design units, including 1 entities, in source file multiplexerOutput.v
+    Info: Found entity 1: multiplexerOutput
+Info: Found 1 design units, including 1 entities, in source file RCServo.v
+    Info: Found entity 1: RCServo
+Info: Found 1 design units, including 1 entities, in source file RCServoFull.v
+    Info: Found entity 1: RCServoFull
+Info: Found 1 design units, including 1 entities, in source file flashLED.v
+    Info: Found entity 1: flashLED
+Info: Found 1 design units, including 1 entities, in source file eyeLED.v
+    Info: Found entity 1: eyeLED
+Info: Found 1 design units, including 1 entities, in source file head.v
+    Info: Found entity 1: head
+Info: Elaborating entity "System" for the top level hierarchy
+Info: Elaborating entity "RCServo" for hierarchy "RCServo:GreenBlueServo"
+Info: Elaborating entity "multiplexerServo" for hierarchy "multiplexerServo:GreenBlueServoMux"
+Info: Elaborating entity "dispense" for hierarchy "dispense:dispense"
+Info: Elaborating entity "multiplexerThree" for hierarchy "multiplexerThree:mux3"
+Info: Elaborating entity "controller" for hierarchy "controller:controller"
+Info: Elaborating entity "sort" for hierarchy "sort:inst6"
+Info: Elaborating entity "multiplexerFour" for hierarchy "multiplexerFour:mux4"
+Info: Elaborating entity "maintenance" for hierarchy "maintenance:maintenance"
+Info: Elaborating entity "multiplexerSeven" for hierarchy "multiplexerSeven:mux7"
+Info: Elaborating entity "RCServoFull" for hierarchy "RCServoFull:inst"
+Info: Elaborating entity "flashLED" for hierarchy "flashLED:flashLED1"
+Info: Elaborating entity "eyeLED" for hierarchy "eyeLED:eyeLED"
+Info: Elaborating entity "head" for hierarchy "head:head"
+Info: Elaborating entity "multiplexerOutput" for hierarchy "multiplexerOutput:muxOut"
+Warning: Reduced register "head:head|rotateServo[0]" with stuck data_in port to stuck value GND
+Warning: Reduced register "head:head|mouthServo[0]" with stuck data_in port to stuck value GND
+Warning: Reduced register "head:head|mouthServo[1]" with stuck data_in port to stuck value GND
+Warning: Reduced register "head:head|mouthServo[3]" with stuck data_in port to stuck value VCC
+Warning: Reduced register "head:head|mouthServo[7]" with stuck data_in port to stuck value VCC
+Warning: Reduced register "head:head|mouthServo[8]" with stuck data_in port to stuck value GND
+Warning: Reduced register "RCServo:inst3|RxD_data_reg[0]" with stuck data_in port to stuck value GND
+Warning: Reduced register "RCServo:inst3|RCServo_position[0]" with stuck data_in port to stuck value GND
+Info: Power-up level of register "RCServoFull:inst|RCServo_position[0]" is not specified -- using power-up level of High to minimize register
+Warning: Reduced register "RCServoFull:inst|RCServo_position[0]" with stuck data_in port to stuck value VCC
+Info: Power-up level of register "RCServoFull:inst|RCServo_position[1]" is not specified -- using power-up level of High to minimize register
+Warning: Reduced register "RCServoFull:inst|RCServo_position[1]" with stuck data_in port to stuck value VCC
+Info: Power-up level of register "RCServoFull:inst|RCServo_position[2]" is not specified -- using power-up level of High to minimize register
+Warning: Reduced register "RCServoFull:inst|RCServo_position[2]" with stuck data_in port to stuck value VCC
+Info: Power-up level of register "RCServoFull:inst|RCServo_position[3]" is not specified -- using power-up level of High to minimize register
+Warning: Reduced register "RCServoFull:inst|RCServo_position[3]" with stuck data_in port to stuck value VCC
+Warning: Reduced register "RCServoFull:inst|RCServo_position[4]" with stuck data_in port to stuck value GND
+Info: Power-up level of register "RCServoFull:inst|RCServo_position[5]" is not specified -- using power-up level of High to minimize register
+Warning: Reduced register "RCServoFull:inst|RCServo_position[5]" with stuck data_in port to stuck value VCC
+Info: Power-up level of register "RCServoFull:inst|RCServo_position[6]" is not specified -- using power-up level of High to minimize register
+Warning: Reduced register "RCServoFull:inst|RCServo_position[6]" with stuck data_in port to stuck value VCC
+Warning: Reduced register "RCServoFull:inst|RCServo_position[7]" with stuck data_in port to stuck value GND
+Warning: Reduced register "maintenance:maintenance|results[2]" with stuck data_in port to stuck value GND
+Warning: Reduced register "RCServo:inst2|RxD_data_reg[0]" with stuck data_in port to stuck value GND
+Warning: Reduced register "RCServo:inst2|RCServo_position[0]" with stuck data_in port to stuck value GND
+Warning: Reduced register "RCServo:inst2|RxD_data_reg[1]" with stuck data_in port to stuck value GND
+Info: Power-up level of register "RCServo:inst2|RxD_data_reg[3]" is not specified -- using power-up level of High to minimize register
+Warning: Reduced register "RCServo:inst2|RxD_data_reg[3]" with stuck data_in port to stuck value VCC
+Info: Power-up level of register "RCServo:inst2|RxD_data_reg[7]" is not specified -- using power-up level of High to minimize register
+Warning: Reduced register "RCServo:inst2|RxD_data_reg[7]" with stuck data_in port to stuck value VCC
+Warning: Reduced register "RCServo:inst2|RxD_data_reg[8]" with stuck data_in port to stuck value GND
+Warning: Reduced register "RCServo:inst2|RCServo_position[1]" with stuck data_in port to stuck value GND
+Info: Power-up level of register "RCServo:inst2|RCServo_position[3]" is not specified -- using power-up level of High to minimize register
+Warning: Reduced register "RCServo:inst2|RCServo_position[3]" with stuck data_in port to stuck value VCC
+Info: Power-up level of register "RCServo:inst2|RCServo_position[7]" is not specified -- using power-up level of High to minimize register
+Warning: Reduced register "RCServo:inst2|RCServo_position[7]" with stuck data_in port to stuck value VCC
+Warning: Reduced register "RCServo:inst2|RCServo_position[8]" with stuck data_in port to stuck value GND
+Warning: Reduced register "maintenance:maintenance|sortColour[1]" with stuck data_in port to stuck value VCC
+Warning: Reduced register "maintenance:maintenance|sortColour[0]" with stuck data_in port to stuck value VCC
+Info: Power-up level of register "maintenance:maintenance|positionGreenBlue[1]" is not specified -- using power-up level of High to minimize register
+Warning: Reduced register "maintenance:maintenance|positionGreenBlue[1]" with stuck data_in port to stuck value VCC
+Warning: Reduced register "maintenance:maintenance|positionGreenBlue[4]" with stuck data_in port to stuck value GND
+Warning: Reduced register "maintenance:maintenance|positionGreenBlue[7]" with stuck data_in port to stuck value GND
+Warning: Reduced register "maintenance:maintenance|positionRed[0]" with stuck data_in port to stuck value GND
+Warning: Reduced register "maintenance:maintenance|positionRed[1]" with stuck data_in port to stuck value GND
+Warning: Reduced register "maintenance:maintenance|positionRed[2]" with stuck data_in port to stuck value GND
+Info: Power-up level of register "maintenance:maintenance|positionRed[3]" is not specified -- using power-up level of High to minimize register
+Warning: Reduced register "maintenance:maintenance|positionRed[3]" with stuck data_in port to stuck value VCC
+Info: Power-up level of register "maintenance:maintenance|positionRed[7]" is not specified -- using power-up level of High to minimize register
+Warning: Reduced register "maintenance:maintenance|positionRed[7]" with stuck data_in port to stuck value VCC
+Warning: Reduced register "maintenance:maintenance|positionRed[9]" with stuck data_in port to stuck value GND
+Warning: Reduced register "maintenance:maintenance|positionBinRecycle[0]" with stuck data_in port to stuck value GND
+Info: Power-up level of register "maintenance:maintenance|positionBinRecycle[2]" is not specified -- using power-up level of High to minimize register
+Warning: Reduced register "maintenance:maintenance|positionBinRecycle[2]" with stuck data_in port to stuck value VCC
+Warning: Reduced register "maintenance:maintenance|positionBinRecycle[5]" with stuck data_in port to stuck value GND
+Info: Power-up level of register "maintenance:maintenance|positionBinRecycle[6]" is not specified -- using power-up level of High to minimize register
+Warning: Reduced register "maintenance:maintenance|positionBinRecycle[6]" with stuck data_in port to stuck value VCC
+Warning: Reduced register "maintenance:maintenance|positionBinRecycle[7]" with stuck data_in port to stuck value GND
+Warning: Reduced register "maintenance:maintenance|positionGreenOther[3]" with stuck data_in port to stuck value GND
+Warning: Reduced register "maintenance:maintenance|positionGreenOther[7]" with stuck data_in port to stuck value GND
+Warning: Reduced register "maintenance:maintenance|positionRedBlue[2]" with stuck data_in port to stuck value GND
+Info: Power-up level of register "maintenance:maintenance|positionRedBlue[5]" is not specified -- using power-up level of High to minimize register
+Warning: Reduced register "maintenance:maintenance|positionRedBlue[5]" with stuck data_in port to stuck value VCC
+Warning: Reduced register "sort:inst6|sortServoGreenOther[0]" with stuck data_in port to stuck value GND
+Warning: Reduced register "sort:inst6|sortServoGreenOther[3]" with stuck data_in port to stuck value GND
+Warning: Reduced register "sort:inst6|sortServoGreenOther[7]" with stuck data_in port to stuck value GND
+Warning: Reduced register "sort:inst6|sortServoRedBlue[2]" with stuck data_in port to stuck value GND
+Warning: Reduced register "sort:inst6|sortServoRedBlue[5]" with stuck data_in port to stuck value VCC
+Warning: Reduced register "dispense:dispense|dispenseServoGreenBlue[1]" with stuck data_in port to stuck value VCC
+Info: Power-up level of register "RCServo:GreenBlueServo|RxD_data_reg[1]" is not specified -- using power-up level of High to minimize register
+Warning: Reduced register "RCServo:GreenBlueServo|RxD_data_reg[1]" with stuck data_in port to stuck value VCC
+Warning: Reduced register "RCServo:GreenOtherServo|RxD_data_reg[3]" with stuck data_in port to stuck value GND
+Warning: Reduced register "RCServo:GreenOtherServo|RxD_data_reg[7]" with stuck data_in port to stuck value GND
+Warning: Reduced register "RCServo:RedBlueServo|RxD_data_reg[2]" with stuck data_in port to stuck value GND
+Info: Power-up level of register "RCServo:RedBlueServo|RxD_data_reg[5]" is not specified -- using power-up level of High to minimize register
+Warning: Reduced register "RCServo:RedBlueServo|RxD_data_reg[5]" with stuck data_in port to stuck value VCC
+Info: Power-up level of register "RCServo:GreenBlueServo|RCServo_position[1]" is not specified -- using power-up level of High to minimize register
+Warning: Reduced register "RCServo:GreenBlueServo|RCServo_position[1]" with stuck data_in port to stuck value VCC
+Warning: Reduced register "RCServo:GreenOtherServo|RCServo_position[3]" with stuck data_in port to stuck value GND
+Warning: Reduced register "RCServo:GreenOtherServo|RCServo_position[7]" with stuck data_in port to stuck value GND
+Warning: Reduced register "RCServo:RedBlueServo|RCServo_position[2]" with stuck data_in port to stuck value GND
+Info: Power-up level of register "RCServo:RedBlueServo|RCServo_position[5]" is not specified -- using power-up level of High to minimize register
+Warning: Reduced register "RCServo:RedBlueServo|RCServo_position[5]" with stuck data_in port to stuck value VCC
+Info: Duplicate registers merged to single register
+    Info: Duplicate register "flashLED:flashLED3|blueLED2" merged to single register "flashLED:flashLED3|blueLED1"
+    Info: Duplicate register "flashLED:flashLED3|greenLED1" merged to single register "flashLED:flashLED3|greenLED2"
+    Info: Duplicate register "flashLED:flashLED3|redLED1" merged to single register "flashLED:flashLED3|redLED2"
+    Info: Duplicate register "flashLED:flashLED2|blueLED2" merged to single register "flashLED:flashLED2|blueLED1"
+    Info: Duplicate register "flashLED:flashLED2|greenLED1" merged to single register "flashLED:flashLED2|greenLED2"
+    Info: Duplicate register "flashLED:flashLED2|redLED1" merged to single register "flashLED:flashLED2|redLED2"
+    Info: Duplicate register "flashLED:flashLED1|blueLED2" merged to single register "flashLED:flashLED1|blueLED1"
+    Info: Duplicate register "flashLED:flashLED1|greenLED1" merged to single register "flashLED:flashLED1|greenLED2"
+    Info: Duplicate register "flashLED:flashLED1|redLED1" merged to single register "flashLED:flashLED1|redLED2"
+    Info: Duplicate register "controller:controller|mbedInputCheck[0]" merged to single register "controller:controller|mbedInput_reg[0]"
+    Info: Duplicate register "controller:controller|mbedInputCheck[1]" merged to single register "controller:controller|mbedInput_reg[1]"
+    Info: Duplicate register "controller:controller|mbedInputCheck[2]" merged to single register "controller:controller|mbedInput_reg[2]"
+    Info: Duplicate register "controller:controller|mbedInputCheck[3]" merged to single register "controller:controller|mbedInput_reg[3]"
+    Info: Duplicate register "controller:controller|mbedInputCheck[4]" merged to single register "controller:controller|mbedInput_reg[4]"
+    Info: Duplicate register "controller:controller|mbedInputCheck[5]" merged to single register "controller:controller|mbedInput_reg[5]"
+    Info: Duplicate register "controller:controller|mbedInputCheck[6]" merged to single register "controller:controller|mbedInput_reg[6]"
+Info: Duplicate registers merged to single register
+    Info: Duplicate register "RCServo:inst3|PulseCount[0]" merged to single register "RCServo:inst2|PulseCount[0]"
+    Info: Duplicate register "RCServo:RedServo|PulseCount[0]" merged to single register "RCServo:inst2|PulseCount[0]"
+    Info: Duplicate register "RCServo:BinRecycleServo|PulseCount[0]" merged to single register "RCServo:inst2|PulseCount[0]"
+    Info: Duplicate register "RCServo:RedBlueServo|PulseCount[0]" merged to single register "RCServo:inst2|PulseCount[0]"
+    Info: Duplicate register "RCServo:GreenBlueServo|PulseCount[0]" merged to single register "RCServo:inst2|PulseCount[0]"
+    Info: Duplicate register "RCServo:GreenOtherServo|PulseCount[0]" merged to single register "RCServo:inst2|PulseCount[0]"
+    Info: Duplicate register "RCServoFull:inst|PulseCount[0]" merged to single register "RCServo:inst2|PulseCount[0]"
+    Info: Duplicate register "RCServo:inst3|PulseCount[1]" merged to single register "RCServo:inst2|PulseCount[1]"
+    Info: Duplicate register "RCServo:RedServo|PulseCount[1]" merged to single register "RCServo:inst2|PulseCount[1]"
+    Info: Duplicate register "RCServo:BinRecycleServo|PulseCount[1]" merged to single register "RCServo:inst2|PulseCount[1]"
+    Info: Duplicate register "RCServo:RedBlueServo|PulseCount[1]" merged to single register "RCServo:inst2|PulseCount[1]"
+    Info: Duplicate register "RCServo:GreenBlueServo|PulseCount[1]" merged to single register "RCServo:inst2|PulseCount[1]"
+    Info: Duplicate register "RCServo:GreenOtherServo|PulseCount[1]" merged to single register "RCServo:inst2|PulseCount[1]"
+    Info: Duplicate register "RCServoFull:inst|PulseCount[1]" merged to single register "RCServo:inst2|PulseCount[1]"
+    Info: Duplicate register "RCServo:inst3|PulseCount[2]" merged to single register "RCServo:inst2|PulseCount[2]"
+    Info: Duplicate register "RCServo:RedServo|PulseCount[2]" merged to single register "RCServo:inst2|PulseCount[2]"
+    Info: Duplicate register "RCServo:BinRecycleServo|PulseCount[2]" merged to single register "RCServo:inst2|PulseCount[2]"
+    Info: Duplicate register "RCServo:RedBlueServo|PulseCount[2]" merged to single register "RCServo:inst2|PulseCount[2]"
+    Info: Duplicate register "RCServo:GreenBlueServo|PulseCount[2]" merged to single register "RCServo:inst2|PulseCount[2]"
+    Info: Duplicate register "RCServo:GreenOtherServo|PulseCount[2]" merged to single register "RCServo:inst2|PulseCount[2]"
+    Info: Duplicate register "RCServoFull:inst|PulseCount[2]" merged to single register "RCServo:inst2|PulseCount[2]"
+    Info: Duplicate register "RCServo:inst3|PulseCount[3]" merged to single register "RCServo:inst2|PulseCount[3]"
+    Info: Duplicate register "RCServo:RedServo|PulseCount[3]" merged to single register "RCServo:inst2|PulseCount[3]"
+    Info: Duplicate register "RCServo:BinRecycleServo|PulseCount[3]" merged to single register "RCServo:inst2|PulseCount[3]"
+    Info: Duplicate register "RCServo:RedBlueServo|PulseCount[3]" merged to single register "RCServo:inst2|PulseCount[3]"
+    Info: Duplicate register "RCServo:GreenBlueServo|PulseCount[3]" merged to single register "RCServo:inst2|PulseCount[3]"
+    Info: Duplicate register "RCServo:GreenOtherServo|PulseCount[3]" merged to single register "RCServo:inst2|PulseCount[3]"
+    Info: Duplicate register "RCServoFull:inst|PulseCount[3]" merged to single register "RCServo:inst2|PulseCount[3]"
+    Info: Duplicate register "RCServo:inst3|PulseCount[4]" merged to single register "RCServo:inst2|PulseCount[4]"
+    Info: Duplicate register "RCServo:RedServo|PulseCount[4]" merged to single register "RCServo:inst2|PulseCount[4]"
+    Info: Duplicate register "RCServo:BinRecycleServo|PulseCount[4]" merged to single register "RCServo:inst2|PulseCount[4]"
+    Info: Duplicate register "RCServo:RedBlueServo|PulseCount[4]" merged to single register "RCServo:inst2|PulseCount[4]"
+    Info: Duplicate register "RCServo:GreenBlueServo|PulseCount[4]" merged to single register "RCServo:inst2|PulseCount[4]"
+    Info: Duplicate register "RCServo:GreenOtherServo|PulseCount[4]" merged to single register "RCServo:inst2|PulseCount[4]"
+    Info: Duplicate register "RCServoFull:inst|PulseCount[4]" merged to single register "RCServo:inst2|PulseCount[4]"
+    Info: Duplicate register "RCServo:inst3|PulseCount[5]" merged to single register "RCServo:inst2|PulseCount[5]"
+    Info: Duplicate register "RCServo:RedServo|PulseCount[5]" merged to single register "RCServo:inst2|PulseCount[5]"
+    Info: Duplicate register "RCServo:BinRecycleServo|PulseCount[5]" merged to single register "RCServo:inst2|PulseCount[5]"
+    Info: Duplicate register "RCServo:RedBlueServo|PulseCount[5]" merged to single register "RCServo:inst2|PulseCount[5]"
+    Info: Duplicate register "RCServo:GreenBlueServo|PulseCount[5]" merged to single register "RCServo:inst2|PulseCount[5]"
+    Info: Duplicate register "RCServo:GreenOtherServo|PulseCount[5]" merged to single register "RCServo:inst2|PulseCount[5]"
+    Info: Duplicate register "RCServoFull:inst|PulseCount[5]" merged to single register "RCServo:inst2|PulseCount[5]"
+    Info: Duplicate register "RCServo:inst3|PulseCount[6]" merged to single register "RCServo:inst2|PulseCount[6]"
+    Info: Duplicate register "RCServo:RedServo|PulseCount[6]" merged to single register "RCServo:inst2|PulseCount[6]"
+    Info: Duplicate register "RCServo:BinRecycleServo|PulseCount[6]" merged to single register "RCServo:inst2|PulseCount[6]"
+    Info: Duplicate register "RCServo:RedBlueServo|PulseCount[6]" merged to single register "RCServo:inst2|PulseCount[6]"
+    Info: Duplicate register "RCServo:GreenBlueServo|PulseCount[6]" merged to single register "RCServo:inst2|PulseCount[6]"
+    Info: Duplicate register "RCServo:GreenOtherServo|PulseCount[6]" merged to single register "RCServo:inst2|PulseCount[6]"
+    Info: Duplicate register "RCServoFull:inst|PulseCount[6]" merged to single register "RCServo:inst2|PulseCount[6]"
+    Info: Duplicate register "RCServo:inst3|PulseCount[7]" merged to single register "RCServo:inst2|PulseCount[7]"
+    Info: Duplicate register "RCServo:RedServo|PulseCount[7]" merged to single register "RCServo:inst2|PulseCount[7]"
+    Info: Duplicate register "RCServo:BinRecycleServo|PulseCount[7]" merged to single register "RCServo:inst2|PulseCount[7]"
+    Info: Duplicate register "RCServo:RedBlueServo|PulseCount[7]" merged to single register "RCServo:inst2|PulseCount[7]"
+    Info: Duplicate register "RCServo:GreenBlueServo|PulseCount[7]" merged to single register "RCServo:inst2|PulseCount[7]"
+    Info: Duplicate register "RCServo:GreenOtherServo|PulseCount[7]" merged to single register "RCServo:inst2|PulseCount[7]"
+    Info: Duplicate register "RCServoFull:inst|PulseCount[7]" merged to single register "RCServo:inst2|PulseCount[7]"
+    Info: Duplicate register "RCServo:inst3|PulseCount[8]" merged to single register "RCServo:inst2|PulseCount[8]"
+    Info: Duplicate register "RCServo:RedServo|PulseCount[8]" merged to single register "RCServo:inst2|PulseCount[8]"
+    Info: Duplicate register "RCServo:BinRecycleServo|PulseCount[8]" merged to single register "RCServo:inst2|PulseCount[8]"
+    Info: Duplicate register "RCServo:RedBlueServo|PulseCount[8]" merged to single register "RCServo:inst2|PulseCount[8]"
+    Info: Duplicate register "RCServo:GreenBlueServo|PulseCount[8]" merged to single register "RCServo:inst2|PulseCount[8]"
+    Info: Duplicate register "RCServo:GreenOtherServo|PulseCount[8]" merged to single register "RCServo:inst2|PulseCount[8]"
+    Info: Duplicate register "RCServoFull:inst|PulseCount[8]" merged to single register "RCServo:inst2|PulseCount[8]"
+    Info: Duplicate register "RCServo:inst3|PulseCount[9]" merged to single register "RCServo:inst2|PulseCount[9]"
+    Info: Duplicate register "RCServo:RedServo|PulseCount[9]" merged to single register "RCServo:inst2|PulseCount[9]"
+    Info: Duplicate register "RCServo:BinRecycleServo|PulseCount[9]" merged to single register "RCServo:inst2|PulseCount[9]"
+    Info: Duplicate register "RCServo:RedBlueServo|PulseCount[9]" merged to single register "RCServo:inst2|PulseCount[9]"
+    Info: Duplicate register "RCServo:GreenBlueServo|PulseCount[9]" merged to single register "RCServo:inst2|PulseCount[9]"
+    Info: Duplicate register "RCServo:GreenOtherServo|PulseCount[9]" merged to single register "RCServo:inst2|PulseCount[9]"
+    Info: Duplicate register "RCServoFull:inst|PulseCount[9]" merged to single register "RCServo:inst2|PulseCount[9]"
+    Info: Duplicate register "RCServo:inst3|PulseCount[10]" merged to single register "RCServo:inst2|PulseCount[10]"
+    Info: Duplicate register "RCServo:RedServo|PulseCount[10]" merged to single register "RCServo:inst2|PulseCount[10]"
+    Info: Duplicate register "RCServo:BinRecycleServo|PulseCount[10]" merged to single register "RCServo:inst2|PulseCount[10]"
+    Info: Duplicate register "RCServo:RedBlueServo|PulseCount[10]" merged to single register "RCServo:inst2|PulseCount[10]"
+    Info: Duplicate register "RCServo:GreenBlueServo|PulseCount[10]" merged to single register "RCServo:inst2|PulseCount[10]"
+    Info: Duplicate register "RCServo:GreenOtherServo|PulseCount[10]" merged to single register "RCServo:inst2|PulseCount[10]"
+    Info: Duplicate register "RCServoFull:inst|PulseCount[10]" merged to single register "RCServo:inst2|PulseCount[10]"
+    Info: Duplicate register "RCServo:inst3|PulseCount[11]" merged to single register "RCServo:inst2|PulseCount[11]"
+    Info: Duplicate register "RCServo:RedServo|PulseCount[11]" merged to single register "RCServo:inst2|PulseCount[11]"
+    Info: Duplicate register "RCServo:BinRecycleServo|PulseCount[11]" merged to single register "RCServo:inst2|PulseCount[11]"
+    Info: Duplicate register "RCServo:RedBlueServo|PulseCount[11]" merged to single register "RCServo:inst2|PulseCount[11]"
+    Info: Duplicate register "RCServo:GreenBlueServo|PulseCount[11]" merged to single register "RCServo:inst2|PulseCount[11]"
+    Info: Duplicate register "RCServo:GreenOtherServo|PulseCount[11]" merged to single register "RCServo:inst2|PulseCount[11]"
+    Info: Duplicate register "RCServoFull:inst|PulseCount[11]" merged to single register "RCServo:inst2|PulseCount[11]"
+    Info: Duplicate register "flashLED:flashLED1|pause[0]" merged to single register "flashLED:flashLED3|pause[0]"
+    Info: Duplicate register "flashLED:flashLED2|pause[0]" merged to single register "flashLED:flashLED3|pause[0]"
+    Info: Duplicate register "flashLED:flashLED1|pause[1]" merged to single register "flashLED:flashLED3|pause[1]"
+    Info: Duplicate register "flashLED:flashLED2|pause[1]" merged to single register "flashLED:flashLED3|pause[1]"
+    Info: Duplicate register "flashLED:flashLED1|pause[2]" merged to single register "flashLED:flashLED3|pause[2]"
+    Info: Duplicate register "flashLED:flashLED2|pause[2]" merged to single register "flashLED:flashLED3|pause[2]"
+    Info: Duplicate register "flashLED:flashLED1|pause[3]" merged to single register "flashLED:flashLED3|pause[3]"
+    Info: Duplicate register "flashLED:flashLED2|pause[3]" merged to single register "flashLED:flashLED3|pause[3]"
+    Info: Duplicate register "flashLED:flashLED1|pause[4]" merged to single register "flashLED:flashLED3|pause[4]"
+    Info: Duplicate register "flashLED:flashLED2|pause[4]" merged to single register "flashLED:flashLED3|pause[4]"
+    Info: Duplicate register "flashLED:flashLED1|pause[5]" merged to single register "flashLED:flashLED3|pause[5]"
+    Info: Duplicate register "flashLED:flashLED2|pause[5]" merged to single register "flashLED:flashLED3|pause[5]"
+    Info: Duplicate register "flashLED:flashLED1|pause[6]" merged to single register "flashLED:flashLED3|pause[6]"
+    Info: Duplicate register "flashLED:flashLED2|pause[6]" merged to single register "flashLED:flashLED3|pause[6]"
+    Info: Duplicate register "flashLED:flashLED1|pause[7]" merged to single register "flashLED:flashLED3|pause[7]"
+    Info: Duplicate register "flashLED:flashLED2|pause[7]" merged to single register "flashLED:flashLED3|pause[7]"
+    Info: Duplicate register "flashLED:flashLED1|pause[8]" merged to single register "flashLED:flashLED3|pause[8]"
+    Info: Duplicate register "flashLED:flashLED2|pause[8]" merged to single register "flashLED:flashLED3|pause[8]"
+    Info: Duplicate register "flashLED:flashLED1|pause[9]" merged to single register "flashLED:flashLED3|pause[9]"
+    Info: Duplicate register "flashLED:flashLED2|pause[9]" merged to single register "flashLED:flashLED3|pause[9]"
+    Info: Duplicate register "flashLED:flashLED1|pause[10]" merged to single register "flashLED:flashLED3|pause[10]"
+    Info: Duplicate register "flashLED:flashLED2|pause[10]" merged to single register "flashLED:flashLED3|pause[10]"
+    Info: Duplicate register "flashLED:flashLED1|pause[11]" merged to single register "flashLED:flashLED3|pause[11]"
+    Info: Duplicate register "flashLED:flashLED2|pause[11]" merged to single register "flashLED:flashLED3|pause[11]"
+    Info: Duplicate register "flashLED:flashLED1|pause[12]" merged to single register "flashLED:flashLED3|pause[12]"
+    Info: Duplicate register "flashLED:flashLED2|pause[12]" merged to single register "flashLED:flashLED3|pause[12]"
+    Info: Duplicate register "flashLED:flashLED1|pause[13]" merged to single register "flashLED:flashLED3|pause[13]"
+    Info: Duplicate register "flashLED:flashLED2|pause[13]" merged to single register "flashLED:flashLED3|pause[13]"
+    Info: Duplicate register "flashLED:flashLED1|pause[14]" merged to single register "flashLED:flashLED3|pause[14]"
+    Info: Duplicate register "flashLED:flashLED2|pause[14]" merged to single register "flashLED:flashLED3|pause[14]"
+    Info: Duplicate register "flashLED:flashLED1|pause[15]" merged to single register "flashLED:flashLED3|pause[15]"
+    Info: Duplicate register "flashLED:flashLED2|pause[15]" merged to single register "flashLED:flashLED3|pause[15]"
+    Info: Duplicate register "flashLED:flashLED1|pause[16]" merged to single register "flashLED:flashLED3|pause[16]"
+    Info: Duplicate register "flashLED:flashLED2|pause[16]" merged to single register "flashLED:flashLED3|pause[16]"
+    Info: Duplicate register "flashLED:flashLED1|pause[17]" merged to single register "flashLED:flashLED3|pause[17]"
+    Info: Duplicate register "flashLED:flashLED2|pause[17]" merged to single register "flashLED:flashLED3|pause[17]"
+    Info: Duplicate register "flashLED:flashLED1|pause[18]" merged to single register "flashLED:flashLED3|pause[18]"
+    Info: Duplicate register "flashLED:flashLED2|pause[18]" merged to single register "flashLED:flashLED3|pause[18]"
+    Info: Duplicate register "flashLED:flashLED1|pause[19]" merged to single register "flashLED:flashLED3|pause[19]"
+    Info: Duplicate register "flashLED:flashLED2|pause[19]" merged to single register "flashLED:flashLED3|pause[19]"
+    Info: Duplicate register "flashLED:flashLED1|pause[20]" merged to single register "flashLED:flashLED3|pause[20]"
+    Info: Duplicate register "flashLED:flashLED2|pause[20]" merged to single register "flashLED:flashLED3|pause[20]"
+    Info: Duplicate register "flashLED:flashLED1|pause[21]" merged to single register "flashLED:flashLED3|pause[21]"
+    Info: Duplicate register "flashLED:flashLED2|pause[21]" merged to single register "flashLED:flashLED3|pause[21]"
+    Info: Duplicate register "flashLED:flashLED1|pause[22]" merged to single register "flashLED:flashLED3|pause[22]"
+    Info: Duplicate register "flashLED:flashLED2|pause[22]" merged to single register "flashLED:flashLED3|pause[22]"
+    Info: Duplicate register "flashLED:flashLED1|pause[23]" merged to single register "flashLED:flashLED3|pause[23]"
+    Info: Duplicate register "flashLED:flashLED2|pause[23]" merged to single register "flashLED:flashLED3|pause[23]"
+    Info: Duplicate register "flashLED:flashLED1|pause[24]" merged to single register "flashLED:flashLED3|pause[24]"
+    Info: Duplicate register "flashLED:flashLED2|pause[24]" merged to single register "flashLED:flashLED3|pause[24]"
+    Info: Duplicate register "flashLED:flashLED1|pause[25]" merged to single register "flashLED:flashLED3|pause[25]"
+    Info: Duplicate register "flashLED:flashLED2|pause[25]" merged to single register "flashLED:flashLED3|pause[25]"
+    Info: Duplicate register "flashLED:flashLED1|pause[26]" merged to single register "flashLED:flashLED3|pause[26]"
+    Info: Duplicate register "flashLED:flashLED2|pause[26]" merged to single register "flashLED:flashLED3|pause[26]"
+Info: Duplicate registers merged to single register
+    Info: Duplicate register "head:head|rotateServo[5]" merged to single register "head:head|rotateServo[2]"
+    Info: Duplicate register "head:head|mouthServo[5]" merged to single register "head:head|mouthServo[2]"
+    Info: Duplicate register "head:head|mouthServo[9]" merged to single register "head:head|mouthServo[2]"
+    Info: Duplicate register "head:head|mouthServo[4]" merged to single register "head:head|mouthServo[2]"
+    Info: Duplicate register "RCServo:inst3|RxD_data_reg[5]" merged to single register "RCServo:inst3|RxD_data_reg[2]"
+    Info: Duplicate register "eyeLED:eyeLED|colourSelect[7]" merged to single register "eyeLED:eyeLED|colourSelect[0]"
+    Info: Duplicate register "eyeLED:eyeLED|colourSelect[6]" merged to single register "eyeLED:eyeLED|colourSelect[2]"
+    Info: Duplicate register "eyeLED:eyeLED|colourSelect[3]" merged to single register "eyeLED:eyeLED|colourSelect[2]"
+    Info: Duplicate register "eyeLED:eyeLED|colourSelect[5]" merged to single register "eyeLED:eyeLED|colourSelect[4]"
+    Info: Duplicate register "maintenance:maintenance|sortColour[2]" merged to single register "maintenance:maintenance|sortStart"
+    Info: Duplicate register "maintenance:maintenance|positionGreenBlue[8]" merged to single register "maintenance:maintenance|positionGreenBlue[0]"
+    Info: Duplicate register "maintenance:maintenance|positionGreenBlue[6]" merged to single register "maintenance:maintenance|positionGreenBlue[0]"
+    Info: Duplicate register "maintenance:maintenance|positionGreenBlue[9]" merged to single register "maintenance:maintenance|positionGreenBlue[2]"
+    Info: Duplicate register "maintenance:maintenance|positionRed[5]" merged to single register "maintenance:maintenance|positionRed[4]"
+    Info: Duplicate register "maintenance:maintenance|positionRed[8]" merged to single register "maintenance:maintenance|positionRed[4]"
+    Info: Duplicate register "maintenance:maintenance|positionBinRecycle[3]" merged to single register "maintenance:maintenance|positionBinRecycle[1]"
+    Info: Duplicate register "maintenance:maintenance|positionBinRecycle[4]" merged to single register "maintenance:maintenance|positionBinRecycle[1]"
+    Info: Duplicate register "maintenance:maintenance|positionBinRecycle[8]" merged to single register "maintenance:maintenance|positionBinRecycle[1]"
+    Info: Duplicate register "maintenance:maintenance|positionRedBlue[4]" merged to single register "maintenance:maintenance|positionRedBlue[3]"
+    Info: Duplicate register "maintenance:maintenance|positionRedBlue[8]" merged to single register "maintenance:maintenance|positionRedBlue[6]"
+    Info: Duplicate register "sort:inst6|sortServoBinRecycle[7]" merged to single register "sort:inst6|sortServoBinRecycle[0]"
+    Info: Duplicate register "sort:inst6|sortServoBinRecycle[5]" merged to single register "sort:inst6|sortServoBinRecycle[0]"
+    Info: Duplicate register "sort:inst6|sortServoBinRecycle[8]" merged to single register "sort:inst6|sortServoBinRecycle[1]"
+    Info: Duplicate register "sort:inst6|sortServoBinRecycle[3]" merged to single register "sort:inst6|sortServoBinRecycle[1]"
+    Info: Duplicate register "sort:inst6|sortServoBinRecycle[4]" merged to single register "sort:inst6|sortServoBinRecycle[1]"
+    Info: Duplicate register "sort:inst6|sortServoBinRecycle[6]" merged to single register "sort:inst6|sortServoBinRecycle[2]"
+    Info: Duplicate register "sort:inst6|sortServoGreenOther[6]" merged to single register "sort:inst6|sortServoGreenOther[2]"
+    Info: Duplicate register "sort:inst6|sortServoGreenOther[9]" merged to single register "sort:inst6|sortServoGreenOther[5]"
+    Info: Duplicate register "sort:inst6|sortServoRedBlue[4]" merged to single register "sort:inst6|sortServoRedBlue[3]"
+    Info: Duplicate register "sort:inst6|sortServoRedBlue[8]" merged to single register "sort:inst6|sortServoRedBlue[6]"
+    Info: Duplicate register "dispense:dispense|dispenseServoGreenBlue[8]" merged to single register "dispense:dispense|dispenseServoGreenBlue[0]"
+    Info: Duplicate register "dispense:dispense|dispenseServoRed[1]" merged to single register "dispense:dispense|dispenseServoRed[0]"
+    Info: Duplicate register "dispense:dispense|dispenseServoRed[9]" merged to single register "dispense:dispense|dispenseServoRed[0]"
+    Info: Duplicate register "dispense:dispense|dispenseServoRed[2]" merged to single register "dispense:dispense|dispenseServoRed[0]"
+    Info: Duplicate register "dispense:dispense|dispenseServoRed[7]" merged to single register "dispense:dispense|dispenseServoRed[3]"
+    Info: Duplicate register "dispense:dispense|dispenseServoRed[5]" merged to single register "dispense:dispense|dispenseServoRed[4]"
+    Info: Duplicate register "dispense:dispense|dispenseServoRed[8]" merged to single register "dispense:dispense|dispenseServoRed[4]"
+    Info: Duplicate register "RCServo:inst2|RxD_data_reg[5]" merged to single register "RCServo:inst2|RxD_data_reg[2]"
+    Info: Duplicate register "RCServo:inst2|RxD_data_reg[9]" merged to single register "RCServo:inst2|RxD_data_reg[2]"
+    Info: Duplicate register "RCServo:inst2|RxD_data_reg[4]" merged to single register "RCServo:inst2|RxD_data_reg[2]"
+    Info: Duplicate register "RCServo:inst3|RCServo_position[5]" merged to single register "RCServo:inst3|RCServo_position[2]"
+    Info: Duplicate register "RCServo:inst2|RCServo_position[5]" merged to single register "RCServo:inst2|RCServo_position[2]"
+    Info: Duplicate register "RCServo:inst2|RCServo_position[9]" merged to single register "RCServo:inst2|RCServo_position[2]"
+    Info: Duplicate register "RCServo:inst2|RCServo_position[4]" merged to single register "RCServo:inst2|RCServo_position[2]"
+Info: Duplicate registers merged to single register
+    Info: Duplicate register "RCServo:RedBlueServo|RxD_data_reg[4]" merged to single register "RCServo:RedBlueServo|RxD_data_reg[3]"
+    Info: Duplicate register "RCServo:RedBlueServo|RxD_data_reg[8]" merged to single register "RCServo:RedBlueServo|RxD_data_reg[6]"
+    Info: Duplicate register "RCServo:BinRecycleServo|RxD_data_reg[5]" merged to single register "RCServo:BinRecycleServo|RxD_data_reg[0]"
+    Info: Duplicate register "RCServo:BinRecycleServo|RxD_data_reg[7]" merged to single register "RCServo:BinRecycleServo|RxD_data_reg[0]"
+    Info: Duplicate register "RCServo:BinRecycleServo|RCServo_position[5]" merged to single register "RCServo:BinRecycleServo|RCServo_position[0]"
+    Info: Duplicate register "RCServo:BinRecycleServo|RCServo_position[7]" merged to single register "RCServo:BinRecycleServo|RCServo_position[0]"
+    Info: Duplicate register "RCServo:BinRecycleServo|RxD_data_reg[3]" merged to single register "RCServo:BinRecycleServo|RxD_data_reg[1]"
+    Info: Duplicate register "RCServo:BinRecycleServo|RxD_data_reg[4]" merged to single register "RCServo:BinRecycleServo|RxD_data_reg[1]"
+    Info: Duplicate register "RCServo:BinRecycleServo|RxD_data_reg[8]" merged to single register "RCServo:BinRecycleServo|RxD_data_reg[1]"
+    Info: Duplicate register "RCServo:BinRecycleServo|RxD_data_reg[6]" merged to single register "RCServo:BinRecycleServo|RxD_data_reg[2]"
+    Info: Duplicate register "RCServo:RedServo|RxD_data_reg[1]" merged to single register "RCServo:RedServo|RxD_data_reg[0]"
+    Info: Duplicate register "RCServo:RedServo|RxD_data_reg[2]" merged to single register "RCServo:RedServo|RxD_data_reg[0]"
+    Info: Duplicate register "RCServo:RedServo|RxD_data_reg[9]" merged to single register "RCServo:RedServo|RxD_data_reg[0]"
+    Info: Duplicate register "RCServo:RedServo|RCServo_position[1]" merged to single register "RCServo:RedServo|RCServo_position[0]"
+    Info: Duplicate register "RCServo:RedServo|RCServo_position[2]" merged to single register "RCServo:RedServo|RCServo_position[0]"
+    Info: Duplicate register "RCServo:RedServo|RCServo_position[9]" merged to single register "RCServo:RedServo|RCServo_position[0]"
+    Info: Duplicate register "RCServo:RedServo|RxD_data_reg[7]" merged to single register "RCServo:RedServo|RxD_data_reg[3]"
+    Info: Duplicate register "RCServo:RedServo|RxD_data_reg[5]" merged to single register "RCServo:RedServo|RxD_data_reg[4]"
+    Info: Duplicate register "RCServo:RedServo|RxD_data_reg[8]" merged to single register "RCServo:RedServo|RxD_data_reg[4]"
+    Info: Duplicate register "RCServo:GreenBlueServo|RxD_data_reg[8]" merged to single register "RCServo:GreenBlueServo|RxD_data_reg[0]"
+    Info: Duplicate register "RCServo:GreenBlueServo|RCServo_position[8]" merged to single register "RCServo:GreenBlueServo|RCServo_position[0]"
+    Info: Duplicate register "RCServo:RedBlueServo|RCServo_position[4]" merged to single register "RCServo:RedBlueServo|RCServo_position[3]"
+    Info: Duplicate register "RCServo:RedBlueServo|RCServo_position[8]" merged to single register "RCServo:RedBlueServo|RCServo_position[6]"
+    Info: Duplicate register "RCServo:BinRecycleServo|RCServo_position[3]" merged to single register "RCServo:BinRecycleServo|RCServo_position[1]"
+    Info: Duplicate register "RCServo:BinRecycleServo|RCServo_position[4]" merged to single register "RCServo:BinRecycleServo|RCServo_position[1]"
+    Info: Duplicate register "RCServo:BinRecycleServo|RCServo_position[8]" merged to single register "RCServo:BinRecycleServo|RCServo_position[1]"
+    Info: Duplicate register "RCServo:BinRecycleServo|RCServo_position[6]" merged to single register "RCServo:BinRecycleServo|RCServo_position[2]"
+    Info: Duplicate register "RCServo:RedServo|RCServo_position[7]" merged to single register "RCServo:RedServo|RCServo_position[3]"
+    Info: Duplicate register "RCServo:RedServo|RCServo_position[5]" merged to single register "RCServo:RedServo|RCServo_position[4]"
+    Info: Duplicate register "RCServo:RedServo|RCServo_position[8]" merged to single register "RCServo:RedServo|RCServo_position[4]"
+Warning: Reduced register "dispense:dispense|dispenseServoRed[0]" with stuck data_in port to stuck value GND
+Warning: Reduced register "RCServo:RedServo|RxD_data_reg[0]" with stuck data_in port to stuck value GND
+Warning: Reduced register "RCServo:RedServo|RCServo_position[0]" with stuck data_in port to stuck value GND
+Info: Duplicate registers merged to single register
+    Info: Duplicate register "maintenance:maintenance|positionRed[6]" merged to single register "maintenance:maintenance|positionRed[4]", power-up level changed
+    Info: Duplicate register "maintenance:maintenance|positionBinRecycle[9]" merged to single register "maintenance:maintenance|positionBinRecycle[1]", power-up level changed
+    Info: Duplicate register "sort:inst6|sortServoRedBlue[3]" merged to single register "sort:inst6|sortServoRedBlue[6]"
+    Info: Duplicate register "maintenance:maintenance|positionRedBlue[3]" merged to single register "maintenance:maintenance|positionRedBlue[6]", power-up level changed
+Info: State machine "|System|head:head|state" contains 5 states
+Info: State machine "|System|eyeLED:eyeLED|state" contains 5 states
+Info: State machine "|System|flashLED:flashLED3|state" contains 3 states
+Info: State machine "|System|flashLED:flashLED2|state" contains 3 states
+Info: State machine "|System|flashLED:flashLED1|state" contains 3 states
+Info: State machine "|System|sort:inst6|state" contains 16 states
+Info: State machine "|System|dispense:dispense|state" contains 10 states
+Info: Selected Auto state machine encoding method for state machine "|System|head:head|state"
+Info: Encoding result for state machine "|System|head:head|state"
+    Info: Completed encoding using 5 state bits
+        Info: Encoded state bit "head:head|state.mouthTwo"
+        Info: Encoded state bit "head:head|state.rotate"
+        Info: Encoded state bit "head:head|state.rotateTwo"
+        Info: Encoded state bit "head:head|state.000"
+        Info: Encoded state bit "head:head|state.rotateThree"
+    Info: State "|System|head:head|state.000" uses code string "00000"
+    Info: State "|System|head:head|state.rotateTwo" uses code string "00110"
+    Info: State "|System|head:head|state.rotate" uses code string "01010"
+    Info: State "|System|head:head|state.mouthTwo" uses code string "10010"
+    Info: State "|System|head:head|state.rotateThree" uses code string "00011"
+Info: Selected Auto state machine encoding method for state machine "|System|eyeLED:eyeLED|state"
+Info: Encoding result for state machine "|System|eyeLED:eyeLED|state"
+    Info: Completed encoding using 5 state bits
+        Info: Encoded state bit "eyeLED:eyeLED|state.flicker"
+        Info: Encoded state bit "eyeLED:eyeLED|state.flickerTwo"
+        Info: Encoded state bit "eyeLED:eyeLED|state.flickerThree"
+        Info: Encoded state bit "eyeLED:eyeLED|state.000"
+        Info: Encoded state bit "eyeLED:eyeLED|state.flickerFour"
+    Info: State "|System|eyeLED:eyeLED|state.000" uses code string "00000"
+    Info: State "|System|eyeLED:eyeLED|state.flickerThree" uses code string "00110"
+    Info: State "|System|eyeLED:eyeLED|state.flickerTwo" uses code string "01010"
+    Info: State "|System|eyeLED:eyeLED|state.flicker" uses code string "10010"
+    Info: State "|System|eyeLED:eyeLED|state.flickerFour" uses code string "00011"
+Info: Selected Auto state machine encoding method for state machine "|System|flashLED:flashLED3|state"
+Info: Encoding result for state machine "|System|flashLED:flashLED3|state"
+    Info: Completed encoding using 3 state bits
+        Info: Encoded state bit "flashLED:flashLED3|state.000"
+        Info: Encoded state bit "flashLED:flashLED3|state.blue"
+        Info: Encoded state bit "flashLED:flashLED3|state.green"
+    Info: State "|System|flashLED:flashLED3|state.000" uses code string "000"
+    Info: State "|System|flashLED:flashLED3|state.green" uses code string "101"
+    Info: State "|System|flashLED:flashLED3|state.blue" uses code string "110"
+Info: Selected Auto state machine encoding method for state machine "|System|flashLED:flashLED2|state"
+Info: Encoding result for state machine "|System|flashLED:flashLED2|state"
+    Info: Completed encoding using 3 state bits
+        Info: Encoded state bit "flashLED:flashLED2|state.000"
+        Info: Encoded state bit "flashLED:flashLED2|state.blue"
+        Info: Encoded state bit "flashLED:flashLED2|state.green"
+    Info: State "|System|flashLED:flashLED2|state.000" uses code string "000"
+    Info: State "|System|flashLED:flashLED2|state.green" uses code string "101"
+    Info: State "|System|flashLED:flashLED2|state.blue" uses code string "110"
+Info: Selected Auto state machine encoding method for state machine "|System|flashLED:flashLED1|state"
+Info: Encoding result for state machine "|System|flashLED:flashLED1|state"
+    Info: Completed encoding using 3 state bits
+        Info: Encoded state bit "flashLED:flashLED1|state.000"
+        Info: Encoded state bit "flashLED:flashLED1|state.blue"
+        Info: Encoded state bit "flashLED:flashLED1|state.green"
+    Info: State "|System|flashLED:flashLED1|state.000" uses code string "000"
+    Info: State "|System|flashLED:flashLED1|state.green" uses code string "101"
+    Info: State "|System|flashLED:flashLED1|state.blue" uses code string "110"
+Info: Selected Auto state machine encoding method for state machine "|System|sort:inst6|state"
+Info: Encoding result for state machine "|System|sort:inst6|state"
+    Info: Completed encoding using 16 state bits
+        Info: Encoded state bit "sort:inst6|state.liftThree"
+        Info: Encoded state bit "sort:inst6|state.red"
+        Info: Encoded state bit "sort:inst6|state.green"
+        Info: Encoded state bit "sort:inst6|state.blue"
+        Info: Encoded state bit "sort:inst6|state.bin"
+        Info: Encoded state bit "sort:inst6|state.recycle"
+        Info: Encoded state bit "sort:inst6|state.lift"
+        Info: Encoded state bit "sort:inst6|state.redSecond"
+        Info: Encoded state bit "sort:inst6|state.greenSecond"
+        Info: Encoded state bit "sort:inst6|state.blueSecond"
+        Info: Encoded state bit "sort:inst6|state.binSecond"
+        Info: Encoded state bit "sort:inst6|state.binThird"
+        Info: Encoded state bit "sort:inst6|state.recycleSecond"
+        Info: Encoded state bit "sort:inst6|state.recycleThird"
+        Info: Encoded state bit "sort:inst6|state.liftTwo"
+        Info: Encoded state bit "sort:inst6|state.0000"
+    Info: State "|System|sort:inst6|state.0000" uses code string "0000000000000000"
+    Info: State "|System|sort:inst6|state.liftTwo" uses code string "0000000000000011"
+    Info: State "|System|sort:inst6|state.recycleThird" uses code string "0000000000000101"
+    Info: State "|System|sort:inst6|state.recycleSecond" uses code string "0000000000001001"
+    Info: State "|System|sort:inst6|state.binThird" uses code string "0000000000010001"
+    Info: State "|System|sort:inst6|state.binSecond" uses code string "0000000000100001"
+    Info: State "|System|sort:inst6|state.blueSecond" uses code string "0000000001000001"
+    Info: State "|System|sort:inst6|state.greenSecond" uses code string "0000000010000001"
+    Info: State "|System|sort:inst6|state.redSecond" uses code string "0000000100000001"
+    Info: State "|System|sort:inst6|state.lift" uses code string "0000001000000001"
+    Info: State "|System|sort:inst6|state.recycle" uses code string "0000010000000001"
+    Info: State "|System|sort:inst6|state.bin" uses code string "0000100000000001"
+    Info: State "|System|sort:inst6|state.blue" uses code string "0001000000000001"
+    Info: State "|System|sort:inst6|state.green" uses code string "0010000000000001"
+    Info: State "|System|sort:inst6|state.red" uses code string "0100000000000001"
+    Info: State "|System|sort:inst6|state.liftThree" uses code string "1000000000000001"
+Info: Selected Auto state machine encoding method for state machine "|System|dispense:dispense|state"
+Info: Encoding result for state machine "|System|dispense:dispense|state"
+    Info: Completed encoding using 10 state bits
+        Info: Encoded state bit "dispense:dispense|state.blueThird"
+        Info: Encoded state bit "dispense:dispense|state.red"
+        Info: Encoded state bit "dispense:dispense|state.green"
+        Info: Encoded state bit "dispense:dispense|state.blue"
+        Info: Encoded state bit "dispense:dispense|state.redSecond"
+        Info: Encoded state bit "dispense:dispense|state.redThird"
+        Info: Encoded state bit "dispense:dispense|state.greenSecond"
+        Info: Encoded state bit "dispense:dispense|state.greenThird"
+        Info: Encoded state bit "dispense:dispense|state.blueSecond"
+        Info: Encoded state bit "dispense:dispense|state.0000"
+    Info: State "|System|dispense:dispense|state.0000" uses code string "0000000000"
+    Info: State "|System|dispense:dispense|state.blueSecond" uses code string "0000000011"
+    Info: State "|System|dispense:dispense|state.greenThird" uses code string "0000000101"
+    Info: State "|System|dispense:dispense|state.greenSecond" uses code string "0000001001"
+    Info: State "|System|dispense:dispense|state.redThird" uses code string "0000010001"
+    Info: State "|System|dispense:dispense|state.redSecond" uses code string "0000100001"
+    Info: State "|System|dispense:dispense|state.blue" uses code string "0001000001"
+    Info: State "|System|dispense:dispense|state.green" uses code string "0010000001"
+    Info: State "|System|dispense:dispense|state.red" uses code string "0100000001"
+    Info: State "|System|dispense:dispense|state.blueThird" uses code string "1000000001"
+Info: Duplicate registers merged to single register
+    Info: Duplicate register "flashLED:flashLED2|redLED2" merged to single register "flashLED:flashLED1|redLED2"
+    Info: Duplicate register "flashLED:flashLED3|redLED2" merged to single register "flashLED:flashLED1|redLED2"
+    Info: Duplicate register "flashLED:flashLED2|greenLED2" merged to single register "flashLED:flashLED1|greenLED2"
+    Info: Duplicate register "flashLED:flashLED3|greenLED2" merged to single register "flashLED:flashLED1|greenLED2"
+    Info: Duplicate register "flashLED:flashLED2|blueLED1" merged to single register "flashLED:flashLED1|blueLED1"
+    Info: Duplicate register "flashLED:flashLED3|blueLED1" merged to single register "flashLED:flashLED1|blueLED1"
+Info: Duplicate registers merged to single register
+    Info: Duplicate register "RCServo:RedBlueServo|RxD_data_reg[3]" merged to single register "RCServo:RedBlueServo|RxD_data_reg[6]", power-up level changed
+    Info: Duplicate register "maintenance:maintenance|positionRedBlue[0]" merged to single register "maintenance:maintenance|positionRedBlue[9]", power-up level changed
+    Info: Duplicate register "RCServo:RedBlueServo|RCServo_position[3]" merged to single register "RCServo:RedBlueServo|RCServo_position[6]", power-up level changed
+Info: Found 1 design units, including 1 entities, in source file c:/program files/altera/71/quartus/libraries/megafunctions/lpm_mult.tdf
+    Info: Found entity 1: lpm_mult
+Info: Elaborated megafunction instantiation "eyeLED:eyeLED|lpm_mult:Mult0"
+Info: Found 1 design units, including 1 entities, in source file db/mult_0011.tdf
+    Info: Found entity 1: mult_0011
+Info: Duplicate registers merged to single register
+    Info: Duplicate register "maintenance:maintenance|positionGreenBlue[3]" merged to single register "maintenance:maintenance|positionGreenBlue[5]", power-up level changed
+    Info: Duplicate register "maintenance:maintenance|positionRedBlue[1]" merged to single register "maintenance:maintenance|positionRedBlue[7]", power-up level changed
+Warning: Reduced register "dispense:dispense|dispenseServoRed[3]" with stuck data_in port to stuck value VCC
+Warning: Reduced register "sort:inst6|sortServoBinRecycle[0]" with stuck data_in port to stuck value GND
+Warning: Reduced register "sort:inst6|sortServoBinRecycle[2]" with stuck data_in port to stuck value VCC
+Info: Power-up level of register "RCServo:RedServo|RxD_data_reg[3]" is not specified -- using power-up level of High to minimize register
+Warning: Reduced register "RCServo:RedServo|RxD_data_reg[3]" with stuck data_in port to stuck value VCC
+Warning: Reduced register "RCServo:BinRecycleServo|RxD_data_reg[0]" with stuck data_in port to stuck value GND
+Info: Power-up level of register "RCServo:BinRecycleServo|RxD_data_reg[2]" is not specified -- using power-up level of High to minimize register
+Warning: Reduced register "RCServo:BinRecycleServo|RxD_data_reg[2]" with stuck data_in port to stuck value VCC
+Info: Power-up level of register "RCServo:RedServo|RCServo_position[3]" is not specified -- using power-up level of High to minimize register
+Warning: Reduced register "RCServo:RedServo|RCServo_position[3]" with stuck data_in port to stuck value VCC
+Warning: Reduced register "RCServo:BinRecycleServo|RCServo_position[0]" with stuck data_in port to stuck value GND
+Info: Power-up level of register "RCServo:BinRecycleServo|RCServo_position[2]" is not specified -- using power-up level of High to minimize register
+Warning: Reduced register "RCServo:BinRecycleServo|RCServo_position[2]" with stuck data_in port to stuck value VCC
+Warning: Output pins are stuck at VCC or GND
+    Warning: Pin "results[2]" stuck at GND
+Info: 84 registers lost all their fanouts during netlist optimizations. The first 84 are displayed below.
+    Info: Register "inst3/ClkCount[7]" lost all its fanouts during netlist optimizations.
+    Info: Register "inst3/ClkCount[6]" lost all its fanouts during netlist optimizations.
+    Info: Register "inst3/ClkCount[5]" lost all its fanouts during netlist optimizations.
+    Info: Register "inst3/ClkCount[4]" lost all its fanouts during netlist optimizations.
+    Info: Register "inst3/ClkCount[3]" lost all its fanouts during netlist optimizations.
+    Info: Register "inst3/ClkCount[2]" lost all its fanouts during netlist optimizations.
+    Info: Register "inst3/ClkCount[1]" lost all its fanouts during netlist optimizations.
+    Info: Register "inst3/ClkCount[0]" lost all its fanouts during netlist optimizations.
+    Info: Register "inst3/ClkTick" lost all its fanouts during netlist optimizations.
+    Info: Register "inst/ClkCount[7]" lost all its fanouts during netlist optimizations.
+    Info: Register "inst/ClkCount[6]" lost all its fanouts during netlist optimizations.
+    Info: Register "inst/ClkCount[5]" lost all its fanouts during netlist optimizations.
+    Info: Register "inst/ClkCount[4]" lost all its fanouts during netlist optimizations.
+    Info: Register "inst/ClkCount[3]" lost all its fanouts during netlist optimizations.
+    Info: Register "inst/ClkCount[2]" lost all its fanouts during netlist optimizations.
+    Info: Register "inst/ClkCount[1]" lost all its fanouts during netlist optimizations.
+    Info: Register "inst/ClkCount[0]" lost all its fanouts during netlist optimizations.
+    Info: Register "inst/ClkTick" lost all its fanouts during netlist optimizations.
+    Info: Register "GreenOtherServo/ClkCount[7]" lost all its fanouts during netlist optimizations.
+    Info: Register "GreenOtherServo/ClkCount[6]" lost all its fanouts during netlist optimizations.
+    Info: Register "GreenOtherServo/ClkCount[5]" lost all its fanouts during netlist optimizations.
+    Info: Register "GreenOtherServo/ClkCount[4]" lost all its fanouts during netlist optimizations.
+    Info: Register "GreenOtherServo/ClkCount[3]" lost all its fanouts during netlist optimizations.
+    Info: Register "GreenOtherServo/ClkCount[2]" lost all its fanouts during netlist optimizations.
+    Info: Register "GreenOtherServo/ClkCount[1]" lost all its fanouts during netlist optimizations.
+    Info: Register "GreenOtherServo/ClkCount[0]" lost all its fanouts during netlist optimizations.
+    Info: Register "GreenOtherServo/ClkTick" lost all its fanouts during netlist optimizations.
+    Info: Register "RedBlueServo/ClkCount[7]" lost all its fanouts during netlist optimizations.
+    Info: Register "RedBlueServo/ClkCount[6]" lost all its fanouts during netlist optimizations.
+    Info: Register "RedBlueServo/ClkCount[5]" lost all its fanouts during netlist optimizations.
+    Info: Register "RedBlueServo/ClkCount[4]" lost all its fanouts during netlist optimizations.
+    Info: Register "RedBlueServo/ClkCount[3]" lost all its fanouts during netlist optimizations.
+    Info: Register "RedBlueServo/ClkCount[2]" lost all its fanouts during netlist optimizations.
+    Info: Register "RedBlueServo/ClkCount[1]" lost all its fanouts during netlist optimizations.
+    Info: Register "RedBlueServo/ClkCount[0]" lost all its fanouts during netlist optimizations.
+    Info: Register "RedBlueServo/ClkTick" lost all its fanouts during netlist optimizations.
+    Info: Register "BinRecycleServo/ClkCount[7]" lost all its fanouts during netlist optimizations.
+    Info: Register "BinRecycleServo/ClkCount[6]" lost all its fanouts during netlist optimizations.
+    Info: Register "BinRecycleServo/ClkCount[5]" lost all its fanouts during netlist optimizations.
+    Info: Register "BinRecycleServo/ClkCount[4]" lost all its fanouts during netlist optimizations.
+    Info: Register "BinRecycleServo/ClkCount[3]" lost all its fanouts during netlist optimizations.
+    Info: Register "BinRecycleServo/ClkCount[2]" lost all its fanouts during netlist optimizations.
+    Info: Register "BinRecycleServo/ClkCount[1]" lost all its fanouts during netlist optimizations.
+    Info: Register "BinRecycleServo/ClkCount[0]" lost all its fanouts during netlist optimizations.
+    Info: Register "BinRecycleServo/ClkTick" lost all its fanouts during netlist optimizations.
+    Info: Register "RedServo/ClkCount[7]" lost all its fanouts during netlist optimizations.
+    Info: Register "RedServo/ClkCount[6]" lost all its fanouts during netlist optimizations.
+    Info: Register "RedServo/ClkCount[5]" lost all its fanouts during netlist optimizations.
+    Info: Register "RedServo/ClkCount[4]" lost all its fanouts during netlist optimizations.
+    Info: Register "RedServo/ClkCount[3]" lost all its fanouts during netlist optimizations.
+    Info: Register "RedServo/ClkCount[2]" lost all its fanouts during netlist optimizations.
+    Info: Register "RedServo/ClkCount[1]" lost all its fanouts during netlist optimizations.
+    Info: Register "RedServo/ClkCount[0]" lost all its fanouts during netlist optimizations.
+    Info: Register "RedServo/ClkTick" lost all its fanouts during netlist optimizations.
+    Info: Register "GreenBlueServo/ClkCount[7]" lost all its fanouts during netlist optimizations.
+    Info: Register "GreenBlueServo/ClkCount[6]" lost all its fanouts during netlist optimizations.
+    Info: Register "GreenBlueServo/ClkCount[5]" lost all its fanouts during netlist optimizations.
+    Info: Register "GreenBlueServo/ClkCount[4]" lost all its fanouts during netlist optimizations.
+    Info: Register "GreenBlueServo/ClkCount[3]" lost all its fanouts during netlist optimizations.
+    Info: Register "GreenBlueServo/ClkCount[2]" lost all its fanouts during netlist optimizations.
+    Info: Register "GreenBlueServo/ClkCount[1]" lost all its fanouts during netlist optimizations.
+    Info: Register "GreenBlueServo/ClkCount[0]" lost all its fanouts during netlist optimizations.
+    Info: Register "GreenBlueServo/ClkTick" lost all its fanouts during netlist optimizations.
+    Info: Register "head/state~7" lost all its fanouts during netlist optimizations.
+    Info: Register "head/state~8" lost all its fanouts during netlist optimizations.
+    Info: Register "eyeLED/state~7" lost all its fanouts during netlist optimizations.
+    Info: Register "eyeLED/state~8" lost all its fanouts during netlist optimizations.
+    Info: Register "flashLED3/state~9" lost all its fanouts during netlist optimizations.
+    Info: Register "flashLED2/state~9" lost all its fanouts during netlist optimizations.
+    Info: Register "flashLED1/state~9" lost all its fanouts during netlist optimizations.
+    Info: Register "inst6/state~297" lost all its fanouts during netlist optimizations.
+    Info: Register "inst6/state~298" lost all its fanouts during netlist optimizations.
+    Info: Register "inst6/state~299" lost all its fanouts during netlist optimizations.
+    Info: Register "inst6/state~300" lost all its fanouts during netlist optimizations.
+    Info: Register "dispense/state~141" lost all its fanouts during netlist optimizations.
+    Info: Register "dispense/state~142" lost all its fanouts during netlist optimizations.
+    Info: Register "dispense/state~143" lost all its fanouts during netlist optimizations.
+    Info: Register "dispense/state~144" lost all its fanouts during netlist optimizations.
+    Info: Register "flashLED2/state.000" lost all its fanouts during netlist optimizations.
+    Info: Register "flashLED2/state.green" lost all its fanouts during netlist optimizations.
+    Info: Register "flashLED2/state.blue" lost all its fanouts during netlist optimizations.
+    Info: Register "flashLED3/state.000" lost all its fanouts during netlist optimizations.
+    Info: Register "flashLED3/state.green" lost all its fanouts during netlist optimizations.
+    Info: Register "flashLED3/state.blue" lost all its fanouts during netlist optimizations.
+Info: Implemented 954 device resources after synthesis - the final resource count might be different
+    Info: Implemented 9 input pins
+    Info: Implemented 44 output pins
+    Info: Implemented 900 logic cells
+    Info: Implemented 1 DSP elements
+Info: Quartus II Analysis & Synthesis was successful. 0 errors, 77 warnings
+    Info: Allocated 178 megabytes of memory during processing
+    Info: Processing ended: Mon Dec 01 21:13:35 2014
+    Info: Elapsed time: 00:00:16
+
+

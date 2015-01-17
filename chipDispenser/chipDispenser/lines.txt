@@ -1,0 +1,15 @@
+52 + 140 + 188 + 84 + 214 + 282 + 32 + 25 + 30 + 27 = 1074
+without mux = 960
+
+
+red blue servo - a13
+green other servo - b13
+bin recycle servo - a14
+red servo - b14
+green bule servo - a15
+
+select - l2
+clk - l1
+
+21/11/2014
+66 + 485 + 183 + 295 + 32 + 30 + 25 + 25 + 27 = 1168

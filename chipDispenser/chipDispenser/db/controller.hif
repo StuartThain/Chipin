@@ -1,0 +1,1205 @@
+Version 7.1 Build 156 04/30/2007 SJ Full Version
+11
+894
+OFF
+OFF
+OFF
+OFF
+ON
+ON
+ON
+FV_OFF
+Level2
+0
+0
+VRSM_ON
+VHSM_ON
+0
+-- Start Partition --
+-- End Partition --
+-- Start Library Paths --
+-- End Library Paths --
+-- Start VHDL Libraries --
+-- End VHDL Libraries --
+# entity
+System
+# storage
+db|controller.(0).cnf
+db|controller.(0).cnf
+# case_insensitive
+# source_file
+System.bdf
+5ac6b3fbace195bf3721eedc42ca3d3
+25
+# hierarchies {
+|
+}
+# lmf
+c:|program files|altera|71|quartus|lmf|
+d41d8cd98f0b24e980998ecf8427e
+# macro_sequence
+
+# end
+# entity
+RCServo
+# storage
+db|controller.(1).cnf
+db|controller.(1).cnf
+# logic_option {
+AUTO_RAM_RECOGNITION
+ON
+}
+# case_sensitive
+# source_file
+RCServo.v
+62f8f489564b5cb0ed4ce743b521fe
+7
+# internal_option {
+HDL_INITIAL_FANOUT_LIMIT
+OFF
+AUTO_RESOURCE_SHARING
+OFF
+AUTO_RAM_RECOGNITION
+ON
+AUTO_ROM_RECOGNITION
+ON
+IGNORE_VERILOG_INITIAL_CONSTRUCTS
+OFF
+}
+# user_parameter {
+ClkDiv
+195
+PARAMETER_UNKNOWN
+USR
+}
+# hierarchies {
+RCServo:GreenBlueServo
+RCServo:RedServo
+RCServo:BinRecycleServo
+RCServo:RedBlueServo
+RCServo:GreenOtherServo
+RCServo:inst3
+RCServo:inst2
+}
+# lmf
+c:|program files|altera|71|quartus|lmf|
+d41d8cd98f0b24e980998ecf8427e
+# macro_sequence
+
+# end
+# entity
+multiplexerServo
+# storage
+db|controller.(2).cnf
+db|controller.(2).cnf
+# logic_option {
+AUTO_RAM_RECOGNITION
+ON
+}
+# case_sensitive
+# source_file
+multiplexerServo.v
+df0e26a1064a3e85b48154b3e5ea8
+7
+# internal_option {
+HDL_INITIAL_FANOUT_LIMIT
+OFF
+AUTO_RESOURCE_SHARING
+OFF
+AUTO_RAM_RECOGNITION
+ON
+AUTO_ROM_RECOGNITION
+ON
+IGNORE_VERILOG_INITIAL_CONSTRUCTS
+OFF
+}
+# user_parameter {
+normal
+0
+PARAMETER_UNSIGNED_BIN
+USR
+test
+1
+PARAMETER_UNSIGNED_BIN
+USR
+}
+# hierarchies {
+multiplexerServo:GreenBlueServoMux
+multiplexerServo:RedServoMux
+multiplexerServo:BinRecycleServoMux
+multiplexerServo:RedBlueServoMux
+multiplexerServo:GreenOtherServoMux
+}
+# lmf
+c:|program files|altera|71|quartus|lmf|
+d41d8cd98f0b24e980998ecf8427e
+# macro_sequence
+
+# end
+# entity
+multiplexerThree
+# storage
+db|controller.(4).cnf
+db|controller.(4).cnf
+# logic_option {
+AUTO_RAM_RECOGNITION
+ON
+}
+# case_sensitive
+# source_file
+multiplexerThree.v
+dbe1cac23e73e93df3a20445e7640d0
+7
+# internal_option {
+HDL_INITIAL_FANOUT_LIMIT
+OFF
+AUTO_RESOURCE_SHARING
+OFF
+AUTO_RAM_RECOGNITION
+ON
+AUTO_ROM_RECOGNITION
+ON
+IGNORE_VERILOG_INITIAL_CONSTRUCTS
+OFF
+}
+# user_parameter {
+controller
+0
+PARAMETER_UNSIGNED_BIN
+USR
+maintenance
+1
+PARAMETER_UNSIGNED_BIN
+USR
+}
+# hierarchies {
+multiplexerThree:mux3
+}
+# lmf
+c:|program files|altera|71|quartus|lmf|
+d41d8cd98f0b24e980998ecf8427e
+# macro_sequence
+
+# end
+# entity
+controller
+# storage
+db|controller.(5).cnf
+db|controller.(5).cnf
+# logic_option {
+AUTO_RAM_RECOGNITION
+ON
+}
+# case_sensitive
+# source_file
+controller.v
+8e68b796a8c72fce59b978a3fdee1a
+7
+# internal_option {
+HDL_INITIAL_FANOUT_LIMIT
+OFF
+AUTO_RESOURCE_SHARING
+OFF
+AUTO_RAM_RECOGNITION
+ON
+AUTO_ROM_RECOGNITION
+ON
+IGNORE_VERILOG_INITIAL_CONSTRUCTS
+OFF
+}
+# hierarchies {
+controller:controller
+}
+# lmf
+c:|program files|altera|71|quartus|lmf|
+d41d8cd98f0b24e980998ecf8427e
+# macro_sequence
+
+# end
+# entity
+multiplexerFour
+# storage
+db|controller.(7).cnf
+db|controller.(7).cnf
+# logic_option {
+AUTO_RAM_RECOGNITION
+ON
+}
+# case_sensitive
+# source_file
+multiplexerFour.v
+76a2410e4ce74b8f9a2582435eebfba
+7
+# internal_option {
+HDL_INITIAL_FANOUT_LIMIT
+OFF
+AUTO_RESOURCE_SHARING
+OFF
+AUTO_RAM_RECOGNITION
+ON
+AUTO_ROM_RECOGNITION
+ON
+IGNORE_VERILOG_INITIAL_CONSTRUCTS
+OFF
+}
+# user_parameter {
+controller
+0
+PARAMETER_UNSIGNED_BIN
+USR
+maintenance
+1
+PARAMETER_UNSIGNED_BIN
+USR
+}
+# hierarchies {
+multiplexerFour:mux4
+}
+# lmf
+c:|program files|altera|71|quartus|lmf|
+d41d8cd98f0b24e980998ecf8427e
+# macro_sequence
+
+# end
+# entity
+multiplexerSeven
+# storage
+db|controller.(9).cnf
+db|controller.(9).cnf
+# logic_option {
+AUTO_RAM_RECOGNITION
+ON
+}
+# case_sensitive
+# source_file
+multiplexerSeven.v
+ff62b68fea958c499278421d7116c32a
+7
+# internal_option {
+HDL_INITIAL_FANOUT_LIMIT
+OFF
+AUTO_RESOURCE_SHARING
+OFF
+AUTO_RAM_RECOGNITION
+ON
+AUTO_ROM_RECOGNITION
+ON
+IGNORE_VERILOG_INITIAL_CONSTRUCTS
+OFF
+}
+# user_parameter {
+controller
+0
+PARAMETER_UNSIGNED_BIN
+USR
+maintenance
+1
+PARAMETER_UNSIGNED_BIN
+USR
+}
+# hierarchies {
+multiplexerSeven:mux7
+}
+# lmf
+c:|program files|altera|71|quartus|lmf|
+d41d8cd98f0b24e980998ecf8427e
+# macro_sequence
+
+# end
+# entity
+RCServoFull
+# storage
+db|controller.(10).cnf
+db|controller.(10).cnf
+# logic_option {
+AUTO_RAM_RECOGNITION
+ON
+}
+# case_sensitive
+# source_file
+RCServoFull.v
+23e1e15bbddff2d4ac3236afdaab9178
+7
+# internal_option {
+HDL_INITIAL_FANOUT_LIMIT
+OFF
+AUTO_RESOURCE_SHARING
+OFF
+AUTO_RAM_RECOGNITION
+ON
+AUTO_ROM_RECOGNITION
+ON
+IGNORE_VERILOG_INITIAL_CONSTRUCTS
+OFF
+}
+# user_parameter {
+ClkDiv
+195
+PARAMETER_UNKNOWN
+USR
+}
+# hierarchies {
+RCServoFull:inst
+}
+# lmf
+c:|program files|altera|71|quartus|lmf|
+d41d8cd98f0b24e980998ecf8427e
+# macro_sequence
+
+# end
+# entity
+flashLED
+# storage
+db|controller.(11).cnf
+db|controller.(11).cnf
+# logic_option {
+AUTO_RAM_RECOGNITION
+ON
+}
+# case_sensitive
+# source_file
+flashLED.v
+835145abd1867189253164fdcb5c88ef
+7
+# internal_option {
+HDL_INITIAL_FANOUT_LIMIT
+OFF
+AUTO_RESOURCE_SHARING
+OFF
+AUTO_RAM_RECOGNITION
+ON
+AUTO_ROM_RECOGNITION
+ON
+IGNORE_VERILOG_INITIAL_CONSTRUCTS
+OFF
+}
+# user_parameter {
+red
+00
+PARAMETER_UNSIGNED_BIN
+USR
+green
+01
+PARAMETER_UNSIGNED_BIN
+USR
+blue
+10
+PARAMETER_UNSIGNED_BIN
+USR
+}
+# hierarchies {
+flashLED:flashLED1
+flashLED:flashLED2
+flashLED:flashLED3
+}
+# lmf
+c:|program files|altera|71|quartus|lmf|
+d41d8cd98f0b24e980998ecf8427e
+# macro_sequence
+
+# end
+# entity
+eyeLED
+# storage
+db|controller.(12).cnf
+db|controller.(12).cnf
+# logic_option {
+AUTO_RAM_RECOGNITION
+ON
+}
+# case_sensitive
+# source_file
+eyeLED.v
+aa4eaca451e16b83537c19c7905135
+7
+# internal_option {
+HDL_INITIAL_FANOUT_LIMIT
+OFF
+AUTO_RESOURCE_SHARING
+OFF
+AUTO_RAM_RECOGNITION
+ON
+AUTO_ROM_RECOGNITION
+ON
+IGNORE_VERILOG_INITIAL_CONSTRUCTS
+OFF
+}
+# user_parameter {
+clkDelay
+195
+PARAMETER_UNKNOWN
+USR
+delay
+000
+PARAMETER_UNSIGNED_BIN
+USR
+flicker
+001
+PARAMETER_UNSIGNED_BIN
+USR
+flickerTwo
+010
+PARAMETER_UNSIGNED_BIN
+USR
+flickerThree
+011
+PARAMETER_UNSIGNED_BIN
+USR
+flickerFour
+100
+PARAMETER_UNSIGNED_BIN
+USR
+}
+# hierarchies {
+eyeLED:eyeLED
+}
+# lmf
+c:|program files|altera|71|quartus|lmf|
+d41d8cd98f0b24e980998ecf8427e
+# macro_sequence
+
+# end
+# entity
+head
+# storage
+db|controller.(13).cnf
+db|controller.(13).cnf
+# logic_option {
+AUTO_RAM_RECOGNITION
+ON
+}
+# case_sensitive
+# source_file
+head.v
+83d297fc58563ffa9d32e35da0d8b3fd
+7
+# internal_option {
+HDL_INITIAL_FANOUT_LIMIT
+OFF
+AUTO_RESOURCE_SHARING
+OFF
+AUTO_RAM_RECOGNITION
+ON
+AUTO_ROM_RECOGNITION
+ON
+IGNORE_VERILOG_INITIAL_CONSTRUCTS
+OFF
+}
+# user_parameter {
+mouth
+000
+PARAMETER_UNSIGNED_BIN
+USR
+mouthTwo
+001
+PARAMETER_UNSIGNED_BIN
+USR
+rotate
+010
+PARAMETER_UNSIGNED_BIN
+USR
+rotateTwo
+011
+PARAMETER_UNSIGNED_BIN
+USR
+rotateThree
+100
+PARAMETER_UNSIGNED_BIN
+USR
+}
+# hierarchies {
+head:head
+}
+# lmf
+c:|program files|altera|71|quartus|lmf|
+d41d8cd98f0b24e980998ecf8427e
+# macro_sequence
+
+# end
+# entity
+multiplexerOutput
+# storage
+db|controller.(14).cnf
+db|controller.(14).cnf
+# logic_option {
+AUTO_RAM_RECOGNITION
+ON
+}
+# case_sensitive
+# source_file
+multiplexerOutput.v
+6a7e444a25f6e2db3125ab3570cccad1
+7
+# internal_option {
+HDL_INITIAL_FANOUT_LIMIT
+OFF
+AUTO_RESOURCE_SHARING
+OFF
+AUTO_RAM_RECOGNITION
+ON
+AUTO_ROM_RECOGNITION
+ON
+IGNORE_VERILOG_INITIAL_CONSTRUCTS
+OFF
+}
+# user_parameter {
+normal
+0
+PARAMETER_UNSIGNED_BIN
+USR
+maintenance
+1
+PARAMETER_UNSIGNED_BIN
+USR
+}
+# hierarchies {
+multiplexerOutput:muxOut
+}
+# lmf
+c:|program files|altera|71|quartus|lmf|
+d41d8cd98f0b24e980998ecf8427e
+# macro_sequence
+
+# end
+# entity
+lpm_mult
+# storage
+db|controller.(15).cnf
+db|controller.(15).cnf
+# case_insensitive
+# source_file
+c:|program files|altera|71|quartus|libraries|megafunctions|lpm_mult.tdf
+405065fceca1fb710a566a7c655524
+6
+# user_parameter {
+AUTO_CARRY_CHAINS
+ON
+AUTO_CARRY
+USR
+IGNORE_CARRY_BUFFERS
+OFF
+IGNORE_CARRY
+USR
+AUTO_CASCADE_CHAINS
+ON
+AUTO_CASCADE
+USR
+IGNORE_CASCADE_BUFFERS
+OFF
+IGNORE_CASCADE
+USR
+LPM_WIDTHA
+8
+PARAMETER_UNKNOWN
+USR
+LPM_WIDTHB
+8
+PARAMETER_UNKNOWN
+USR
+LPM_WIDTHP
+16
+PARAMETER_UNKNOWN
+USR
+LPM_WIDTHR
+16
+PARAMETER_UNKNOWN
+USR
+LPM_WIDTHS
+1
+PARAMETER_UNKNOWN
+USR
+LPM_REPRESENTATION
+UNSIGNED
+PARAMETER_UNKNOWN
+USR
+LPM_PIPELINE
+0
+PARAMETER_UNKNOWN
+DEF
+LATENCY
+0
+PARAMETER_UNKNOWN
+DEF
+INPUT_A_IS_CONSTANT
+NO
+PARAMETER_UNKNOWN
+USR
+INPUT_B_IS_CONSTANT
+YES
+PARAMETER_UNKNOWN
+USR
+USE_EAB
+OFF
+PARAMETER_UNKNOWN
+DEF
+MAXIMIZE_SPEED
+5
+PARAMETER_UNKNOWN
+USR
+DEVICE_FAMILY
+Cyclone II
+PARAMETER_UNKNOWN
+USR
+CARRY_CHAIN
+MANUAL
+PARAMETER_UNKNOWN
+USR
+APEX20K_TECHNOLOGY_MAPPER
+LUT
+TECH_MAPPER_APEX20K
+USR
+DEDICATED_MULTIPLIER_CIRCUITRY
+AUTO
+PARAMETER_UNKNOWN
+USR
+DEDICATED_MULTIPLIER_MIN_INPUT_WIDTH_FOR_AUTO
+0
+PARAMETER_UNKNOWN
+DEF
+DEDICATED_MULTIPLIER_MIN_OUTPUT_WIDTH_FOR_AUTO
+0
+PARAMETER_UNKNOWN
+DEF
+CBXI_PARAMETER
+mult_0011
+PARAMETER_UNKNOWN
+USR
+INPUT_A_FIXED_VALUE
+Bx
+PARAMETER_UNKNOWN
+DEF
+INPUT_B_FIXED_VALUE
+Bx
+PARAMETER_UNKNOWN
+DEF
+USE_AHDL_IMPLEMENTATION
+OFF
+PARAMETER_UNKNOWN
+DEF
+}
+# used_port {
+result9
+-1
+3
+result8
+-1
+3
+result7
+-1
+3
+result6
+-1
+3
+result5
+-1
+3
+result4
+-1
+3
+result3
+-1
+3
+result2
+-1
+3
+result15
+-1
+3
+result14
+-1
+3
+result13
+-1
+3
+result12
+-1
+3
+result11
+-1
+3
+result10
+-1
+3
+result1
+-1
+3
+dataa7
+-1
+3
+dataa6
+-1
+3
+dataa5
+-1
+3
+dataa4
+-1
+3
+dataa3
+-1
+3
+dataa2
+-1
+3
+dataa1
+-1
+3
+dataa0
+-1
+3
+datab5
+-1
+1
+datab4
+-1
+1
+datab3
+-1
+1
+datab2
+-1
+1
+datab7
+-1
+2
+datab6
+-1
+2
+datab1
+-1
+2
+datab0
+-1
+2
+}
+# include_file {
+c:|program files|altera|71|quartus|libraries|megafunctions|multcore.inc
+13b7e8bee916e23c5f79837e9c670
+c:|program files|altera|71|quartus|libraries|megafunctions|aglobal71.inc
+80b63f71158cd1a01acf29ef94ccd6
+c:|program files|altera|71|quartus|libraries|megafunctions|lpm_add_sub.inc
+7d9a33dd39f13aa690c3d0edd88351
+c:|program files|altera|71|quartus|libraries|megafunctions|bypassff.inc
+8e8df160d449a63ec15dc86ecf2b373f
+c:|program files|altera|71|quartus|libraries|megafunctions|altshift.inc
+70fa13aee7d6d160ef20b2de32813a
+}
+# lmf
+c:|program files|altera|71|quartus|lmf|
+d41d8cd98f0b24e980998ecf8427e
+# macro_sequence
+
+# end
+# entity
+mult_0011
+# storage
+db|controller.(16).cnf
+db|controller.(16).cnf
+# case_insensitive
+# source_file
+db|mult_0011.tdf
+8b7f287c799b434d2fe8d349a99e36
+6
+# user_parameter {
+dataa_width
+0
+PARAMETER_UNKNOWN
+DEF
+}
+# used_port {
+result9
+-1
+3
+result8
+-1
+3
+result7
+-1
+3
+result6
+-1
+3
+result5
+-1
+3
+result4
+-1
+3
+result3
+-1
+3
+result2
+-1
+3
+result15
+-1
+3
+result14
+-1
+3
+result13
+-1
+3
+result12
+-1
+3
+result11
+-1
+3
+result10
+-1
+3
+result1
+-1
+3
+result0
+-1
+3
+datab7
+-1
+3
+datab6
+-1
+3
+datab5
+-1
+3
+datab4
+-1
+3
+datab3
+-1
+3
+datab2
+-1
+3
+datab1
+-1
+3
+datab0
+-1
+3
+dataa7
+-1
+3
+dataa6
+-1
+3
+dataa5
+-1
+3
+dataa4
+-1
+3
+dataa3
+-1
+3
+dataa2
+-1
+3
+dataa1
+-1
+3
+dataa0
+-1
+3
+}
+# lmf
+c:|program files|altera|71|quartus|lmf|
+d41d8cd98f0b24e980998ecf8427e
+# macro_sequence
+
+# end
+# entity
+sort
+# storage
+db|controller.(6).cnf
+db|controller.(6).cnf
+# logic_option {
+AUTO_RAM_RECOGNITION
+ON
+}
+# case_sensitive
+# source_file
+sort.v
+77ff3d80a5fae7a82d34143ca6737
+7
+# internal_option {
+HDL_INITIAL_FANOUT_LIMIT
+OFF
+AUTO_RESOURCE_SHARING
+OFF
+AUTO_RAM_RECOGNITION
+ON
+AUTO_ROM_RECOGNITION
+ON
+IGNORE_VERILOG_INITIAL_CONSTRUCTS
+OFF
+}
+# user_parameter {
+colourSense
+0000
+PARAMETER_UNSIGNED_BIN
+USR
+red
+0001
+PARAMETER_UNSIGNED_BIN
+USR
+redSecond
+0010
+PARAMETER_UNSIGNED_BIN
+USR
+green
+0011
+PARAMETER_UNSIGNED_BIN
+USR
+greenSecond
+0100
+PARAMETER_UNSIGNED_BIN
+USR
+blue
+0101
+PARAMETER_UNSIGNED_BIN
+USR
+blueSecond
+0110
+PARAMETER_UNSIGNED_BIN
+USR
+bin
+0111
+PARAMETER_UNSIGNED_BIN
+USR
+binSecond
+1000
+PARAMETER_UNSIGNED_BIN
+USR
+binThird
+1001
+PARAMETER_UNSIGNED_BIN
+USR
+recycle
+1010
+PARAMETER_UNSIGNED_BIN
+USR
+recycleSecond
+1011
+PARAMETER_UNSIGNED_BIN
+USR
+recycleThird
+1100
+PARAMETER_UNSIGNED_BIN
+USR
+lift
+1101
+PARAMETER_UNSIGNED_BIN
+USR
+liftTwo
+1110
+PARAMETER_UNSIGNED_BIN
+USR
+liftThree
+1111
+PARAMETER_UNSIGNED_BIN
+USR
+}
+# hierarchies {
+sort:inst6
+}
+# lmf
+c:|program files|altera|71|quartus|lmf|
+d41d8cd98f0b24e980998ecf8427e
+# macro_sequence
+
+# end
+# entity
+maintenance
+# storage
+db|controller.(8).cnf
+db|controller.(8).cnf
+# logic_option {
+AUTO_RAM_RECOGNITION
+ON
+}
+# case_sensitive
+# source_file
+maintenance.v
+4a50ffcc6d11db41c5174cfd283298a5
+7
+# internal_option {
+HDL_INITIAL_FANOUT_LIMIT
+OFF
+AUTO_RESOURCE_SHARING
+OFF
+AUTO_RAM_RECOGNITION
+ON
+AUTO_ROM_RECOGNITION
+ON
+IGNORE_VERILOG_INITIAL_CONSTRUCTS
+OFF
+}
+# user_parameter {
+control
+00000
+PARAMETER_UNSIGNED_BIN
+USR
+binHopper
+00001
+PARAMETER_UNSIGNED_BIN
+USR
+dispenseRed
+00010
+PARAMETER_UNSIGNED_BIN
+USR
+dispenseGreen
+00011
+PARAMETER_UNSIGNED_BIN
+USR
+dispenseBlue
+00100
+PARAMETER_UNSIGNED_BIN
+USR
+testRedBlueLeft
+00101
+PARAMETER_UNSIGNED_BIN
+USR
+testRedBlueCentre
+00110
+PARAMETER_UNSIGNED_BIN
+USR
+testRedBlueRight
+00111
+PARAMETER_UNSIGNED_BIN
+USR
+testGreenOtherUp
+01000
+PARAMETER_UNSIGNED_BIN
+USR
+testGreenOtherCentre
+01001
+PARAMETER_UNSIGNED_BIN
+USR
+testGreenOtherDown
+01010
+PARAMETER_UNSIGNED_BIN
+USR
+testBinRecycleLeft
+01011
+PARAMETER_UNSIGNED_BIN
+USR
+testBinRecycleRight
+01100
+PARAMETER_UNSIGNED_BIN
+USR
+testRedPush
+01101
+PARAMETER_UNSIGNED_BIN
+USR
+testRedHome
+01110
+PARAMETER_UNSIGNED_BIN
+USR
+testGreenBlueLeft
+01111
+PARAMETER_UNSIGNED_BIN
+USR
+testGreenBlueCentre
+10000
+PARAMETER_UNSIGNED_BIN
+USR
+testGreenBlueRight
+10001
+PARAMETER_UNSIGNED_BIN
+USR
+maintenanceEND
+10010
+PARAMETER_UNSIGNED_BIN
+USR
+}
+# hierarchies {
+maintenance:maintenance
+}
+# lmf
+c:|program files|altera|71|quartus|lmf|
+d41d8cd98f0b24e980998ecf8427e
+# macro_sequence
+
+# end
+# entity
+dispense
+# storage
+db|controller.(3).cnf
+db|controller.(3).cnf
+# logic_option {
+AUTO_RAM_RECOGNITION
+ON
+}
+# case_sensitive
+# source_file
+dispense.v
+5fc04ddf8792b9643d7dcead592c42
+7
+# internal_option {
+HDL_INITIAL_FANOUT_LIMIT
+OFF
+AUTO_RESOURCE_SHARING
+OFF
+AUTO_RAM_RECOGNITION
+ON
+AUTO_ROM_RECOGNITION
+ON
+IGNORE_VERILOG_INITIAL_CONSTRUCTS
+OFF
+}
+# user_parameter {
+control
+0000
+PARAMETER_UNSIGNED_BIN
+USR
+red
+0001
+PARAMETER_UNSIGNED_BIN
+USR
+redSecond
+0010
+PARAMETER_UNSIGNED_BIN
+USR
+redThird
+0011
+PARAMETER_UNSIGNED_BIN
+USR
+green
+0100
+PARAMETER_UNSIGNED_BIN
+USR
+greenSecond
+0101
+PARAMETER_UNSIGNED_BIN
+USR
+greenThird
+0110
+PARAMETER_UNSIGNED_BIN
+USR
+blue
+0111
+PARAMETER_UNSIGNED_BIN
+USR
+blueSecond
+1000
+PARAMETER_UNSIGNED_BIN
+USR
+blueThird
+1001
+PARAMETER_UNSIGNED_BIN
+USR
+}
+# hierarchies {
+dispense:dispense
+}
+# lmf
+c:|program files|altera|71|quartus|lmf|
+d41d8cd98f0b24e980998ecf8427e
+# macro_sequence
+
+# end
+# complete
+

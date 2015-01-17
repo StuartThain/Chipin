@@ -1,0 +1,318 @@
+module sort(clk, start, colour, sortServoRedBlue, sortServoGreenOther, sortServoBinRecycle, liftUp, liftDown, complete, redLED, greenLED, blueLED);
+
+//input
+input clk, start;
+input [2:0] colour;
+
+//output
+output [9:0] sortServoRedBlue, sortServoGreenOther, sortServoBinRecycle;
+output [0:0] liftUp, liftDown;
+output complete;
+output [0:0] redLED, greenLED, blueLED;
+
+//reg
+reg [9:0] sortServoRedBlue, sortServoGreenOther, sortServoBinRecycle;
+reg [0:0] liftUp, liftDown;
+reg [3:0] state;
+reg [26:0] pause;
+reg [2:0] colour_reg, colourCheck;
+reg complete;
+reg [0:0] redLED, greenLED, blueLED;
+
+//initial
+initial state = 4'd0;
+initial pause = 27'd0;
+initial sortServoRedBlue = 10'd355;    //set to centre
+initial sortServoGreenOther = 10'd340;	//set servo to centre
+initial sortServoBinRecycle = 10'd580;	//set servo to the bin position as it does not matter which side the slider starts on
+initial liftUp = 1'b1;//off
+initial liftDown = 1'b0;//off
+
+//states
+parameter colourSense = 4'd0, red = 4'd1, redSecond = 4'd2, green = 4'd3, greenSecond = 4'd4,
+		  blue = 4'd5, blueSecond = 4'd6, bin = 4'd7, binSecond = 4'd8, binThird = 4'd9,
+		  recycle = 4'd10, recycleSecond = 4'd11, recycleThird = 4'd12, lift = 4'd13, liftTwo = 4'd14, liftThree = 4'd15;
+
+always@(posedge clk)
+	begin
+		if(colour != colourCheck)
+				begin
+					colourCheck <= colour;
+					colour_reg <= colour;
+					complete <= 1'b0;
+				end
+		if(start == 1'b1)
+			begin
+				case(state)
+					colourSense:					//state control
+						begin
+							if(colour_reg == 3'b000)	//check if red
+								begin
+								colour_reg <= 3'b111;	//set colour to wait number
+								state <= red;
+								end
+							else if(colour_reg == 3'b001) //check if green
+								begin
+								colour_reg <= 3'b111;	//set colour to wait number
+								state <= green;
+								end
+							else if(colour_reg == 3'b010)	//check if blue
+								begin
+								colour_reg <= 3'b111;	//set colour to wait number
+								state <= blue;
+								end
+							else if(colour_reg == 3'b011)	//check if bin
+								begin
+								colour_reg <= 3'b111;	//set colour to wait number
+								state <= bin;
+								end
+							else if(colour_reg == 3'b100)	//check if recycle
+								begin
+								colour_reg <= 3'b111;	//set colour to wait number
+								state <= recycle;
+								end
+							else if(colour_reg == 3'b101)	//check if lift
+								begin
+								colour_reg <= 3'b111;	//set colour to wait number
+								state <= lift;
+								end
+							else
+								begin
+								state <= colourSense;
+								end
+						end
+					red:							//RED total time on FPGA = 1.0 seconds
+						begin
+						redLED <= 1'b1;
+						sortServoRedBlue <= 10'd570;  // set servo to sort a red chip
+							if(pause >= 20000000)		//wait for 0.5 seconds
+								begin
+								pause <= 27'b0;                 //reset wait counter
+								sortServoRedBlue <= 10'd355;    //reset the servo to the centre position
+								state <= redSecond; //return to sensing colours
+								end
+							else
+								begin
+								pause <= pause + 1'b1;	//pause += 1
+								state <= red;	//repeat state until wait is complete
+								end                   //end of the wait loop
+						end
+					redSecond:
+						begin
+						if(pause >= 5000000)
+							begin
+							pause <= 27'b0;
+							complete <= 1'b1;	//send finnished sorting signal
+							redLED <= 1'b0;
+							state <= colourSense; //return to sensing colours
+							end
+						else
+							begin
+							pause <= pause + 1'b1;
+							state <= redSecond;
+							end
+						end
+					green:							//GREEN total time on FPGA = 1.0 seconds
+						begin
+						greenLED <= 1'b1;
+						sortServoGreenOther <= 10'd70; 	//set servo to sort a green chip
+							if(pause >= 20000000)		//wait for 0.5 seconds
+								begin
+								pause <= 27'b0;
+								sortServoGreenOther <= 10'd340;	//reset the servo to the centre position
+								state <= greenSecond;			//go to the next slider movement for a green chip
+								end
+							else						//if the wait is not complete
+								begin
+								pause <= pause + 1'b1;	//pause += 1
+								state <= green;			//repeat state until wait is complete
+								end				//end of wait loop
+												
+						end
+					greenSecond:
+						begin
+						if(pause >= 5000000)		//wait for 0.5 seconds
+							begin
+							pause <= 27'b0;
+							complete <= 1'b1;	//send finnished sorting signal
+							greenLED <= 1'b0;
+							state <= colourSense; // return to sensing colour
+							end
+						else
+							begin
+							pause <= pause + 1'b1;	//pause += 1
+							state <= greenSecond;	//repeat state until wait is complete
+							end	
+						end
+					blue:							//BLUE total time on FPGA = 1.0 seconds
+						begin
+						blueLED <= 1'b1;
+						sortServoRedBlue <= 10'd185;  // set servo to sort a blue chip
+							if(pause >= 20000000)	//wait for 0.5 seconds
+								begin
+								pause <= 27'b0;                 //reset wait counter
+								sortServoRedBlue <= 10'd355;    //reset the servo to the centre position
+								state <= blueSecond;
+								end
+							else
+								begin
+								pause <= pause + 1'b1;	//pause += 1
+								state <= blue;	//repeat state until wait is complete
+								end					
+						end
+					blueSecond:
+						begin
+						if(pause >= 5000000)
+							begin
+							pause <= 27'b0;
+							complete <= 1'b1;	//send finnished sorting signal
+							blueLED <= 1'b0;
+							state <= colourSense;		//return to sensing colour
+							end
+						else
+							begin
+							pause <= pause + 1'b1;
+							state <= blueSecond;
+							end
+						end
+					bin:							//BIN total time on FPGA = 1.5 seconds
+						begin
+						sortServoGreenOther <= 10'd560;	//set servo to collect a chip for the bin
+						sortServoBinRecycle <= 10'd350;	//set bin/recycle servo to wait for a chip for bin			
+							if(pause >= 20000000)	//wait for 0.5 seconds
+								begin
+								pause <= 27'b0;																
+								sortServoGreenOther <= 10'd340;	//set servo to send the chip to the bin/recycle slider
+								state <= binSecond;	//go to the next slider movement for the bin
+								end
+							else
+								begin
+								pause <= pause + 1'b1;	//pause += 1
+								state <= bin;	//repeat state until wait is complete
+								end			
+						end
+					binSecond:
+						begin
+						if(pause >= 20000000)	//wait for 0.5 seconds
+								begin
+								pause <= 27'b0;
+								sortServoBinRecycle <= 10'd580;	//set servo to put the chip in the bin
+								state <= binThird;
+								end
+							else
+								begin
+								pause <= pause + 1'b1;	//pause += 1
+								state <= binSecond;	//repeat state until wait is complete
+								end
+						end
+					binThird:
+						begin
+						if(pause >= 5000000)
+							begin
+							pause <= 27'b0;
+							complete <= 1'b1;	//send finnished sorting signal
+							state <= colourSense;			//return to sensing colour
+							end
+						else
+							begin
+							pause <= pause + 1'b1;
+							state <= binThird;
+							end
+						end
+					recycle:						//RECYCLE total time on FPGA = 1.5 seconds
+						begin
+						sortServoGreenOther <= 10'd560;	//set servo to collect a chip for recycle
+						sortServoBinRecycle <= 10'd580;	//set servo to wait for a chip for recycle
+							if(pause >= 20000000)	//wait for 0.5 seconds
+								begin
+								pause <= 27'b0;								
+								sortServoGreenOther <= 10'd340;	//set servo to move a chip to the bin/recycle slider
+								state <= recycleSecond;		//go to the next slider movement for recycle
+								end
+							else
+								begin
+								pause <= pause + 1'b1;	//pause += 1
+								state <= recycle;	//repeat state until wait is complete
+								end										
+						end
+					recycleSecond:
+						begin
+						if(pause >= 20000000)	//wait for 0.5 seconds
+							begin
+							pause <= 27'b0;
+							sortServoBinRecycle <= 10'd350;	//set servo to send a chip to recycle
+							state <= recycleThird;
+							end
+						else
+							begin
+							pause <= pause + 1'b1;	//pause += 1
+							state <= recycleSecond;	//repeat state until wait is complete
+							end	
+						end
+					recycleThird:
+						begin
+						if(pause >= 5000000)
+							begin
+							pause <= 27'b0;
+							complete <= 1'b1;	//send finnished sorting signal
+							state <= colourSense;	//return to sensing colours
+							end
+						else
+							begin
+							pause <= pause + 1'b1;
+							state <= recycleThird;
+							end
+						end
+					lift:				//LIFT total time on FPGA = 2.1 seconds
+						begin
+						liftUp <= 1'b0;//on //motor going up
+						liftDown <= 1'b0;//off
+						
+						if(pause >= 100000000)
+							begin
+							pause <= 27'b0;
+							state <= liftTwo;	//go to next lift state
+							end
+						else
+							begin
+							pause <= pause + 1'b1;
+							state <= lift;
+							end
+						end
+					liftTwo:
+						begin
+						liftUp <= 1'b1;//off
+						liftDown <= 1'b0;//off
+						if(pause >= 10000000)
+							begin
+							pause <= 27'b0;
+							state <= liftThree;
+							end
+						else
+							begin
+							pause <= pause + 1'b1;
+							state <= liftTwo;
+							end
+						end
+					liftThree:
+						begin
+						liftUp <= 1'b1; //Off
+						liftDown <= 1'b1;//on	//motor going down						
+						if(pause >= 100000000)
+							begin
+							pause <= 27'b0;
+							liftUp <= 1'b1;//off
+							liftDown <= 1'b0;//off
+							complete <= 1'b1;	//send finnished sorting signal
+							state <= colourSense;
+							end
+						else
+							begin
+							pause <= pause + 1'b1;
+							state <= liftThree;
+							end
+						end
+				endcase
+		end
+	end
+endmodule

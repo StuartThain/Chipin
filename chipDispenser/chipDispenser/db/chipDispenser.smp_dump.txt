@@ -1,0 +1,66 @@
+
+State Machine - |System|head:head|state
+Name state.mouthTwo state.rotate state.rotateTwo state.000 state.rotateThree 
+state.000 0 0 0 0 0 
+state.rotateTwo 0 0 1 1 0 
+state.rotate 0 1 0 1 0 
+state.mouthTwo 1 0 0 1 0 
+state.rotateThree 0 0 0 1 1 
+
+State Machine - |System|eyeLED:eyeLED|state
+Name state.flicker state.flickerTwo state.flickerThree state.000 state.flickerFour 
+state.000 0 0 0 0 0 
+state.flickerThree 0 0 1 1 0 
+state.flickerTwo 0 1 0 1 0 
+state.flicker 1 0 0 1 0 
+state.flickerFour 0 0 0 1 1 
+
+State Machine - |System|flashLED:flashLED3|state
+Name state.000 state.blue state.green 
+state.000 0 0 0 
+state.green 1 0 1 
+state.blue 1 1 0 
+
+State Machine - |System|flashLED:flashLED2|state
+Name state.000 state.blue state.green 
+state.000 0 0 0 
+state.green 1 0 1 
+state.blue 1 1 0 
+
+State Machine - |System|flashLED:flashLED1|state
+Name state.000 state.blue state.green 
+state.000 0 0 0 
+state.green 1 0 1 
+state.blue 1 1 0 
+
+State Machine - |System|sort:inst6|state
+Name state.liftThree state.red state.green state.blue state.bin state.recycle state.lift state.redSecond state.greenSecond state.blueSecond state.binSecond state.binThird state.recycleSecond state.recycleThird state.liftTwo state.0000 
+state.0000 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
+state.liftTwo 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 1 
+state.recycleThird 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 1 
+state.recycleSecond 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 1 
+state.binThird 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 1 
+state.binSecond 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 1 
+state.blueSecond 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 1 
+state.greenSecond 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 1 
+state.redSecond 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 1 
+state.lift 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 1 
+state.recycle 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 1 
+state.bin 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 1 
+state.blue 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 1 
+state.green 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 1 
+state.red 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 1 
+state.liftThree 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 
+
+State Machine - |System|dispense:dispense|state
+Name state.blueThird state.red state.green state.blue state.redSecond state.redThird state.greenSecond state.greenThird state.blueSecond state.0000 
+state.0000 0 0 0 0 0 0 0 0 0 0 
+state.blueSecond 0 0 0 0 0 0 0 0 1 1 
+state.greenThird 0 0 0 0 0 0 0 1 0 1 
+state.greenSecond 0 0 0 0 0 0 1 0 0 1 
+state.redThird 0 0 0 0 0 1 0 0 0 1 
+state.redSecond 0 0 0 0 1 0 0 0 0 1 
+state.blue 0 0 0 1 0 0 0 0 0 1 
+state.green 0 0 1 0 0 0 0 0 0 1 
+state.red 0 1 0 0 0 0 0 0 0 1 
+state.blueThird 1 0 0 0 0 0 0 0 0 1 

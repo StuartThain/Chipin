@@ -1,0 +1,16 @@
+Fitter Status : Successful - Mon Dec 01 21:13:49 2014
+Quartus II Version : 7.1 Build 156 04/30/2007 SJ Full Version
+Revision Name : controller
+Top-level Entity Name : System
+Family : Cyclone II
+Device : EP2C20F484C7
+Timing Models : Final
+Total logic elements : 840 / 18,752 ( 4 % )
+    Total combinational functions : 812 / 18,752 ( 4 % )
+    Dedicated logic registers : 501 / 18,752 ( 3 % )
+Total registers : 501
+Total pins : 53 / 315 ( 17 % )
+Total virtual pins : 0
+Total memory bits : 0 / 239,616 ( 0 % )
+Embedded Multiplier 9-bit elements : 1 / 52 ( 2 % )
+Total PLLs : 0 / 4 ( 0 % )

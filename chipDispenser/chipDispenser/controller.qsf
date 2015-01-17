@@ -1,0 +1,152 @@
+# Copyright (C) 1991-2007 Altera Corporation
+# Your use of Altera Corporation's design tools, logic functions 
+# and other software and tools, and its AMPP partner logic 
+# functions, and any output files from any of the foregoing 
+# (including device programming or simulation files), and any 
+# associated documentation or information are expressly subject 
+# to the terms and conditions of the Altera Program License 
+# Subscription Agreement, Altera MegaCore Function License 
+# Agreement, or other applicable license agreement, including, 
+# without limitation, that your use is for the sole purpose of 
+# programming logic devices manufactured by Altera and sold by 
+# Altera or its authorized distributors.  Please refer to the 
+# applicable agreement for further details.
+
+
+# The default values for assignments are stored in the file
+#		controller_assignment_defaults.qdf
+# If this file doesn't exist, and for assignments not listed, see file
+#		assignment_defaults.qdf
+
+# Altera recommends that you do not modify this file. This
+# file is updated automatically by the Quartus II software
+# and any changes you make may be lost or overwritten.
+
+
+set_global_assignment -name DEVICE EP2C20F484C7
+set_global_assignment -name FAMILY "Cyclone II"
+set_global_assignment -name TOP_LEVEL_ENTITY System
+set_global_assignment -name ORIGINAL_QUARTUS_VERSION 7.1
+set_global_assignment -name PROJECT_CREATION_TIME_DATE "13:56:31  OCTOBER 15, 2014"
+set_global_assignment -name LAST_QUARTUS_VERSION 7.1
+set_global_assignment -name PARTITION_NETLIST_TYPE SOURCE -section_id Top
+set_instance_assignment -name PARTITION_HIERARCHY no_file_for_top_partition -to | -section_id Top
+set_global_assignment -name STRATIX_CONFIGURATION_DEVICE EPCS4
+set_global_assignment -name RESERVE_ASDO_AFTER_CONFIGURATION "AS INPUT TRI-STATED"
+set_location_assignment PIN_L1 -to clk
+set_location_assignment PIN_A13 -to mbed[0]
+set_location_assignment PIN_A14 -to mbed[1]
+set_location_assignment PIN_A15 -to mbed[2]
+set_location_assignment PIN_A16 -to mbed[3]
+set_location_assignment PIN_C21 -to mbed[4]
+set_location_assignment PIN_D21 -to mbed[5]
+set_location_assignment PIN_A20 -to mbedOutput[0]
+set_location_assignment PIN_A19 -to mbedOutput[1]
+set_location_assignment PIN_A18 -to select[0]
+set_location_assignment PIN_A17 -to mbedOutput[2]
+set_location_assignment PIN_E21 -to mbed[6]
+set_location_assignment PIN_J21 -to RedBlueServoOut
+set_location_assignment PIN_K21 -to GreenOtherServoOut
+set_location_assignment PIN_J19 -to BinRecycleServoOut
+set_location_assignment PIN_J18 -to RedServoOut
+set_location_assignment PIN_L19 -to GreenBlueServoOut
+set_location_assignment PIN_U22 -to mainState[0]
+set_location_assignment PIN_U21 -to mainState[1]
+set_location_assignment PIN_V22 -to mainState[2]
+set_location_assignment PIN_V21 -to mainState[3]
+set_location_assignment PIN_W22 -to mainState[4]
+set_location_assignment PIN_U18 -to results[0]
+set_location_assignment PIN_R18 -to results[1]
+set_location_assignment PIN_R17 -to results[2]
+set_location_assignment PIN_G22 -to sortRedLED[0]
+set_location_assignment PIN_F22 -to sortGreenLED[0]
+set_location_assignment PIN_E22 -to sortBlueLED[0]
+set_location_assignment PIN_D22 -to dispenseRedLED[0]
+set_location_assignment PIN_C22 -to dispenseGreenLED[0]
+set_location_assignment PIN_B20 -to dispenseBlueLED[0]
+set_location_assignment PIN_G21 -to motorOut
+set_instance_assignment -name OUTPUT_PIN_LOAD 0 -to BinRecycleServoOut
+set_instance_assignment -name OUTPUT_PIN_LOAD 0 -to dispenseBlueLED[0]
+set_instance_assignment -name OUTPUT_PIN_LOAD 0 -to dispenseGreenLED[0]
+set_instance_assignment -name OUTPUT_PIN_LOAD 0 -to dispenseRedLED[0]
+set_instance_assignment -name OUTPUT_PIN_LOAD 0 -to GreenBlueServoOut
+set_instance_assignment -name OUTPUT_PIN_LOAD 0 -to GreenOtherServoOut
+set_instance_assignment -name OUTPUT_PIN_LOAD 0 -to mainState[4]
+set_instance_assignment -name OUTPUT_PIN_LOAD 0 -to mainState[3]
+set_instance_assignment -name OUTPUT_PIN_LOAD 0 -to mainState[2]
+set_instance_assignment -name OUTPUT_PIN_LOAD 0 -to mainState[1]
+set_instance_assignment -name OUTPUT_PIN_LOAD 0 -to mainState[0]
+set_instance_assignment -name OUTPUT_PIN_LOAD 0 -to mbedOutput[2]
+set_instance_assignment -name OUTPUT_PIN_LOAD 0 -to mbedOutput[1]
+set_instance_assignment -name OUTPUT_PIN_LOAD 0 -to mbedOutput[0]
+set_instance_assignment -name OUTPUT_PIN_LOAD 0 -to motorOut
+set_instance_assignment -name OUTPUT_PIN_LOAD 0 -to RedBlueServoOut
+set_instance_assignment -name OUTPUT_PIN_LOAD 0 -to RedServoOut
+set_instance_assignment -name OUTPUT_PIN_LOAD 0 -to results[2]
+set_instance_assignment -name OUTPUT_PIN_LOAD 0 -to results[1]
+set_instance_assignment -name OUTPUT_PIN_LOAD 0 -to results[0]
+set_instance_assignment -name OUTPUT_PIN_LOAD 0 -to sortBlueLED[0]
+set_instance_assignment -name OUTPUT_PIN_LOAD 0 -to sortGreenLED[0]
+set_instance_assignment -name OUTPUT_PIN_LOAD 0 -to sortRedLED[0]
+set_global_assignment -name FMAX_REQUIREMENT "50 MHz" -section_id clk
+set_instance_assignment -name CLOCK_SETTINGS clk -to clk
+set_location_assignment PIN_P18 -to redLED1
+set_location_assignment PIN_N15 -to greenLED1
+set_location_assignment PIN_N21 -to blueLED1
+set_location_assignment PIN_H18 -to redLED2
+set_location_assignment PIN_H17 -to greenLED2
+set_location_assignment PIN_G18 -to blueLED2
+set_location_assignment PIN_E18 -to redLED3
+set_location_assignment PIN_F20 -to greenLED3
+set_location_assignment PIN_D20 -to blueLED3
+set_location_assignment PIN_C20 -to redLED4
+set_location_assignment PIN_C18 -to greenLED4
+set_location_assignment PIN_D16 -to blueLED4
+set_location_assignment PIN_D14 -to redLED5
+set_location_assignment PIN_F13 -to greenLED5
+set_location_assignment PIN_G16 -to blueLED5
+set_location_assignment PIN_E15 -to redLED6
+set_location_assignment PIN_G15 -to greenLED6
+set_location_assignment PIN_H13 -to blueLED6
+set_instance_assignment -name OUTPUT_PIN_LOAD 0 -to blueLED1
+set_instance_assignment -name OUTPUT_PIN_LOAD 0 -to blueLED2
+set_instance_assignment -name OUTPUT_PIN_LOAD 0 -to blueLED3
+set_instance_assignment -name OUTPUT_PIN_LOAD 0 -to blueLED4
+set_instance_assignment -name OUTPUT_PIN_LOAD 0 -to blueLED5
+set_instance_assignment -name OUTPUT_PIN_LOAD 0 -to blueLED6
+set_instance_assignment -name OUTPUT_PIN_LOAD 0 -to greenLED1
+set_instance_assignment -name OUTPUT_PIN_LOAD 0 -to greenLED2
+set_instance_assignment -name OUTPUT_PIN_LOAD 0 -to greenLED3
+set_instance_assignment -name OUTPUT_PIN_LOAD 0 -to greenLED4
+set_instance_assignment -name OUTPUT_PIN_LOAD 0 -to greenLED5
+set_instance_assignment -name OUTPUT_PIN_LOAD 0 -to greenLED6
+set_instance_assignment -name OUTPUT_PIN_LOAD 0 -to redLED1
+set_instance_assignment -name OUTPUT_PIN_LOAD 0 -to redLED2
+set_instance_assignment -name OUTPUT_PIN_LOAD 0 -to redLED3
+set_instance_assignment -name OUTPUT_PIN_LOAD 0 -to redLED4
+set_instance_assignment -name OUTPUT_PIN_LOAD 0 -to redLED5
+set_instance_assignment -name OUTPUT_PIN_LOAD 0 -to redLED6
+set_location_assignment PIN_K22 -to redEyeLED
+set_location_assignment PIN_J20 -to mouthServo
+set_location_assignment PIN_K20 -to rotateServo
+set_instance_assignment -name OUTPUT_PIN_LOAD 0 -to rotateServo
+set_instance_assignment -name OUTPUT_PIN_LOAD 0 -to select[0]
+set_global_assignment -name PARTITION_COLOR 2147039 -section_id Top
+set_global_assignment -name LL_ROOT_REGION ON -section_id "Root Region"
+set_global_assignment -name LL_MEMBER_STATE LOCKED -section_id "Root Region"
+set_global_assignment -name VERILOG_FILE controller.v
+set_global_assignment -name VERILOG_FILE sort.v
+set_global_assignment -name VERILOG_FILE dispense.v
+set_global_assignment -name BDF_FILE System.bdf
+set_global_assignment -name VERILOG_FILE maintenance.v
+set_global_assignment -name VERILOG_FILE multiplexerSeven.v
+set_global_assignment -name VERILOG_FILE multiplexerFour.v
+set_global_assignment -name VERILOG_FILE multiplexerThree.v
+set_global_assignment -name VERILOG_FILE multiplexerServo.v
+set_global_assignment -name VERILOG_FILE multiplexerOutput.v
+set_global_assignment -name CDF_FILE controller.cdf
+set_global_assignment -name VERILOG_FILE RCServo.v
+set_global_assignment -name VERILOG_FILE RCServoFull.v
+set_global_assignment -name VERILOG_FILE flashLED.v
+set_global_assignment -name VERILOG_FILE eyeLED.v
+set_global_assignment -name VERILOG_FILE head.v

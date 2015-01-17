@@ -1,0 +1,6 @@
+[0:0] sortStart
+[2:0] sortColour
+[1:0] dispense - 00 = red, 01 = green, 10 = blue
+[0:0] maintenance - check first as all others stop for maintanance
+[6:0] mbedInput - contain all the things
+[:] mbedOutput - not sure?

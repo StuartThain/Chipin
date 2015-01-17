@@ -1,0 +1,278 @@
+TimeQuest Timing Analyzer report for controller
+Mon Nov 03 19:10:28 2014
+Quartus II Version 7.1 Build 156 04/30/2007 SJ Full Version
+
+
+---------------------
+; Table of Contents ;
+---------------------
+  1. Legal Notice
+  2. TimeQuest Timing Analyzer Summary
+  3. Clocks
+  4. Fmax Summary
+  5. Setup Summary
+  6. Hold Summary
+  7. Recovery Summary
+  8. Removal Summary
+  9. Minimum Pulse Width
+ 10. Setup Transfers
+ 11. Hold Transfers
+ 12. Unconstrained Paths
+ 13. TimeQuest Timing Analyzer Messages
+
+
+
+----------------
+; Legal Notice ;
+----------------
+Copyright (C) 1991-2007 Altera Corporation
+Your use of Altera Corporation's design tools, logic functions 
+and other software and tools, and its AMPP partner logic 
+functions, and any output files from any of the foregoing 
+(including device programming or simulation files), and any 
+associated documentation or information are expressly subject 
+to the terms and conditions of the Altera Program License 
+Subscription Agreement, Altera MegaCore Function License 
+Agreement, or other applicable license agreement, including, 
+without limitation, that your use is for the sole purpose of 
+programming logic devices manufactured by Altera and sold by 
+Altera or its authorized distributors.  Please refer to the 
+applicable agreement for further details.
+
+
+
++-----------------------------------------------------------------------+
+; TimeQuest Timing Analyzer Summary                                     ;
++--------------------+--------------------------------------------------+
+; Quartus II Version ; Version 7.1 Build 156 04/30/2007 SJ Full Version ;
+; Revision Name      ; controller                                       ;
+; Device Family      ; Cyclone II                                       ;
+; Device Name        ; EP2C20F484C7                                     ;
+; Timing Models      ; Final                                            ;
+; Delay Model        ; Slow Model                                       ;
+; Rise/Fall Delays   ; Unavailable                                      ;
++--------------------+--------------------------------------------------+
+
+
++--------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Clocks                                                                                                                                                             ;
++------------+------+--------+-------+-------+------------+-----------+-------------+-------+--------+-----------+------------+----------+--------+--------+---------+
+; Clock Name ; Type ; Period ; Rise  ; Fall  ; Duty Cycle ; Divide by ; Multiply by ; Phase ; Offset ; Edge List ; Edge Shift ; Inverted ; Master ; Source ; Targets ;
++------------+------+--------+-------+-------+------------+-----------+-------------+-------+--------+-----------+------------+----------+--------+--------+---------+
+; clk        ; Base ; 1.000  ; 0.000 ; 0.500 ;            ;           ;             ;       ;        ;           ;            ;          ;        ;        ; { clk } ;
++------------+------+--------+-------+-------+------------+-----------+-------------+-------+--------+-----------+------------+----------+--------+--------+---------+
+
+
++-------------------------+
+; Fmax Summary            ;
++------------+------------+
+; Fmax (MHz) ; Clock Name ;
++------------+------------+
+; 136.43     ; clk        ;
++------------+------------+
+This panel reports FMAX for every clock in the design, regardless of the user-specified clock periods.  FMAX is only computed for paths where the source and destination registers or ports are driven by the same clock.  Paths of different clocks, including generated clocks, are ignored.  For paths between a clock and its inversion, FMAX is computed as if the rising and falling edges are scaled along with FMAX, such that the duty cycle (in terms of a percentage) is maintained. Altera recommends that you always use clock constraints and other slack reports for sign-off analysis.
+
+
++--------------------------------+
+; Setup Summary                  ;
++-------+--------+---------------+
+; Clock ; Slack  ; End Point TNS ;
++-------+--------+---------------+
+; clk   ; -6.330 ; -1163.732     ;
++-------+--------+---------------+
+
+
++-------------------------------+
+; Hold Summary                  ;
++-------+-------+---------------+
+; Clock ; Slack ; End Point TNS ;
++-------+-------+---------------+
+; clk   ; 0.445 ; 0.000         ;
++-------+-------+---------------+
+
+
+--------------------
+; Recovery Summary ;
+--------------------
+No paths to report.
+
+
+-------------------
+; Removal Summary ;
+-------------------
+No paths to report.
+
+
++---------------------------------------------------------------------------------------------------------------+
+; Minimum Pulse Width                                                                                           ;
++--------+--------------+----------------+--------+-------+------------+----------------------------------------+
+; Slack  ; Actual Width ; Required Width ; Pulse  ; Clock ; Clock Edge ; Target                                 ;
++--------+--------------+----------------+--------+-------+------------+----------------------------------------+
+; -1.631 ; 1.000        ; 2.631          ; Period ; clk   ; Rise       ; clk                                    ;
+; -0.611 ; 0.500        ; 1.111          ; High   ; clk   ; Rise       ; RCServo:RedServo|ClkCount[6]           ;
+; -0.611 ; 0.500        ; 1.111          ; Low    ; clk   ; Rise       ; RCServo:RedServo|ClkCount[6]           ;
+; -0.611 ; 0.500        ; 1.111          ; High   ; clk   ; Rise       ; RCServo:GreenOtherServo|PulseCount[9]  ;
+; -0.611 ; 0.500        ; 1.111          ; Low    ; clk   ; Rise       ; RCServo:GreenOtherServo|PulseCount[9]  ;
+; -0.611 ; 0.500        ; 1.111          ; High   ; clk   ; Rise       ; RCServo:RedServo|ClkCount[2]           ;
+; -0.611 ; 0.500        ; 1.111          ; Low    ; clk   ; Rise       ; RCServo:RedServo|ClkCount[2]           ;
+; -0.611 ; 0.500        ; 1.111          ; High   ; clk   ; Rise       ; RCServo:RedServo|ClkCount[3]           ;
+; -0.611 ; 0.500        ; 1.111          ; Low    ; clk   ; Rise       ; RCServo:RedServo|ClkCount[3]           ;
+; -0.611 ; 0.500        ; 1.111          ; High   ; clk   ; Rise       ; RCServo:GreenOtherServo|PulseCount[10] ;
+; -0.611 ; 0.500        ; 1.111          ; Low    ; clk   ; Rise       ; RCServo:GreenOtherServo|PulseCount[10] ;
+; -0.611 ; 0.500        ; 1.111          ; High   ; clk   ; Rise       ; sort:inst|greenQueueOut[3]             ;
+; -0.611 ; 0.500        ; 1.111          ; Low    ; clk   ; Rise       ; sort:inst|greenQueueOut[3]             ;
+; -0.611 ; 0.500        ; 1.111          ; High   ; clk   ; Rise       ; RCServo:RedServo|ClkTick               ;
+; -0.611 ; 0.500        ; 1.111          ; Low    ; clk   ; Rise       ; RCServo:RedServo|ClkTick               ;
+; -0.611 ; 0.500        ; 1.111          ; High   ; clk   ; Rise       ; RCServo:RedServo|ClkCount[5]           ;
+; -0.611 ; 0.500        ; 1.111          ; Low    ; clk   ; Rise       ; RCServo:RedServo|ClkCount[5]           ;
+; -0.611 ; 0.500        ; 1.111          ; High   ; clk   ; Rise       ; RCServo:GreenOtherServo|PulseCount[8]  ;
+; -0.611 ; 0.500        ; 1.111          ; Low    ; clk   ; Rise       ; RCServo:GreenOtherServo|PulseCount[8]  ;
+; -0.611 ; 0.500        ; 1.111          ; High   ; clk   ; Rise       ; RCServo:RedServo|ClkCount[7]           ;
+; -0.611 ; 0.500        ; 1.111          ; Low    ; clk   ; Rise       ; RCServo:RedServo|ClkCount[7]           ;
+; -0.611 ; 0.500        ; 1.111          ; High   ; clk   ; Rise       ; RCServo:RedServo|ClkCount[4]           ;
+; -0.611 ; 0.500        ; 1.111          ; Low    ; clk   ; Rise       ; RCServo:RedServo|ClkCount[4]           ;
+; -0.611 ; 0.500        ; 1.111          ; High   ; clk   ; Rise       ; RCServo:RedServo|ClkCount[0]           ;
+; -0.611 ; 0.500        ; 1.111          ; Low    ; clk   ; Rise       ; RCServo:RedServo|ClkCount[0]           ;
+; -0.611 ; 0.500        ; 1.111          ; High   ; clk   ; Rise       ; RCServo:RedServo|ClkCount[1]           ;
+; -0.611 ; 0.500        ; 1.111          ; Low    ; clk   ; Rise       ; RCServo:RedServo|ClkCount[1]           ;
+; -0.611 ; 0.500        ; 1.111          ; High   ; clk   ; Rise       ; dispense:inst10|state.greenSecond      ;
+; -0.611 ; 0.500        ; 1.111          ; Low    ; clk   ; Rise       ; dispense:inst10|state.greenSecond      ;
+; -0.611 ; 0.500        ; 1.111          ; High   ; clk   ; Rise       ; RCServo:GreenOtherServo|PulseCount[7]  ;
+; -0.611 ; 0.500        ; 1.111          ; Low    ; clk   ; Rise       ; RCServo:GreenOtherServo|PulseCount[7]  ;
+; -0.611 ; 0.500        ; 1.111          ; High   ; clk   ; Rise       ; RCServo:GreenOtherServo|PulseCount[2]  ;
+; -0.611 ; 0.500        ; 1.111          ; Low    ; clk   ; Rise       ; RCServo:GreenOtherServo|PulseCount[2]  ;
+; -0.611 ; 0.500        ; 1.111          ; High   ; clk   ; Rise       ; RCServo:GreenOtherServo|PulseCount[6]  ;
+; -0.611 ; 0.500        ; 1.111          ; Low    ; clk   ; Rise       ; RCServo:GreenOtherServo|PulseCount[6]  ;
+; -0.611 ; 0.500        ; 1.111          ; High   ; clk   ; Rise       ; RCServo:GreenOtherServo|PulseCount[5]  ;
+; -0.611 ; 0.500        ; 1.111          ; Low    ; clk   ; Rise       ; RCServo:GreenOtherServo|PulseCount[5]  ;
+; -0.611 ; 0.500        ; 1.111          ; High   ; clk   ; Rise       ; RCServo:GreenOtherServo|PulseCount[4]  ;
+; -0.611 ; 0.500        ; 1.111          ; Low    ; clk   ; Rise       ; RCServo:GreenOtherServo|PulseCount[4]  ;
+; -0.611 ; 0.500        ; 1.111          ; High   ; clk   ; Rise       ; RCServo:GreenOtherServo|PulseCount[3]  ;
+; -0.611 ; 0.500        ; 1.111          ; Low    ; clk   ; Rise       ; RCServo:GreenOtherServo|PulseCount[3]  ;
+; -0.611 ; 0.500        ; 1.111          ; High   ; clk   ; Rise       ; controller:inst9|dispenseStart[0]      ;
+; -0.611 ; 0.500        ; 1.111          ; Low    ; clk   ; Rise       ; controller:inst9|dispenseStart[0]      ;
+; -0.611 ; 0.500        ; 1.111          ; High   ; clk   ; Rise       ; maintenance:inst1|dispenseStart        ;
+; -0.611 ; 0.500        ; 1.111          ; Low    ; clk   ; Rise       ; maintenance:inst1|dispenseStart        ;
+; -0.611 ; 0.500        ; 1.111          ; High   ; clk   ; Rise       ; RCServo:GreenOtherServo|PulseCount[1]  ;
+; -0.611 ; 0.500        ; 1.111          ; Low    ; clk   ; Rise       ; RCServo:GreenOtherServo|PulseCount[1]  ;
+; -0.611 ; 0.500        ; 1.111          ; High   ; clk   ; Rise       ; RCServo:GreenOtherServo|PulseCount[0]  ;
+; -0.611 ; 0.500        ; 1.111          ; Low    ; clk   ; Rise       ; RCServo:GreenOtherServo|PulseCount[0]  ;
+; -0.611 ; 0.500        ; 1.111          ; High   ; clk   ; Rise       ; dispense:inst10|state.red              ;
+; -0.611 ; 0.500        ; 1.111          ; Low    ; clk   ; Rise       ; dispense:inst10|state.red              ;
+; -0.611 ; 0.500        ; 1.111          ; High   ; clk   ; Rise       ; RCServo:GreenOtherServo|PulseCount[11] ;
+; -0.611 ; 0.500        ; 1.111          ; Low    ; clk   ; Rise       ; RCServo:GreenOtherServo|PulseCount[11] ;
+; -0.611 ; 0.500        ; 1.111          ; High   ; clk   ; Rise       ; dispense:inst10|pause[0]               ;
+; -0.611 ; 0.500        ; 1.111          ; Low    ; clk   ; Rise       ; dispense:inst10|pause[0]               ;
+; -0.611 ; 0.500        ; 1.111          ; High   ; clk   ; Rise       ; dispense:inst10|state.blueSecond       ;
+; -0.611 ; 0.500        ; 1.111          ; Low    ; clk   ; Rise       ; dispense:inst10|state.blueSecond       ;
+; -0.611 ; 0.500        ; 1.111          ; High   ; clk   ; Rise       ; dispense:inst10|state.redSecond        ;
+; -0.611 ; 0.500        ; 1.111          ; Low    ; clk   ; Rise       ; dispense:inst10|state.redSecond        ;
+; -0.611 ; 0.500        ; 1.111          ; High   ; clk   ; Rise       ; controller:inst9|sortStart[0]          ;
+; -0.611 ; 0.500        ; 1.111          ; Low    ; clk   ; Rise       ; controller:inst9|sortStart[0]          ;
+; -0.611 ; 0.500        ; 1.111          ; High   ; clk   ; Rise       ; maintenance:inst1|dispense[0]          ;
+; -0.611 ; 0.500        ; 1.111          ; Low    ; clk   ; Rise       ; maintenance:inst1|dispense[0]          ;
+; -0.611 ; 0.500        ; 1.111          ; High   ; clk   ; Rise       ; dispense:inst10|pause[24]              ;
+; -0.611 ; 0.500        ; 1.111          ; Low    ; clk   ; Rise       ; dispense:inst10|pause[24]              ;
+; -0.611 ; 0.500        ; 1.111          ; High   ; clk   ; Rise       ; dispense:inst10|pause[14]              ;
+; -0.611 ; 0.500        ; 1.111          ; Low    ; clk   ; Rise       ; dispense:inst10|pause[14]              ;
+; -0.611 ; 0.500        ; 1.111          ; High   ; clk   ; Rise       ; dispense:inst10|pause[12]              ;
+; -0.611 ; 0.500        ; 1.111          ; Low    ; clk   ; Rise       ; dispense:inst10|pause[12]              ;
+; -0.611 ; 0.500        ; 1.111          ; High   ; clk   ; Rise       ; dispense:inst10|pause[13]              ;
+; -0.611 ; 0.500        ; 1.111          ; Low    ; clk   ; Rise       ; dispense:inst10|pause[13]              ;
+; -0.611 ; 0.500        ; 1.111          ; High   ; clk   ; Rise       ; dispense:inst10|pause[7]               ;
+; -0.611 ; 0.500        ; 1.111          ; Low    ; clk   ; Rise       ; dispense:inst10|pause[7]               ;
+; -0.611 ; 0.500        ; 1.111          ; High   ; clk   ; Rise       ; dispense:inst10|pause[17]              ;
+; -0.611 ; 0.500        ; 1.111          ; Low    ; clk   ; Rise       ; dispense:inst10|pause[17]              ;
+; -0.611 ; 0.500        ; 1.111          ; High   ; clk   ; Rise       ; dispense:inst10|pause[19]              ;
+; -0.611 ; 0.500        ; 1.111          ; Low    ; clk   ; Rise       ; dispense:inst10|pause[19]              ;
+; -0.611 ; 0.500        ; 1.111          ; High   ; clk   ; Rise       ; dispense:inst10|pause[18]              ;
+; -0.611 ; 0.500        ; 1.111          ; Low    ; clk   ; Rise       ; dispense:inst10|pause[18]              ;
+; -0.611 ; 0.500        ; 1.111          ; High   ; clk   ; Rise       ; dispense:inst10|pause[16]              ;
+; -0.611 ; 0.500        ; 1.111          ; Low    ; clk   ; Rise       ; dispense:inst10|pause[16]              ;
+; -0.611 ; 0.500        ; 1.111          ; High   ; clk   ; Rise       ; dispense:inst10|pause[22]              ;
+; -0.611 ; 0.500        ; 1.111          ; Low    ; clk   ; Rise       ; dispense:inst10|pause[22]              ;
+; -0.611 ; 0.500        ; 1.111          ; High   ; clk   ; Rise       ; dispense:inst10|pause[21]              ;
+; -0.611 ; 0.500        ; 1.111          ; Low    ; clk   ; Rise       ; dispense:inst10|pause[21]              ;
+; -0.611 ; 0.500        ; 1.111          ; High   ; clk   ; Rise       ; dispense:inst10|pause[20]              ;
+; -0.611 ; 0.500        ; 1.111          ; Low    ; clk   ; Rise       ; dispense:inst10|pause[20]              ;
+; -0.611 ; 0.500        ; 1.111          ; High   ; clk   ; Rise       ; dispense:inst10|pause[23]              ;
+; -0.611 ; 0.500        ; 1.111          ; Low    ; clk   ; Rise       ; dispense:inst10|pause[23]              ;
+; -0.611 ; 0.500        ; 1.111          ; High   ; clk   ; Rise       ; dispense:inst10|pause[9]               ;
+; -0.611 ; 0.500        ; 1.111          ; Low    ; clk   ; Rise       ; dispense:inst10|pause[9]               ;
+; -0.611 ; 0.500        ; 1.111          ; High   ; clk   ; Rise       ; dispense:inst10|state.blue             ;
+; -0.611 ; 0.500        ; 1.111          ; Low    ; clk   ; Rise       ; dispense:inst10|state.blue             ;
+; -0.611 ; 0.500        ; 1.111          ; High   ; clk   ; Rise       ; dispense:inst10|pause[8]               ;
+; -0.611 ; 0.500        ; 1.111          ; Low    ; clk   ; Rise       ; dispense:inst10|pause[8]               ;
+; -0.611 ; 0.500        ; 1.111          ; High   ; clk   ; Rise       ; dispense:inst10|pause[10]              ;
+; -0.611 ; 0.500        ; 1.111          ; Low    ; clk   ; Rise       ; dispense:inst10|pause[10]              ;
+; -0.611 ; 0.500        ; 1.111          ; High   ; clk   ; Rise       ; controller:inst9|mbedInput_reg[4]      ;
+; -0.611 ; 0.500        ; 1.111          ; Low    ; clk   ; Rise       ; controller:inst9|mbedInput_reg[4]      ;
+; -0.611 ; 0.500        ; 1.111          ; High   ; clk   ; Rise       ; dispense:inst10|state.green            ;
++--------+--------------+----------------+--------+-------+------------+----------------------------------------+
+
+
++-------------------------------------------------------------------+
+; Setup Transfers                                                   ;
++------------+----------+----------+----------+----------+----------+
+; From Clock ; To Clock ; RR Paths ; FR Paths ; RF Paths ; FF Paths ;
++------------+----------+----------+----------+----------+----------+
+; clk        ; clk      ; 9543     ; 0        ; 0        ; 0        ;
++------------+----------+----------+----------+----------+----------+
+
+
++-------------------------------------------------------------------+
+; Hold Transfers                                                    ;
++------------+----------+----------+----------+----------+----------+
+; From Clock ; To Clock ; RR Paths ; FR Paths ; RF Paths ; FF Paths ;
++------------+----------+----------+----------+----------+----------+
+; clk        ; clk      ; 9543     ; 0        ; 0        ; 0        ;
++------------+----------+----------+----------+----------+----------+
+
+
++------------------------------------------------+
+; Unconstrained Paths                            ;
++---------------------------------+-------+------+
+; Property                        ; Setup ; Hold ;
++---------------------------------+-------+------+
+; Illegal Clocks                  ; 0     ; 0    ;
+; Unconstrained Clocks            ; 0     ; 0    ;
+; Unconstrained Input Ports       ; 8     ; 8    ;
+; Unconstrained Input Port Paths  ; 315   ; 315  ;
+; Unconstrained Output Ports      ; 7     ; 7    ;
+; Unconstrained Output Port Paths ; 7     ; 7    ;
++---------------------------------+-------+------+
+
+
++------------------------------------+
+; TimeQuest Timing Analyzer Messages ;
++------------------------------------+
+Info: *******************************************************************
+Info: Running Quartus II TimeQuest Timing Analyzer
+    Info: Version 7.1 Build 156 04/30/2007 SJ Full Version
+    Info: Processing started: Mon Nov 03 19:10:24 2014
+Info: Command: quartus_sta chipDispenser -c controller
+Info: qsta_default_script.tcl version: 24.0.1.7
+Warning: Found USE_TIMEQUEST_TIMING_ANALYZER=OFF. The TimeQuest Timing Analyzer is not the default Timing Analysis Tool during full compilation.
+Critical Warning: SDC file not found: 'controller.sdc'
+Info: No base clocks found in the design. Calling "derive_clocks -period 1.0"
+Info: Deriving Clocks
+    Info: create_clock -period 1.000 -waveform {0.000 0.500} -name clk clk
+Critical Warning: Timing requirements not met
+Info: Worst-case setup slack is -6.330
+    Info:     Slack End Point TNS Clock 
+    Info: ========= ============= =====================
+    Info:    -6.330     -1163.732 clk 
+Info: Worst-case hold slack is 0.445
+    Info:     Slack End Point TNS Clock 
+    Info: ========= ============= =====================
+    Info:     0.445         0.000 clk 
+Info: No recovery paths to report
+Info: No removal paths to report
+Info: Design is not fully constrained for setup requirements
+Info: Design is not fully constrained for hold requirements
+Info: Quartus II TimeQuest Timing Analyzer was successful. 0 errors, 3 warnings
+    Info: Allocated 147 megabytes of memory during processing
+    Info: Processing ended: Mon Nov 03 19:10:28 2014
+    Info: Elapsed time: 00:00:04
+
+

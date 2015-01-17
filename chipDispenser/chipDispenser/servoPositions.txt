@@ -1,0 +1,22 @@
+redblue
+left - 570
+centre - 355
+right - 185
+
+GreenOther
+up - 560
+centre - 340
+down - 70
+
+BinRecycle
+left - 380
+right - 640
+
+red
+push - 200
+home - 430
+
+greenBlue
+green - 550
+centre - 355
+blue - 10
